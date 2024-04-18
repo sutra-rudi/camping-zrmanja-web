@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Ubuntu } from 'next/font/google';
 import './globals.css';
 import { GlobalContextProvider } from './contexts/store';
+import { Providers } from './providers';
 const ubuntu = Ubuntu({ weight: ['300', '400', '500', '700'], subsets: ['latin'] });
 
 export const metadata: Metadata = {
@@ -17,7 +18,9 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body className={ubuntu.className}>
-        <GlobalContextProvider>{children}</GlobalContextProvider>
+        <GlobalContextProvider>
+          <Providers>{children}</Providers>
+        </GlobalContextProvider>
       </body>
     </html>
   );

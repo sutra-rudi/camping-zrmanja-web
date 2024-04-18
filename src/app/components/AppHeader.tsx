@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import React from 'react';
-import svgAppLogo from '../img/logos/footer-logo.svg';
+import svgAppLogo from '../img/logos/camping-logo.svg';
 import Image from 'next/image';
 
 import styles from '../styles/appHeader.module.scss';
@@ -25,13 +25,14 @@ const AppHeader = () => {
 
   const navLinksOne = [
     { text: parseByLang('O nama', 'About us'), href: parseByLang('/o-nama', '/about-us') },
-    { text: parseByLang('Aktivnosti', 'Activities'), href: parseByLang('/aktivnosti', '/activities') },
+    { text: parseByLang('Smještaj', 'Accommodation'), href: parseByLang('/smjestaj', '/accommodation') },
+    { text: parseByLang('Što posjetiti?', 'What to visit?'), href: parseByLang('/sto-posjetiti', '/what-to-visit') },
     { text: parseByLang('Kontakt', 'Contact'), href: '/kontakt' },
   ];
   const navLinksTwo = [
     { text: 'Mićanovi Dvori', href: '/' },
-    { text: 'Zrmanja Camping Vilagge', href: '/' },
-    { text: 'Što posjetiti u okolici?', href: '/obrovacki-kraj' },
+    { text: 'Riva Rafting Centar', href: '/' },
+    // { text: 'Što posjetiti u okolici?', href: '/obrovacki-kraj' },
   ];
 
   const [isNavOpen, setIsNavOpen] = React.useState<boolean>(false);

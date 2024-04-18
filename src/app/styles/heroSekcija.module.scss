@@ -1,0 +1,111 @@
+.heroSekcija {
+  position: relative;
+  overflow-x: hidden;
+  max-height: 80vh;
+  max-height: 80lvh;
+  height: 80vh;
+  height: 80lvh;
+
+  @media only screen and (max-width: $tablets) {
+    height: 95vh;
+    height: 95lvh;
+    max-height: auto;
+  }
+
+  .playerContainer {
+    position: relative;
+    height: auto;
+    width: 100%;
+    max-height: 80vh;
+    max-height: 80lvh;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    @media only screen and (max-width: $tablets) {
+      max-height: auto;
+    }
+  }
+
+  .heroCtaHeaderBacksideWrapper {
+    display: flex;
+    place-items: center;
+    justify-content: center;
+    width: 100%;
+    // height: 100%;
+    position: absolute;
+    top: 50%;
+    // inset: 0;
+    padding: 0 1rem;
+
+    @media only screen and (max-width: $desktops) {
+      top: 40%;
+    }
+
+    .heroCtaHeaderBackside {
+      font-size: $heading1;
+      color: $svijetloSiva;
+      text-transform: uppercase;
+      line-height: $defaultProred;
+      text-align: center;
+      color: transparent;
+      -webkit-text-stroke: 1px #fff;
+      text-wrap: balance;
+      text-wrap: balance;
+      word-wrap: break-word;
+      white-space: pre-wrap;
+      line-height: 120%;
+
+      @media only screen and (max-width: $desktops) {
+        font-size: $mobileHeading1;
+        line-height: $browserProred;
+      }
+    }
+  }
+
+  .heroCtaKontejner {
+    position: absolute;
+    top: 60%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    place-items: center;
+    gap: 2em;
+
+    @media only screen and (max-width: $desktops) {
+      gap: 1rem;
+      top: 45%;
+    }
+
+    padding: 0 1rem;
+
+    .heroCtaHeader {
+      font-size: $heading1;
+      color: $svijetloSiva;
+      text-transform: uppercase;
+      line-height: $defaultProred;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+      text-wrap: balance;
+      word-wrap: break-word;
+      white-space: pre-wrap;
+      line-height: 120%;
+
+      @media only screen and (max-width: $desktops) {
+        font-size: $mobileHeading1;
+
+        line-height: $browserProred;
+      }
+    }
+
+    .heroCtaButtonKontejter {
+      display: flex;
+      flex-flow: row wrap;
+      gap: 1.2em;
+      width: 100%;
+      place-items: center;
+      justify-content: center;
+      z-index: 4;
+    }
+  }
+}
