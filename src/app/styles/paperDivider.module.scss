@@ -1,0 +1,60 @@
+.paperTop {
+  position: absolute;
+  width: 100vw;
+  height: 51px;
+  // height: calc(5lvh + 1px);
+  // height: 2.5vmin;
+
+  @media only screen and (max-width: $tablets) {
+    height: 35px;
+  }
+  top: 0px;
+  left: 0;
+  z-index: 6;
+}
+
+.paperBottom {
+  position: absolute;
+  width: 100vw;
+  height: 51px;
+  // height: 2.5vmin;
+  // height: calc(5lvh + 1px);
+
+  @media only screen and (max-width: $tablets) {
+    height: 35px;
+    top: -35px;
+  }
+  top: -50px;
+  left: 0;
+  z-index: 6;
+}
+.paperBottomAlt {
+  position: absolute;
+  width: 100vw;
+  height: 51px;
+  // height: calc(5lvh + 1px);
+  // height: 2.5vmin;
+
+  @media only screen and (max-width: $tablets) {
+    height: 35px;
+  }
+  bottom: 0;
+  left: 0;
+  z-index: 6;
+}
+
+.paperBottom,
+.paperBottomAlt,
+.paperTop {
+  // overflow: hidden;
+  // background-size: 100%;
+  img {
+    object-fit: cover;
+    object-position: center center;
+    display: block;
+    width: 100% !important;
+    // transform: translateX(-5%);
+  }
+
+  // display: none;
+}

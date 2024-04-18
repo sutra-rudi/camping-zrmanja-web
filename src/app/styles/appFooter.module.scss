@@ -1,0 +1,432 @@
+.appFooter {
+  width: 100%;
+  min-height: 850px;
+  position: relative;
+  display: flex;
+
+  place-items: flex-end;
+  justify-content: flex-end;
+  // margin-top: 3rem;
+
+  @media only screen and (min-width: $desktops) {
+    // display: none;
+    place-items: center;
+    justify-content: center;
+  }
+
+  .socialFooterStack {
+    @media only screen and (min-width: $tablets) {
+      display: none;
+    }
+
+    .socialIconStack {
+      display: flex;
+      place-items: center;
+      justify-content: center;
+      gap: 0.85rem;
+    }
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    place-items: center;
+    gap: 1.25rem;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 6;
+
+    p {
+      font-size: 1.2rem;
+      color: #fff;
+      text-transform: uppercase;
+      line-height: $defaultProred;
+    }
+  }
+
+  @media only screen and (max-width: $tablets) {
+    min-height: 1200px;
+    place-items: flex-end;
+  }
+
+  .footerMaster {
+    display: flex;
+    background: rgba(225, 225, 225, 0.8);
+    @media only screen and (min-width: $desktops) {
+      backdrop-filter: blur(4px);
+    }
+
+    @media only screen and (min-width: $largeDesktops) {
+      max-width: $masterContainerWidth;
+    }
+    width: 100%;
+    display: flex;
+
+    width: 100%;
+    // flex-flow: row wrap;
+    place-items: center;
+    justify-content: center;
+    gap: 8rem;
+
+    @media only screen and (max-width: $desktops) {
+      gap: 5rem;
+      flex-wrap: wrap;
+    }
+
+    @media only screen and (max-width: $tablets) {
+      gap: 4rem;
+    }
+
+    @media only screen and (max-width: $phones) {
+      gap: 3rem;
+    }
+    position: relative;
+    padding: 3.75rem 2rem;
+  }
+
+  .appLogoContainer {
+    max-width: 240px;
+    width: 100%;
+    height: 108px;
+    position: relative;
+
+    img {
+      object-fit: contain;
+    }
+
+    @media only screen and (max-width: $tablets) {
+      margin: 0 auto;
+      max-width: 200px;
+    }
+  }
+
+  .contentContainer {
+    display: flex;
+    place-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+
+    a {
+      transition: all 250ms cubic-bezier(0.5, 0.2, 0.4, 0.25);
+      word-wrap: break-word;
+      white-space: pre-line;
+      // overflow: hidden;
+    }
+
+    @media only screen and (max-width: $desktops) {
+      gap: 6rem;
+    }
+    @media only screen and (max-width: $tablets) {
+      flex-wrap: wrap;
+      gap: 5rem;
+    }
+    @media only screen and (max-width: $tablets) {
+      gap: 4rem;
+    }
+
+    .footerBlock {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      place-items: start;
+      place-self: start;
+      gap: 1.1rem;
+      scroll-behavior: smooth;
+
+      @media only screen and (max-width: $tablets) {
+        width: 100%;
+      }
+
+      p {
+        font-size: 1.125rem;
+        line-height: $defaultProred;
+        font-weight: 500;
+        position: relative;
+        color: $plavaGlavna;
+
+        &::after {
+          position: absolute;
+          content: '';
+          width: 48px;
+          background: $zelenaGlavna;
+          height: 2px;
+          bottom: -2px;
+          left: 0;
+
+          @media only screen and (max-width: $tablets) {
+            left: 50%;
+            transform: translateX(-50%);
+          }
+        }
+      }
+
+      .activityStack {
+        max-width: 90%;
+        ul {
+          display: grid;
+          place-items: center;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 0.5rem 1.2rem;
+
+          @media only screen and (max-width: $phones) {
+            gap: 0.75rem 1.4rem;
+          }
+
+          list-style-type: none;
+        }
+        li {
+          width: 100%;
+          max-width: 25ch;
+          // word-wrap: break-word;
+          white-space: pre-line;
+          a {
+            display: block;
+            text-decoration: none;
+            color: $plavaGlavna;
+            font-size: $baseFontSize;
+
+            display: flex;
+            place-items: center;
+            justify-content: flex-start;
+            gap: 0.15rem;
+            position: relative;
+            // word-wrap: break-word;
+            white-space: pre-line;
+
+            &:hover {
+              transform: translateX(5px);
+              font-weight: 500;
+            }
+
+            &::before {
+              width: 16px;
+              height: 16px;
+              background: url('../img/icons/FOOTER-LINK-ARROW.svg');
+              background-repeat: no-repeat;
+              background-position: center;
+              background-size: cover;
+              content: '';
+              display: block;
+              transition: all 250ms cubic-bezier(0.25, 0.4, 0.2, 0.5);
+              flex-shrink: 0;
+            }
+          }
+        }
+
+        li::marker {
+          color: $plavaGlavna;
+          display: none !important;
+        }
+      }
+
+      .linkStack {
+        display: grid;
+        max-width: 243px;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 0.3rem;
+
+        a {
+          text-decoration: none;
+          color: $plavaGlavna;
+          font-size: 1rem;
+          line-height: $defaultProred;
+          font-family: inherit;
+          font-weight: 400;
+          display: flex;
+          place-items: center;
+          justify-content: flex-start;
+          gap: 0.3rem;
+
+          &:hover {
+            // transform: translateX(5px);
+            // font-weight: 500;
+            color: $skrozTamnaZelena;
+            text-decoration: underline;
+          }
+        }
+      }
+
+      .contactStack {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 1rem;
+        gap: 0.3rem;
+
+        a {
+          text-decoration: none;
+          color: $plavaGlavna;
+          font-size: 1rem;
+          line-height: $defaultProred;
+          font-family: inherit;
+          font-weight: 400;
+
+          &:hover {
+            // transform: translateX(5px);
+            // font-weight: 500;
+            text-decoration: underline;
+            color: $skrozTamnaZelena;
+          }
+
+          &:first-child {
+            white-space: pre-wrap;
+          }
+        }
+        @media only screen and (max-width: $tablets) {
+          place-items: center;
+          text-align: center;
+          gap: 1rem;
+        }
+      }
+    }
+
+    .footerDislaimerTrack {
+      background: $zelenaGlavna;
+      position: absolute;
+      bottom: -33px;
+      left: 0;
+      width: 100%;
+
+      @media only screen and (min-width: $tablets) {
+        padding: 1rem;
+        bottom: -63px;
+      }
+
+      display: flex;
+      place-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+
+      @media only screen and (max-width: $phones) {
+        bottom: -63px;
+        font-size: $mobileFontSizeSmall;
+      }
+
+      @media only screen and (max-width: 680px) {
+        bottom: -66px;
+      }
+
+      @media only screen and (max-width: $tablets) {
+        justify-content: center;
+      }
+      flex-wrap: wrap;
+      font-size: $mobileFontSizeAlt;
+      color: #fff;
+
+      .disclaimerSig {
+        display: flex;
+        place-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+        position: relative;
+
+        @media only screen and (max-width: $tablets) {
+          width: 100%;
+        }
+
+        .disclaimerSigIn {
+          display: flex;
+          place-items: center;
+          justify-content: center;
+          gap: 0.5rem;
+
+          padding: 0.5rem 0;
+
+          @media only screen and (max-width: $phones) {
+            width: 100%;
+          }
+
+          &:nth-child(2) {
+            @media only screen and (max-width: 768px) {
+              background: $zelenaTamna;
+            }
+          }
+
+          a {
+            &:hover {
+              transform: scale(1.025);
+              color: $skrozTamnaZelena;
+            }
+          }
+        }
+
+        a {
+          text-decoration: none;
+          color: inherit;
+          font-family: inherit;
+          font-size: inherit;
+        }
+      }
+
+      .disclaimerSocial {
+        display: flex;
+        place-items: center;
+        justify-content: space-between;
+        gap: 0.75rem;
+
+        @media only screen and (max-width: $tablets) {
+          display: none;
+        }
+      }
+
+      .disclaimerSocialIcons {
+        display: flex;
+        place-items: center;
+        justify-content: center;
+        gap: 0.75rem;
+
+        img {
+          cursor: pointer;
+          transition: all 250ms ease;
+          &:hover {
+            transform: scale(1.25);
+          }
+        }
+      }
+    }
+  }
+
+  @media only screen and (max-width: $tablets) {
+    .footerMaster {
+      padding: 3rem 0 0 0;
+    }
+
+    .footerBlock:nth-child(1),
+    .footerBlock:nth-child(3),
+    .footerBlock:nth-child(4) {
+      place-items: center;
+
+      .linkStack {
+        justify-content: center;
+        place-items: center;
+        text-align: center;
+      }
+    }
+
+    .footerBlock:nth-child(2) {
+      display: none;
+    }
+
+    .footerBlock:nth-child(3) {
+      padding: 1.5rem 0;
+
+      a,
+      p {
+        color: $tamna !important;
+      }
+
+      p::after {
+        background: $tamna !important;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: $tablets) {
+  .contentContainer {
+    width: 100%;
+  }
+
+  .footerBlock:nth-child(3) {
+    background: $zelenaTamna;
+    width: 100%;
+  }
+}

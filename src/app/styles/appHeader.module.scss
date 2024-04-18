@@ -1,0 +1,271 @@
+.navParent {
+  overflow-x: hidden !important;
+}
+
+.navMaster {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  place-items: center;
+  padding: 0.5em 4.5em;
+  overflow: hidden !important;
+  max-width: 100%;
+
+  @media screen and (max-width: $tablets) {
+    padding: 1.5em 3em;
+  }
+  @media screen and (max-width: $phones) {
+    padding: 1em 1.5em;
+  }
+}
+
+.navPromoTrack {
+  background: $zelenaGlavna;
+  display: flex;
+  place-items: center;
+  justify-content: center;
+  gap: 1em;
+  font-weight: 400;
+  color: #fff;
+  font-size: $mobileFontSizeAlt;
+
+  @media screen and (max-width: $phones) {
+    font-size: 0.8em;
+
+    &:first-child span {
+      display: none;
+    }
+  }
+
+  a {
+    color: #fff;
+    padding: 0.5em 0;
+  }
+}
+
+.navInnerParent {
+  display: flex;
+  justify-content: space-between;
+  place-items: center;
+  gap: 2em;
+  @media only screen and (max-width: $largeDesktops) {
+    gap: 1rem;
+  }
+
+  @media screen and (max-width: $desktops) {
+    .headerLinkDivid {
+      display: none;
+    }
+  }
+
+  @media only screen and (max-width: $desktops) {
+    .navInnerParentLang {
+      display: none;
+    }
+  }
+}
+
+.navLeftParent {
+  display: flex;
+  place-items: center;
+  gap: 2.2rem;
+  font-weight: 400;
+
+  .noEffectLogo {
+    &::before {
+      display: none !important;
+    }
+  }
+
+  img {
+    max-width: 160px;
+    height: auto;
+
+    @media only screen and (max-width: $largeDesktops) {
+      max-height: 60px;
+
+      object-fit: cover;
+    }
+  }
+
+  a {
+    color: $tamna;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 250ms ease;
+    position: relative;
+    z-index: 1;
+
+    &::before {
+      content: '';
+      z-index: -1;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      background: $zelenaGlavna;
+      width: 120%;
+      height: 30px;
+      will-change: transform;
+      transition: all 150ms cubic-bezier(0.5, 0.2, 0.4, 0.25);
+      transform-origin: center;
+      border-radius: 9999px;
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: #fff;
+      &::before {
+        border-radius: 6px;
+        transform: translate(-50%, -50%) scale(1);
+      }
+    }
+  }
+}
+
+.navLeft {
+  display: flex;
+  place-items: center;
+  gap: 2em;
+
+  @media screen and (max-width: $desktops) {
+    display: none;
+  }
+}
+
+.navRight {
+  display: flex;
+  place-items: center;
+  gap: 2em;
+  font-weight: 400;
+
+  a {
+    color: $tamna;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 250ms ease;
+    position: relative;
+    z-index: 1;
+
+    &:nth-child(3) {
+      display: none;
+    }
+
+    &::before {
+      content: '';
+      z-index: -1;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      background: $zelenaGlavna;
+      width: 120%;
+      height: 30px;
+      will-change: transform;
+      transition: all 150ms cubic-bezier(0.5, 0.2, 0.4, 0.25);
+      transform-origin: center;
+      border-radius: 9999px;
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: #fff;
+      &::before {
+        border-radius: 6px;
+        transform: translate(-50%, -50%) scale(1);
+      }
+    }
+  }
+
+  @media screen and (max-width: $desktops) {
+    display: none;
+  }
+}
+.mobileNavParent {
+  position: fixed;
+  width: 70%;
+  height: 100%;
+  background: $zelenaGlavna;
+  min-height: 100vh;
+  min-height: 100lvh;
+  z-index: 9;
+  top: 0;
+  right: 0;
+  // transition: all 250ms cubic-bezier(0.5, 0.2, 0.4, 0.25);
+  transition: all 250ms cubic-bezier(0.25, 0.4, 0.2, 0.5);
+
+  .mobileNavParentInner {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    place-items: center;
+    gap: 3rem;
+    position: relative;
+  }
+
+  .langSwitchBlock {
+    position: absolute;
+    top: 3.5rem;
+    left: 1.5rem;
+  }
+
+  .mobileBlock {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 2rem;
+    place-items: center;
+
+    a {
+      text-decoration: none;
+      color: $plavaGlavna;
+      font-size: $mobileHeading3;
+      font-weight: 400;
+      line-height: $defaultProred;
+    }
+  }
+
+  .socialBlock {
+    display: flex;
+    place-items: center;
+    justify-content: flex-start;
+    gap: 1rem;
+
+    .socialBlockImage {
+      outline: 1px solid $plavaGlavna;
+      border-radius: 999px;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      place-items: center;
+      justify-content: center;
+
+      img {
+        object-fit: contain;
+      }
+    }
+  }
+
+  .mobileBlockSpace {
+    width: 25%;
+    height: 0.15rem;
+    background: $plavaGlavna;
+    opacity: 0.25;
+  }
+
+  .mobilePapir {
+    position: absolute;
+    width: 51px;
+    height: 100%;
+    left: -51px;
+    top: 0;
+    z-index: 10;
+  }
+}
+
+.mobileNavParentClosed {
+  transform: translateX(115%);
+}

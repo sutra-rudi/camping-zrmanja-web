@@ -1,95 +1,36 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import dynamic from 'next/dynamic';
+import AppHeader from './components/AppHeader';
+// import DodatneInformacije from './sections/DodatneInformacije';
+import styles from './styles/page.module.scss';
+import { Suspense } from 'react';
+import Loading from './loading';
+import AppFooter from './components/AppFooter';
 
-export default function Home() {
+export default async function Home() {
+  // const HeroLazy = dynamic(() => import('./sections/HeroSekcija'));
+  // const PromoLazy = dynamic(() => import('./sections/PromoSekcijaJedan'));
+  // const TureLazy = dynamic(() => import('./sections/TureSekcija'));
+  // const TureOfferLazy = dynamic(() => import('./sections/TurePonuda'));
+  // const PogledajVideoLazy = dynamic(() => import('./sections/PogledajVideo'));
+  // const OnamaSekcijaLazy = dynamic(() => import('./sections/OnamaSekcija'));
+  // const FAQsectionLazy = dynamic(() => import('./sections/FAQsection'));
+  // const GallerySectionLazy = dynamic(() => import('./sections/GallerySection'));
+
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+    <Suspense fallback={<Loading />}>
+      <main className={styles.homeMain}>
+        <AppHeader />
+        {/* <HeroLazy /> */}
+        {/* <PromoLazy />
+        <TureLazy /> */}
+        {/* <TureOfferLazy />
+        <PogledajVideoLazy />
+        <OnamaSekcijaLazy /> */}
+        {/* <DodatneInformacije isLanding /> */}
+        {/* <FAQsectionLazy />
+        <GallerySectionLazy /> */}
+        <AppFooter />
+      </main>
+    </Suspense>
   );
 }
