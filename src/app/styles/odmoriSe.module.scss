@@ -4,12 +4,21 @@
 
 .innerContent {
   display: flex;
-  place-items: start;
+  place-items: start stretch;
   justify-content: center;
   gap: 6.3rem;
   padding: 4.375rem 0;
+
+  @media only screen and (max-width: $desktops) {
+    flex-wrap: wrap;
+    padding: 4.375rem 1rem;
+  }
   .ctaContainer {
-    max-width: 377px;
+    //     max-width: 377px;
+
+    @media only screen and (min-width: $desktops) {
+      max-width: 377px;
+    }
     display: grid;
     place-items: start;
     grid-template-columns: repeat(1, 1fr);
@@ -43,8 +52,11 @@
   .imageContainer {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    @media only screen and (max-width: $phones) {
+      grid-template-columns: repeat(1, 1fr);
+    }
     gap: 1.125rem;
-    max-width: 718px;
+
     place-items: start;
     position: relative;
     //     max-height: 534px;
@@ -52,9 +64,14 @@
 
     img {
       &:nth-child(3) {
-        position: absolute;
-        left: 81px;
-        bottom: 15%;
+        @media only screen and (min-width: $phones) {
+          position: absolute;
+        }
+        @media only screen and (min-width: $desktops) {
+          left: 81px;
+          bottom: 15%;
+        }
+        bottom: 100px;
       }
     }
   }
