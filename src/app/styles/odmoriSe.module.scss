@@ -1,0 +1,61 @@
+.mainSection {
+  position: relative;
+}
+
+.innerContent {
+  display: flex;
+  place-items: start;
+  justify-content: center;
+  gap: 6.3rem;
+  padding: 4.375rem 0;
+  .ctaContainer {
+    max-width: 377px;
+    display: grid;
+    place-items: start;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1.4rem;
+
+    h2 {
+      font-size: $heading2;
+      line-height: $sekundarniProred;
+      font-weight: 700;
+      color: $skrozTamnaZelena;
+    }
+
+    p {
+      text-wrap: balance;
+      word-wrap: break-word;
+      white-space: pre-wrap;
+      color: $skrozTamnaZelena;
+      font-size: $heading4;
+      line-height: 130%;
+      font-weight: 400;
+    }
+
+    .sectionButtonsContainer {
+      display: grid;
+      width: 100%;
+      place-items: start;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 0.75rem;
+    }
+  }
+  .imageContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.125rem;
+    max-width: 718px;
+    place-items: start;
+    position: relative;
+    //     max-height: 534px;
+    grid-template-rows: masonry;
+
+    img {
+      &:nth-child(3) {
+        position: absolute;
+        left: 81px;
+        bottom: 15%;
+      }
+    }
+  }
+}
