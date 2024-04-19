@@ -1,0 +1,72 @@
+.sectionMain {
+  position: relative;
+  padding: 8rem 0;
+}
+
+.sectionTitle {
+  width: 100%;
+  text-align: center;
+
+  h2 {
+    font-size: $heading2;
+    line-height: 110%;
+    color: $skrozTamnaZelena;
+    padding: 0 0 2.1rem 0;
+  }
+}
+
+.taxonomyFilterContainer {
+  width: 100%;
+  max-width: $masterContainerWidth;
+  display: flex;
+  place-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  margin: 0 auto;
+  padding: 0 0 3.3rem 0;
+
+  @media only screen and (max-width: $desktops) {
+    flex-wrap: wrap;
+  }
+
+  span {
+    padding: 0.25rem 0.56rem;
+    outline: 1.3px solid $zelenaTamna;
+    border-radius: 4px;
+    color: $zelenaTamna;
+    font-size: $mobileHeading4;
+    line-height: 120%;
+    cursor: pointer;
+    transition: all 250ms cubic-bezier(0.25, 0.4, 0.2, 0.5);
+  }
+
+  .activeFilter {
+    background: $zelenaTamna;
+    color: $svijetloSiva;
+  }
+}
+
+.galleryContainer {
+  max-width: $masterContainerWidth;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  @media only screen and (max-width: $desktops) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media only screen and (max-width: $tablets) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  place-items: center;
+  gap: 0.5rem;
+  .imageContainer {
+    max-width: 362px;
+    height: 289px;
+    width: 100%;
+    //     height: 400px;
+    position: relative;
+  }
+}

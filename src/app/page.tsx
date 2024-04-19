@@ -6,6 +6,7 @@ import AppFooter from './components/AppFooter';
 import HeroSekcija from './sections/HeroSekcija';
 import OdmoriSeSekcija from './sections/OdmoriSeSekcija';
 import KampKuciceSekcija from './sections/KampKuciceSekcija';
+import ExploreCampSection from './sections/ExploreCampSection';
 
 export default async function Home() {
   return (
@@ -15,6 +16,7 @@ export default async function Home() {
         <HeroSekcija />
         <OdmoriSeSekcija />
         <KampKuciceSekcija />
+        <ExploreCampSection />
       </Suspense>
       <AppFooter />
     </main>
