@@ -1,0 +1,144 @@
+.gallerySection {
+  width: 100%;
+  overflow-x: hidden;
+
+  @media only screen and (max-width: $tablets) {
+    margin-top: 50px;
+  }
+
+  .swiper {
+    margin-top: 10px;
+    width: 100%;
+    z-index: 10;
+    overflow-x: hidden;
+
+    .swiperSlide {
+      position: relative;
+      height: 336px;
+      border: none;
+      outline: none;
+      user-select: none;
+
+      @media only screen and (max-width: $tablets) {
+        height: 300px;
+      }
+      @media only screen and (max-width: $phones) {
+        height: 268px;
+      }
+    }
+  }
+
+  .gallerySectionParallax {
+    height: 100vh;
+    height: 100lvh;
+    min-height: 100%;
+    position: relative;
+    outline: none;
+    border: none;
+    &::after {
+      position: absolute;
+      inset: 0;
+      top: -1px;
+      left: 0;
+      width: 100%;
+      max-width: 100%;
+      height: 300px;
+
+      @media only screen and (max-width: $desktops) {
+        height: 200px;
+      }
+      z-index: 0;
+      background: url('../img/sections/PARALAX-BG-TEST.svg');
+      background-repeat: no-repeat;
+      background-position: top center;
+      background-size: cover;
+      // transform: translateX(-5%);
+      outline: none;
+      border: none;
+      user-select: none;
+      pointer-events: none;
+      content: '';
+      display: inline-block;
+      background-blend-mode: hard-light;
+    }
+    .gallerySectionTextOverlay {
+      text-align: center;
+      position: absolute;
+      bottom: 40%;
+      z-index: 10;
+      width: 100%;
+      display: grid;
+      place-items: center;
+      justify-content: center;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 1.2rem;
+
+      .gallerySectionTextOverlayContent {
+        padding: 1.5rem 4rem;
+        position: relative;
+        display: grid;
+        place-items: center;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 1rem;
+        @media only screen and (max-width: $tablets) {
+          padding: 1.5rem 3rem;
+          gap: 0.8rem;
+        }
+        @media only screen and (max-width: $phones) {
+          padding: 1.5rem 2rem;
+          gap: 0.6rem;
+        }
+        width: 100%;
+        max-width: 777px;
+
+        &::before {
+          position: absolute;
+          inset: 0;
+          content: '';
+          width: 200%;
+          height: 200%;
+          left: -50%;
+          // height: 200px;
+          // background: rgba($color: #000000, $alpha: 0.2);
+          background: url('../img/sections/para-bg-text.svg');
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: center;
+          opacity: 0.55;
+          mix-blend-mode: multiply;
+          // border-radius: 9999px;
+        }
+      }
+
+      h2 {
+        font-size: $heading2;
+        z-index: 3;
+        // @media only screen and (max-width: $tablets) {
+        //   font-size: $heading3;
+        // }
+        @media only screen and (max-width: $phones) {
+          font-size: $mobileHeading2;
+        }
+
+        color: #fff;
+        line-height: $sekundarniProred;
+        font-weight: 600;
+      }
+
+      h4 {
+        font-size: $mobileHeading4;
+        z-index: 3;
+        @media only screen and (max-width: $tablets) {
+          font-size: $heading5;
+        }
+        @media only screen and (max-width: $phones) {
+          font-size: $baseFontSize;
+        }
+        // max-width: 498px;
+        line-height: 120%;
+        color: #fff;
+        font-weight: 400;
+      }
+    }
+  }
+}
