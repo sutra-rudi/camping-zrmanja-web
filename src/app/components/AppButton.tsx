@@ -1,8 +1,5 @@
 import React from 'react';
 import styles from '../styles/appButton.module.scss';
-// import Image from 'next/image';
-// import strelicaDesno from '../img/strelica-desno-botun.svg';
-// import mailIkonica from '../img/kontakt-slike/button-mail-icon.svg';
 import { BsArrowRight as ArrowIcon } from 'react-icons/bs';
 import { CiMail as MailIcon } from 'react-icons/ci';
 

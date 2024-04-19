@@ -1,4 +1,3 @@
-// import dynamic from 'next/dynamic';
 import AppHeader from './components/AppHeader';
 import styles from './styles/page.module.scss';
 import { Suspense } from 'react';
@@ -6,16 +5,18 @@ import Loading from './loading';
 import AppFooter from './components/AppFooter';
 import HeroSekcija from './sections/HeroSekcija';
 import OdmoriSeSekcija from './sections/OdmoriSeSekcija';
+import KampKuciceSekcija from './sections/KampKuciceSekcija';
 
 export default async function Home() {
   return (
     <main className={styles.homeMain}>
+      <AppHeader />
       <Suspense fallback={<Loading />}>
-        <AppHeader />
         <HeroSekcija />
         <OdmoriSeSekcija />
-        <AppFooter />
+        <KampKuciceSekcija />
       </Suspense>
+      <AppFooter />
     </main>
   );
 }

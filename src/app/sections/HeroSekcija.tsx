@@ -78,7 +78,7 @@ const HeroSekcija = () => {
   };
 
   const foreground: BannerLayer = {
-    translateY: [0, 30],
+    translateY: [0, 40],
     // scale: [2, 0.8],
     // opacity: [1, 0.1],
     shouldAlwaysCompleteAnimation: true,

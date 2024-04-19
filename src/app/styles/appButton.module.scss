@@ -21,7 +21,7 @@
   position: relative;
   display: block;
   overflow: hidden;
-  min-width: 200px;
+  // min-width: 200px;
   outline: 1px solid $zelenaGlavna;
 
   // max-width: max-content;
@@ -129,10 +129,11 @@
 }
 
 .aboutButton {
-  // width: 231px;
+  // width: 251px;
   display: flex;
   place-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  justify-content: space-between;
   gap: 0.25rem;
 
   &:hover {
