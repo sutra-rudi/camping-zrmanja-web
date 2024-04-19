@@ -10,6 +10,7 @@ interface ButtonProps {
   isAbout?: boolean;
   isSecondary?: boolean;
   isContact?: boolean;
+  isRelax?: boolean;
 }
 
 const AppButton = ({
@@ -19,6 +20,7 @@ const AppButton = ({
   isAbout = false,
   isSecondary = false,
   isContact = false,
+  isRelax,
 }: ButtonProps) => {
   const buttonClassNames = isNav
     ? `${styles.appButton} ${styles.navButton}`
@@ -28,6 +30,8 @@ const AppButton = ({
     ? `${styles.appButton} ${styles.heroButton}`
     : isAbout && isSecondary
     ? `${styles.appButton} ${styles.secondaryButton} ${styles.aboutButton}`
+    : isAbout && isRelax
+    ? `${styles.appButton} ${styles.aboutButton} ${styles.odmoriSeAlt}`
     : isAbout
     ? `${styles.appButton} ${styles.aboutButton}`
     : isSecondary

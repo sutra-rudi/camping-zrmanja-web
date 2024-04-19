@@ -28,7 +28,7 @@ const OdmoriSeSekcija = () => {
           <p>{parseByLang(sectionContentHr, sectionContentEn)}</p>
           <div className={styles.sectionButtonsContainer}>
             <AppButton isAbout content={parseByLang('Rezervirajte svoj boravak', 'Book your stay')} />
-            <AppButton isAbout content={parseByLang('Pogledaj video', 'Watch video')} />
+            <AppButton isRelax isAbout content={parseByLang('Pogledaj video', 'Watch video')} />
           </div>
         </div>
         <div className={styles.imageContainer}>

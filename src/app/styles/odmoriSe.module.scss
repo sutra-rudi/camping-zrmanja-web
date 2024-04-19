@@ -14,8 +14,6 @@
     padding: 4.375rem 1rem;
   }
   .ctaContainer {
-    //     max-width: 377px;
-
     @media only screen and (min-width: $desktops) {
       max-width: 377px;
     }
@@ -56,6 +54,7 @@
       grid-template-columns: repeat(1, 1fr);
     }
     gap: 1.125rem;
+    max-width: 650px;
 
     place-items: start;
     position: relative;

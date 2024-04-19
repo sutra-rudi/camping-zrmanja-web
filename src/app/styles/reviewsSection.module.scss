@@ -1,0 +1,43 @@
+.sectionMain {
+  position: relative;
+  width: 100%;
+
+  padding: 4.8rem 0;
+
+  .reviewCardContainer {
+    display: flex;
+    gap: 1.8rem;
+    place-items: start center;
+    max-width: $masterContainerWidth;
+    margin: 0 auto;
+  }
+
+  .reviewCard {
+    background: $zelenaGlavna;
+    width: 100%;
+    padding: 2.1rem;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1rem;
+    place-items: start;
+
+    p {
+      text-wrap: balance;
+      word-wrap: break-word;
+      white-space: pre-wrap;
+
+      &:nth-child(1),
+      &:nth-child(2) {
+        font-size: $baseFontSize;
+        line-height: 118%;
+        color: $textTamno;
+      }
+
+      &:nth-child(2) {
+        color: #fff;
+        line-height: 140%;
+        font-size: $mobileFontSizeAlt;
+      }
+    }
+  }
+}

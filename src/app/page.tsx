@@ -13,6 +13,7 @@ import DodatneInformacije from './sections/DodatneInformacije';
 import OnamaSekcija from './sections/OnamaSekcija';
 import PogledajVideo from './sections/PogledajVideo';
 import GallerySection from './sections/GallerySection';
+import ReviewsSection from './sections/ReviewsSection';
 
 export default async function Home() {
   return (
@@ -24,6 +25,7 @@ export default async function Home() {
         <KampKuciceSekcija />
         <ExploreCampSection />
         <ParallaxVideoSection />
+        <ReviewsSection />
         <PogledajVideo />
         <OnamaSekcija />
         <DodatneInformacije isLanding />

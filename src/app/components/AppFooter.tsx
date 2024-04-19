@@ -3,7 +3,7 @@
 import React from 'react';
 import styles from '../styles/appFooter.module.scss';
 import footerBg from '../img/globals/footer-main-bg.png';
-import appLogo from '../img/logos/footer-logo.svg';
+import appLogo from '../img/logos/camping-logo.svg';
 import Image from 'next/image';
 import facebookIcon from '../img/icons/FACEBOOK-FOOTER.svg';
 import instaIcon from '../img/icons/INSTA-FOOTER.svg';
@@ -14,6 +14,8 @@ import footerAltBg from '../img/globals/footer-small-screen.png';
 import PaperDividTop from './PaperDividTop';
 import { useAppContext } from '../contexts/store';
 import { useWindowSize } from '../hooks/useWindowSize';
+
+import { kampKuciceContent } from '../staticContentData/kampKucice';
 
 interface FooterInterface {
   isAbout?: boolean;
@@ -82,10 +84,15 @@ const AppFooter = (props: FooterInterface) => {
         </div>
         <div className={styles.contentContainer}>
           <div className={styles.footerBlock}>
-            <p>{parseByLang('Aktivnosti koje nudimo', 'Activities we offer')}</p>
+            <p>{parseByLang('Ponuda našeg kampa', 'Offer at our camp')}</p>
             <div className={styles.activityStack}>
               <ul>
-                {userLang === 'hr'
+                {kampKuciceContent.map((content, index) => (
+                  <li key={index}>
+                    <a href=''>{userLang === 'hr' ? content.titleHr : content.titleEng}</a>
+                  </li>
+                ))}
+                {/* {userLang === 'hr'
                   ? hr_links.map((link) => (
                       <li key={link.href}>
                         <a href={link.href}>{link.title}</a>
@@ -95,7 +102,7 @@ const AppFooter = (props: FooterInterface) => {
                       <li key={link.href}>
                         <a href={link.href}>{link.title}</a>
                       </li>
-                    ))}
+                    ))} */}
               </ul>
             </div>
           </div>
