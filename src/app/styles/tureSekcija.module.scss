@@ -1,0 +1,124 @@
+.parallaxVideoSekcija {
+  width: 100%;
+  position: relative;
+
+  .playerContainer {
+    position: relative;
+    min-height: 80vh;
+    min-height: 80dvh;
+
+    .gallerySectionTextOverlay {
+      text-align: center;
+      position: absolute;
+      bottom: 50%;
+      z-index: 10;
+      width: 100%;
+      display: grid;
+      place-items: center;
+      justify-content: center;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 1.2rem;
+
+      .gallerySectionTextOverlayContent {
+        padding: 1.5rem 4rem;
+        position: relative;
+        display: grid;
+        place-items: center;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 1rem;
+
+        @media only screen and (max-width: $tablets) {
+          gap: 0.8rem;
+          padding: 1.5rem 3rem;
+        }
+        @media only screen and (max-width: $phones) {
+          gap: 0.6rem;
+          padding: 1.5rem 2rem;
+        }
+        width: 100%;
+        mix-blend-mode: multiply;
+        max-width: 777px;
+
+        &::before {
+          position: absolute;
+          inset: 0;
+          content: '';
+          width: 200%;
+          height: 200%;
+          // outline: 10px solid $zelenaGlavna;
+          left: -50%;
+
+          // height: 200px;
+          // background: rgba($color: #000000, $alpha: 0.2);
+          // background: url('../img/para-bg-text.svg');
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: center;
+          opacity: 0.15;
+          mix-blend-mode: multiply;
+          // border-radius: 9999px;
+        }
+      }
+
+      h2 {
+        font-size: $heading2;
+        z-index: 3;
+        @media only screen and (max-width: $tablets) {
+          font-size: $heading3;
+        }
+        @media only screen and (max-width: $phones) {
+          font-size: $mobileHeading2;
+        }
+
+        color: #fff;
+        line-height: $sekundarniProred;
+        font-weight: 600;
+      }
+
+      h4 {
+        font-size: $mobileHeading4;
+        z-index: 3;
+        @media only screen and (max-width: $tablets) {
+          font-size: $heading5;
+        }
+        @media only screen and (max-width: $phones) {
+          font-size: $baseFontSize;
+        }
+        // max-width: 498px;
+        line-height: 120%;
+        color: #fff;
+        font-weight: 400;
+      }
+    }
+  }
+  video {
+    @media only screen and (max-width: $desktops) {
+      min-height: 75vh;
+      min-height: 75lvh;
+    }
+  }
+
+  .ferlaufImageBlock {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    width: 100%;
+    height: 52px;
+    .ferlaufImageCont {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .masterContainer {
+    max-width: $masterContainerWidth;
+    margin: 0 auto;
+  }
+}
+
+.bottomImageContainer {
+  position: relative;
+  width: 100%;
+  height: 538px;
+}

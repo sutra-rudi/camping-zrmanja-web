@@ -1,0 +1,85 @@
+.aboutUsSection {
+  width: 100%;
+  position: relative;
+  margin-top: 5rem;
+
+  .masterContainer {
+    max-width: $masterContainerWidth;
+    margin: 0 auto;
+    width: 100%;
+    padding-top: 2rem;
+
+    @media only screen and (max-width: $largeDesktops) {
+      padding: 2rem 1rem;
+    }
+
+    .aboutUsContentCont {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap-reverse;
+      place-items: center;
+      gap: 5.5em;
+    }
+
+    .sectionHeading {
+      font-size: $heading2;
+
+      @media only screen and (max-width: $tablets) {
+        font-size: $heading4;
+      }
+
+      @media only screen and (max-width: $phones) {
+        font-size: $mobileHeading2;
+      }
+      color: $tamna;
+      line-height: $sekundarniProred;
+    }
+
+    .imageHolder {
+      width: 100%;
+
+      @media only screen and (min-width: $desktops) {
+        max-width: 669px;
+        height: 468px;
+      }
+      max-height: 70vh;
+      max-height: 70dvh;
+      height: auto;
+      position: relative;
+
+      svg {
+        max-width: 100%;
+        max-height: 100%;
+        display: block;
+        border-radius: 155px 0 0 0;
+      }
+    }
+
+    .aboutUsContent {
+      width: 100%;
+
+      @media only screen and (min-width: $desktops) {
+        max-width: 558px;
+      }
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 2em;
+
+      p {
+        width: 100%;
+        color: $tamna;
+        line-height: $defaultProred;
+        font-size: $baseFontSize;
+        white-space: pre-wrap;
+      }
+    }
+
+    .buttonContainer {
+      width: 100%;
+      display: flex;
+      place-items: center;
+      flex-wrap: wrap;
+      gap: 1.4em;
+    }
+  }
+}

@@ -1,0 +1,191 @@
+.faqSection {
+  width: 100%;
+  margin-bottom: 10rem;
+
+  @media only screen and (max-width: $desktops) {
+    margin-bottom: 5rem;
+  }
+
+  @media only screen and (max-width: $phones) {
+    margin-bottom: 2.5rem;
+  }
+
+  .masterContainer {
+    max-width: $masterContainerWidth;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+
+    @media only screen and (max-width: $desktops) {
+      padding: 0 1rem;
+    }
+  }
+
+  .sectionHeading {
+    margin: 5rem 0 4rem 0;
+
+    h2 {
+      font-size: $heading2;
+
+      @media only screen and (max-width: $desktops) {
+        font-size: $heading3;
+      }
+
+      @media only screen and (max-width: $phones) {
+        font-size: $mobileHeading2;
+      }
+      line-height: $defaultProred;
+      text-align: center;
+      text-transform: uppercase;
+      color: $tamna;
+    }
+  }
+
+  .faqContainer {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    @media only screen and (max-width: $phones) {
+      grid-template-columns: repeat(1, 1fr);
+    }
+    place-items: center;
+    align-items: start;
+    gap: 3rem;
+
+    @media only screen and (max-width: $desktops) {
+      gap: 2rem;
+    }
+
+    @media only screen and (max-width: $tablets) {
+      gap: 1rem;
+    }
+
+    @media only screen and (max-width: $phones) {
+      gap: 0.5rem;
+    }
+
+    .accordion {
+      max-width: 450px;
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      place-items: stretch;
+      gap: 0.5rem;
+
+      &:first-child {
+        place-self: start end;
+        @media only screen and (max-width: $phones) {
+          place-self: center;
+          max-width: auto;
+        }
+      }
+
+      &:nth-child(2) {
+        place-self: start start;
+        @media only screen and (max-width: $phones) {
+          place-self: center;
+          max-width: auto;
+        }
+      }
+
+      .accordionItem {
+        background: transparent;
+        border: none;
+        outline: none;
+
+        padding: 0 0 0.5rem 0;
+      }
+
+      .accordionItemHeading {
+        background: rgba(164, 205, 70, 0.05);
+        background: transparent;
+
+        cursor: pointer;
+
+        &:hover {
+          .accordionItemButton::before {
+            outline: 2px solid $zelenaGlavna;
+            color: $zelenaGlavna;
+          }
+        }
+      }
+
+      .accordionItemButton {
+        border-bottom: 0.7px solid $zelenaGlavna;
+        font-size: $mobileHeading4;
+
+        @media only screen and (max-width: $tablets) {
+          font-size: $baseFontSize;
+        }
+
+        line-height: $browserProred;
+        color: $tamna;
+        line-height: 120%;
+        padding: 0.75rem 0;
+        position: relative;
+        display: flex;
+        place-items: center;
+        gap: 1.1rem;
+        font-weight: normal;
+
+        &::before {
+          position: relative;
+          left: 0;
+          width: 24px;
+          height: 24px;
+          flex-shrink: 0;
+          background: transparent;
+          content: '+';
+          border-radius: 999px;
+          outline: 2px solid $tamna;
+          display: flex;
+          margin: 0;
+          padding: 0;
+          place-items: center;
+          justify-content: center;
+          font-size: $baseFontSize;
+          color: $tamna;
+          font-family: inherit;
+          line-height: inherit;
+          text-align: center;
+          text-transform: uppercase;
+          text-justify: auto;
+          transition: all 250ms ease;
+        }
+
+        &::before:hover {
+          cursor: pointer;
+          outline: 2px solid $zelenaGlavna;
+          color: $zelenaGlavna;
+        }
+      }
+
+      .accordionItemButton[aria-expanded='true'] {
+        border-bottom: 0;
+        font-weight: 500;
+
+        &::before {
+          content: 'x';
+          outline: 2px solid $zelenaGlavna;
+          color: $zelenaGlavna;
+        }
+      }
+
+      .accordionItemPanel {
+        padding: 0;
+
+        p {
+          margin-top: 0.5rem;
+          color: $tamna;
+          font-size: $baseFontSize;
+          padding: 0 0 0 2.7rem;
+          @media only screen and (max-width: $tablets) {
+            font-size: $mobileFontSizeAlt;
+          }
+          font-weight: normal;
+          max-width: 410px;
+          line-height: 118%;
+        }
+      }
+    }
+  }
+}

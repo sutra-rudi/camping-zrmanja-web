@@ -1,0 +1,138 @@
+.dodatneInformacije {
+  width: 100%;
+  position: relative;
+  margin: 5rem auto 0 auto;
+
+  @media only screen and (max-width: $desktops) {
+    max-width: $masterContainerWidth;
+    padding: 0 1rem;
+  }
+
+  .sectionHeading {
+    text-align: center;
+    color: $tamna;
+
+    font-size: $heading2;
+    @media only screen and (max-width: $tablets) {
+      font-size: $heading3;
+    }
+
+    @media only screen and (max-width: $phones) {
+      font-size: $mobileHeading2;
+    }
+    line-height: $defaultProred;
+    margin: 0 0 3.5rem 0;
+  }
+
+  .sectionListContainer {
+    display: flex;
+    place-items: center;
+    justify-content: space-between;
+    gap: 0.575rem;
+    @media only screen and (max-width: $largeDesktops) {
+      justify-content: center;
+    }
+
+    @media only screen and (max-width: $tablets) {
+      flex-wrap: wrap;
+    }
+
+    margin: 0 auto 2em auto;
+    max-width: $masterContainerWidth;
+
+    .titleHolder {
+      z-index: 2;
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      place-items: center;
+      justify-content: center;
+      gap: 0px;
+
+      .titleHolderInner {
+        h6,
+        h2 {
+          color: #fff;
+          text-transform: uppercase;
+          text-align: center;
+          transition: all 250ms cubic-bezier(0.25, 0.4, 0.2, 0.5);
+        }
+
+        h6 {
+          font-size: $baseFontSize;
+          line-height: $defaultProred;
+          transition-delay: 150ms;
+        }
+        h2 {
+          font-size: $heading2;
+          transition-delay: 200ms;
+
+          @media only screen and (max-width: $tablets) {
+            font-size: $mobileHeading1;
+          }
+          @media only screen and (max-width: $phones) {
+            font-size: $mobileHeading2;
+          }
+
+          line-height: $sekundarniProred;
+          max-width: 358px;
+        }
+      }
+    }
+
+    .imageBox {
+      position: relative;
+      width: 472px;
+      height: 472px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 250ms cubic-bezier(0.5, 0.2, 0.4, 0.25);
+
+      a {
+        text-decoration: none;
+      }
+
+      &:hover {
+        // border-radius: 0 0 120px 0;
+        img {
+          transform: scale(1.15);
+          filter: grayscale(25%);
+        }
+        h6 {
+          letter-spacing: 0.15rem;
+        }
+
+        h2 {
+          letter-spacing: -0.1rem;
+        }
+      }
+
+      img {
+        object-position: center;
+        transition: all 250ms cubic-bezier(0.5, 0.2, 0.4, 0.25);
+        aspect-ratio: 1 / 1;
+      }
+
+      @media only screen and (max-width: $desktops) {
+        width: 374px;
+        height: 374px;
+        padding: 1rem;
+      }
+
+      @media only screen and (max-width: $phones) {
+        width: 100%;
+
+        height: 205px;
+        img {
+          aspect-ratio: 16 / 9;
+        }
+      }
+    }
+  }
+}
+
+.dodatneInformacijeSub {
+  margin: 0;
+}

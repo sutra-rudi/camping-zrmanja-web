@@ -7,6 +7,10 @@ import HeroSekcija from './sections/HeroSekcija';
 import OdmoriSeSekcija from './sections/OdmoriSeSekcija';
 import KampKuciceSekcija from './sections/KampKuciceSekcija';
 import ExploreCampSection from './sections/ExploreCampSection';
+import ParallaxVideoSection from './sections/ParallaxVideoSection';
+import FAQsection from './sections/FAQsection';
+import DodatneInformacije from './sections/DodatneInformacije';
+import OnamaSekcija from './sections/OnamaSekcija';
 
 export default async function Home() {
   return (
@@ -17,6 +21,10 @@ export default async function Home() {
         <OdmoriSeSekcija />
         <KampKuciceSekcija />
         <ExploreCampSection />
+        <ParallaxVideoSection />
+        <OnamaSekcija />
+        <DodatneInformacije isLanding />
+        <FAQsection />
       </Suspense>
       <AppFooter />
     </main>
