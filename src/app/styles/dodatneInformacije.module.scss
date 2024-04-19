@@ -68,6 +68,10 @@
         h2 {
           font-size: $heading2;
           transition-delay: 200ms;
+          text-wrap: balance;
+          word-wrap: break-word;
+          white-space: pre-wrap;
+          // white-space: nowrap;
 
           @media only screen and (max-width: $tablets) {
             font-size: $mobileHeading1;

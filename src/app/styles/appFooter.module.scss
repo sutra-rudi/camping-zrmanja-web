@@ -163,7 +163,7 @@
         ul {
           display: grid;
           place-items: center;
-          grid-template-columns: repeat(2, 1fr);
+          grid-template-columns: repeat(1, 1fr);
           gap: 0.5rem 1.2rem;
 
           @media only screen and (max-width: $phones) {
