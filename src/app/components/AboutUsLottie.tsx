@@ -1,5 +1,5 @@
 import { useLottie, useLottieInteractivity } from 'lottie-react';
-import oNamaScroll from '../img/oNamaScroll.json';
+import oNamaScroll from '../img/lottie/oNamaScroll.json';
 
 const options = {
   animationData: oNamaScroll,
