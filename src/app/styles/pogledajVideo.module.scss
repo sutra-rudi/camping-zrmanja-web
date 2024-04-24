@@ -4,6 +4,10 @@
   overflow-x: hidden;
   margin-top: 8rem;
 
+  @media only screen and (max-width: $tablets) {
+    margin-top: 4rem;
+  }
+
   width: 100%;
   @media only screen and (max-width: $tablets) {
     min-height: 400px;
@@ -92,10 +96,10 @@
     height: 100%;
 
     span {
-      margin: 2rem 0 0 0;
+      margin: 7rem 0 0 0;
 
       @media only screen and (max-width: $tablets) {
-        margin: 1.5rem 0 0 0;
+        margin: 10rem 0 0 0;
       }
 
       // @media only screen and (max-width: $phones) {

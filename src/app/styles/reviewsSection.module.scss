@@ -49,6 +49,7 @@
     scroll-snap-stop: always;
     width: 332px;
     flex-shrink: 0;
+    border-radius: 0 0 75px 0;
 
     @media only screen and (max-width: $phones) {
       max-width: 60%;

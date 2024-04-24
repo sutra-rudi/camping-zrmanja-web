@@ -1,7 +1,11 @@
 .aboutUsSection {
   width: 100%;
   position: relative;
-  margin-top: 5rem;
+  margin-top: 2.5rem;
+
+  @media only screen and (max-width: $tablets) {
+    margin: 3rem auto 0 auto;
+  }
 
   .masterContainer {
     max-width: $masterContainerWidth;
@@ -59,6 +63,10 @@
         max-height: 100%;
         display: block;
         border-radius: 155px 0 0 0;
+
+        @media only screen and (max-width: $tablets) {
+          border-radius: 77.5px 0 0 0;
+        }
       }
     }
 

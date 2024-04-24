@@ -1,11 +1,15 @@
 .dodatneInformacije {
   width: 100%;
   position: relative;
-  margin: 1rem auto 0 auto;
+  margin: 6rem auto 0 auto;
 
   @media only screen and (max-width: $desktops) {
     max-width: $masterContainerWidth;
     padding: 0 1rem;
+  }
+
+  @media only screen and (max-width: $tablets) {
+    margin: 3rem auto 0 auto;
   }
 
   .sectionHeading {
