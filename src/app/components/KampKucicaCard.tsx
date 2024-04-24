@@ -5,8 +5,8 @@ import React from 'react';
 import styles from '../styles/kampKucicaSekcija.module.scss';
 import { useAppContext } from '../contexts/store';
 import { parseByLang } from '../utils/parseByLang';
-import articleArrow from '../img/icons/article-arrow-subpage-thin.svg';
-
+// import articleArrow from '../img/icons/article-arrow-subpage-thin.svg';
+import { TfiArrowTopRight as ArticleArrow } from 'react-icons/tfi';
 interface KampKucicaCard {
   imageUrl: StaticImageData;
   titleHr: string;
@@ -36,13 +36,13 @@ const KampKucicaCard = (props: KampKucicaCard) => {
           <a href=''>
             <span>{parseByLang(learnMoreHr, learnMoreEng, userLang)}</span>
             <span>
-              <Image src={articleArrow} width={20} height={20} alt='arrow icon' />
+              <ArticleArrow className={styles.articleArrow} />
             </span>
           </a>
           <a href=''>
             <span>{parseByLang(checkAvailabilityHr, checkAvailabilityEng, userLang)}</span>
             <span>
-              <Image src={articleArrow} width={20} height={20} alt='arrow icon' />
+              <ArticleArrow className={styles.articleArrow} />
             </span>
           </a>
         </div>

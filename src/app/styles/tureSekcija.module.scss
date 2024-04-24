@@ -129,11 +129,20 @@
       color: #fff;
       line-height: 110%;
       text-align: center;
+      @media only screen and (max-width: $tablets) {
+        font-size: $heading3;
+      }
+      @media only screen and (max-width: $phones) {
+        font-size: $mobileHeading2;
+      }
     }
 
     p {
       text-align: center;
       font-size: $heading4;
+      @media only screen and (max-width: $tablets) {
+        font-size: $baseFontSize;
+      }
       text-wrap: balance;
       word-wrap: break-word;
       white-space: pre-wrap;

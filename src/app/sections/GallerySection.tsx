@@ -26,10 +26,10 @@ const GallerySection = () => {
     state: { userLang },
   } = useAppContext();
 
-  const title_hr = 'RIJEKA ZRMANJA';
+  const title_hr = 'NAŠ DOM - RIJEKA ZRMANJA';
   const content_hr =
     'Sa svojim dubokim kanjonom koji se proteže kroz spektakularne vapnenačke stijene, nudi nezaboravne prizore čiste, smaragdno zelene vode koja se vijuga kroz divljinu Sjeverne Dalmacije.';
-  const title_eng = 'ZRMANJA RIVER';
+  const title_eng = 'OUR HOME - ZRMANJA RIVER';
   const content_eng =
     'With its deep canyon cutting through spectacular limestone cliffs, it offers unforgettable views of pure, emerald-green water winding through the wilderness of Northern Dalmatia.';
 

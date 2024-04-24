@@ -1,7 +1,7 @@
 .dodatneInformacije {
   width: 100%;
   position: relative;
-  margin: 5rem auto 0 auto;
+  margin: 1rem auto 0 auto;
 
   @media only screen and (max-width: $desktops) {
     max-width: $masterContainerWidth;
@@ -52,11 +52,15 @@
       gap: 0px;
 
       .titleHolderInner {
+        width: 100%;
+
         h6,
         h2 {
           color: #fff;
           text-transform: uppercase;
           text-align: center;
+          width: 100%;
+
           transition: all 250ms cubic-bezier(0.25, 0.4, 0.2, 0.5);
         }
 
@@ -81,7 +85,7 @@
           }
 
           line-height: $sekundarniProred;
-          max-width: 358px;
+          // max-width: 358px;
         }
       }
     }

@@ -72,26 +72,35 @@ const ParallaxVideoSection = () => {
     ),
   };
 
+  const bottomBg: BannerLayer = {
+    translateY: [0, 30],
+    scale: [1, 1.15],
+    children: <Image src={bottomImage} fill alt='bottom image' />,
+  };
+
+  const bottomForeground: BannerLayer = {
+    translateY: [0, -15],
+    children: (
+      <div className={styles.bottomImageTextOverlay}>
+        <h4 className={RecoletaSemiBold.className}>
+          {parseByLang('Doručak u Mićanovim Dvorima', 'Breakfast at Mićanovi Dvori', userLang)}
+        </h4>
+        <p>
+          {parseByLang(
+            'Odmah pored kampa se nalazi naš ugostiteljski objekt\nu kojem se poslužuju doručci na prekrasnoj terasi.',
+            'Right next to the campsite is our catering facility\nwhere breakfast is served on a beautiful terrace.',
+            userLang
+          )}
+        </p>
+      </div>
+    ),
+  };
+
   return (
     <div className={styles.parallaxVideoSekcija}>
       <PaperDividTop />
-
       <ParallaxBanner className={styles.playerContainer} layers={[background, foreground]} />
-      <div className={styles.bottomImageContainer}>
-        <Image src={bottomImage} fill alt='bottom image' />
-        <div className={styles.bottomImageTextOverlay}>
-          <h4 className={RecoletaSemiBold.className}>
-            {parseByLang('Doručak u Mićanovim Dvorima', 'Breakfast at Mićanovi Dvori', userLang)}
-          </h4>
-          <p>
-            {parseByLang(
-              'Odmah pored kampa se nalazi naš ugostiteljski objekt\nu kojem se poslužuju doručci na prekrasnoj terasi.',
-              'Right next to the campsite is our catering facility\nwhere breakfast is served on a beautiful terrace.',
-              userLang
-            )}
-          </p>
-        </div>
-      </div>
+      <ParallaxBanner className={styles.bottomImageContainer} layers={[bottomBg, bottomForeground]} />
     </div>
   );
 };
