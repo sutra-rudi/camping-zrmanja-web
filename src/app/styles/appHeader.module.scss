@@ -7,15 +7,15 @@
   display: flex;
   justify-content: space-between;
   place-items: center;
-  padding: 0.5em 4.5em;
+  padding: 0.5rem 4.5rem;
   overflow: hidden !important;
   max-width: 100%;
 
   @media screen and (max-width: $tablets) {
-    padding: 1.5em 3em;
+    padding: 1.5rem 3rem;
   }
   @media screen and (max-width: $phones) {
-    padding: 1em 1.5em;
+    padding: 1rem 1.5rem;
   }
 }
 
@@ -23,11 +23,12 @@
   background: $zelenaGlavna;
   display: flex;
   place-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 1em;
   font-weight: 400;
-  color: #fff;
+  padding: 0 4.5rem;
   font-size: $mobileFontSizeAlt;
+  color: #fff;
 
   @media screen and (max-width: $phones) {
     font-size: 0.8em;
@@ -39,15 +40,34 @@
 
   a {
     color: #fff;
-    padding: 0.5em 0;
+    padding: 0.5rem 0;
+    text-decoration: none;
   }
+
+  @media screen and (max-width: $tablets) {
+    padding: 0rem 3rem;
+  }
+  @media screen and (max-width: $phones) {
+    padding: 0rem 1.5rem;
+  }
+}
+
+.navParentMaster {
+  display: flex;
+  place-items: center;
+  gap: 1.1rem;
+  justify-content: space-between;
 }
 
 .navInnerParent {
   display: flex;
   justify-content: space-between;
   place-items: center;
-  gap: 2em;
+  gap: 1.3rem;
+
+  .headerLinkDivid {
+    color: $textTamno;
+  }
   @media only screen and (max-width: $largeDesktops) {
     gap: 1rem;
   }
@@ -65,31 +85,27 @@
   }
 }
 
+.noEffectLogo {
+  &::before {
+    display: none !important;
+  }
+
+  @media only screen and (max-width: $phones) {
+    img {
+      object-fit: contain;
+    }
+  }
+}
+
 .navLeftParent {
   display: flex;
   place-items: center;
-  gap: 2.2rem;
+
   font-weight: 400;
 
-  .noEffectLogo {
-    &::before {
-      display: none !important;
-    }
-  }
-
-  img {
-    max-width: 160px;
-    height: auto;
-
-    @media only screen and (max-width: $largeDesktops) {
-      max-height: 60px;
-
-      object-fit: cover;
-    }
-  }
-
   a {
-    color: $tamna;
+    color: $textTamno;
+
     text-decoration: none;
     cursor: pointer;
     transition: all 250ms ease;
@@ -103,8 +119,8 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%) scale(0);
-      background: $zelenaGlavna;
-      width: 120%;
+      background: $textTamno;
+      width: 110%;
       height: 30px;
       will-change: transform;
       transition: all 150ms cubic-bezier(0.5, 0.2, 0.4, 0.25);
@@ -127,7 +143,7 @@
 .navLeft {
   display: flex;
   place-items: center;
-  gap: 2em;
+  gap: 1.3rem;
 
   @media screen and (max-width: $desktops) {
     display: none;
@@ -137,11 +153,12 @@
 .navRight {
   display: flex;
   place-items: center;
-  gap: 2em;
+  gap: 1.3rem;
   font-weight: 400;
 
   a {
-    color: $tamna;
+    color: $textTamno;
+
     text-decoration: none;
     cursor: pointer;
     transition: all 250ms ease;
@@ -159,8 +176,8 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%) scale(0);
-      background: $zelenaGlavna;
-      width: 120%;
+      background: $textTamno;
+      width: 110%;
       height: 30px;
       will-change: transform;
       transition: all 150ms cubic-bezier(0.5, 0.2, 0.4, 0.25);
@@ -221,7 +238,8 @@
 
     a {
       text-decoration: none;
-      color: $plavaGlavna;
+      color: $textTamno;
+
       font-size: $mobileHeading3;
       font-weight: 400;
       line-height: $defaultProred;

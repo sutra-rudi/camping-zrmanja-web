@@ -8,8 +8,8 @@ import { UserLanguage } from '../types/appState';
 import { usePathname, useRouter } from 'next/navigation';
 import { setLocalStorageItem, getLocalStorageItem } from '../utils/localStorage';
 import Image from 'next/image';
-import croatianFlag from '../img/country-flags/croatiaFlag.svg';
-import englishFlag from '../img/country-flags/englishFlag.svg';
+import croatianFlag from '../img/icons/country-flags/croatianFlag.svg';
+import englishFlag from '../img/icons/country-flags/englishFlag.svg';
 
 const LanguageSwitch = () => {
   const {
@@ -38,22 +38,15 @@ const LanguageSwitch = () => {
   };
 
   return (
-    <div className={styles.langSwitcherParent}>
-      <div
-        onClick={() => handleLangSwitch(UserLanguage.hr)}
-        className={`${userLang === UserLanguage.hr ? `${styles.croa} ${styles.active}` : `${styles.croa}`} `}
-      >
-        {/* <Image width={20} height={20} alt='croatian flag' src={croatianFlag} /> */}
-        <span>HR</span>
-      </div>
-
-      <div
-        onClick={() => handleLangSwitch(UserLanguage.en)}
-        className={`${userLang === UserLanguage.en ? `${styles.engl} ${styles.active}` : `${styles.engl}`} `}
-      >
-        {/* <Image width={20} height={20} alt='croatian flag' src={englishFlag} /> */}
-        <span>ENG</span>
-      </div>
+    <div
+      onClick={() => handleLangSwitch(userLang === UserLanguage.hr ? UserLanguage.en : UserLanguage.hr)}
+      className={styles.lang}
+    >
+      {userLang === UserLanguage.hr ? (
+        <Image width={30} height={30} alt='croatian flag' src={croatianFlag} />
+      ) : (
+        <Image width={30} height={30} alt='croatian flag' src={englishFlag} />
+      )}
     </div>
   );
 };

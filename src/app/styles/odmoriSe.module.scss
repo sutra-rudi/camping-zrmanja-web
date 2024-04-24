@@ -1,5 +1,6 @@
 .mainSection {
   position: relative;
+  overflow-x: hidden;
 }
 
 .innerContent {
@@ -10,23 +11,45 @@
   padding: 4.375rem 0;
 
   @media only screen and (max-width: $desktops) {
-    flex-wrap: wrap;
     padding: 4.375rem 1rem;
+    gap: 4.3rem;
+  }
+
+  @media only screen and (max-width: $phones) {
+    flex-wrap: wrap;
+    gap: 2.3rem;
   }
   .ctaContainer {
-    @media only screen and (min-width: $desktops) {
+    @media only screen and (min-width: $phones) {
       max-width: 377px;
     }
+
+    // max-width: 377px;
     display: grid;
     place-items: start;
     grid-template-columns: repeat(1, 1fr);
     gap: 1.4rem;
+    flex-shrink: 1;
+
+    // @media only screen and (min-width: $phones) {
+    //   max-width: 40%;
+    // }
 
     h2 {
       font-size: $heading2;
+      @media only screen and (max-width: $tablets) {
+        font-size: $heading3;
+      }
       line-height: $sekundarniProred;
       font-weight: 700;
       color: $skrozTamnaZelena;
+    }
+
+    .paragraphContainer {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 12px;
+      place-items: start;
     }
 
     p {
@@ -35,6 +58,9 @@
       white-space: pre-wrap;
       color: $skrozTamnaZelena;
       font-size: $heading4;
+      @media only screen and (max-width: $tablets) {
+        font-size: $baseFontSize;
+      }
       line-height: 130%;
       font-weight: 400;
     }
@@ -50,18 +76,30 @@
   .imageContainer {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    flex-shrink: 1;
     @media only screen and (max-width: $phones) {
       grid-template-columns: repeat(1, 1fr);
     }
-    gap: 1.125rem;
-    max-width: 650px;
 
-    place-items: start;
+    @media only screen and (max-width: $tablets) {
+      grid-template-columns: repeat(1, 1fr);
+    }
+    gap: 1.125rem;
+    @media only screen and (min-width: $desktops) {
+      max-width: 650px;
+      place-items: start;
+    }
+    width: 100%;
+    place-items: center;
     position: relative;
-    //     max-height: 534px;
-    grid-template-rows: masonry;
 
     img {
+      &:nth-child(1) {
+        @media only screen and (max-width: $phones) {
+          display: none;
+        }
+      }
+
       &:nth-child(3) {
         @media only screen and (min-width: $phones) {
           position: absolute;
@@ -71,6 +109,16 @@
           bottom: 15%;
         }
         bottom: 100px;
+
+        @media only screen and (max-width: $tablets) {
+          display: none;
+        }
+      }
+
+      &:nth-child(2) {
+        @media only screen and (max-width: $tablets) {
+          display: none;
+        }
       }
     }
   }

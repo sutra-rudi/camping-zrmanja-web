@@ -1,9 +1,19 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Ubuntu } from 'next/font/google';
 import './globals.css';
 import { GlobalContextProvider } from './contexts/store';
 import { Providers } from './providers';
 const ubuntu = Ubuntu({ weight: ['300', '400', '500', '700'], subsets: ['latin'] });
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 3,
+  userScalable: true,
+  interactiveWidget: 'overlays-content',
+  colorScheme: 'light',
+  themeColor: '#eeeeee',
+};
 
 export const metadata: Metadata = {
   title: 'Create Next App',

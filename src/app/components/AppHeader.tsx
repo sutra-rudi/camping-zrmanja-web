@@ -26,8 +26,8 @@ const AppHeader = () => {
   const navLinksOne = [
     { text: parseByLang('O nama', 'About us'), href: parseByLang('/o-nama', '/about-us') },
     { text: parseByLang('Smještaj', 'Accommodation'), href: parseByLang('/smjestaj', '/accommodation') },
-    { text: parseByLang('Što posjetiti?', 'What to visit?'), href: parseByLang('/sto-posjetiti', '/what-to-visit') },
     { text: parseByLang('Kontakt', 'Contact'), href: '/kontakt' },
+    { text: parseByLang('Što posjetiti?', 'What to visit?'), href: parseByLang('/sto-posjetiti', '/what-to-visit') },
   ];
   const navLinksTwo = [
     { text: 'Mićanovi Dvori', href: '/' },
@@ -86,23 +86,25 @@ const AppHeader = () => {
           <a href='mailto:info@riva-rafting-centar.hr'>info@riva-rafting-centar.hr</a>
         </div>
         <div className={styles.navMaster}>
-          <div className={styles.navInnerParent}>
-            <div className={styles.navLeftParent}>
-              <Link className={styles.noEffectLogo} href={'/'}>
-                <Image src={svgAppLogo} alt='app logo' />
-              </Link>
-              <HeaderBaseOne />
-            </div>
-            <span className={styles.headerLinkDivid}>|</span>
+          <Link className={styles.noEffectLogo} href={'/'}>
+            <Image src={svgAppLogo} alt='app logo' />
+          </Link>
+          <div className={styles.navParentMaster}>
+            <div className={styles.navInnerParent}>
+              <div className={styles.navLeftParent}>
+                <HeaderBaseOne />
+              </div>
+              <span className={styles.headerLinkDivid}>|</span>
 
-            <HeaderBaseTwo />
-          </div>
-          <div className={styles.navInnerParent}>
-            <AppButton isNav content='BOOK YOUR ADVENTURE' />
-            <div className={styles.navInnerParentLang}>
-              <LanguageSwitch />
+              <HeaderBaseTwo />
             </div>
-            <Hamburger toggled={isNavOpen} onToggle={handleNavControl} color='#2f476f' />
+            <div className={styles.navInnerParent}>
+              <AppButton isNav content='REZERVIRAJ SVOJ BORAVAK' />
+              <div className={styles.navInnerParentLang}>
+                <LanguageSwitch />
+              </div>
+              <Hamburger toggled={isNavOpen} onToggle={handleNavControl} color='#2f2a32' />
+            </div>
           </div>
         </div>
 

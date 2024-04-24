@@ -24,10 +24,13 @@
       place-items: center;
       justify-content: center;
       gap: 0.85rem;
+      width: 100%;
     }
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     place-items: center;
+    width: 100%;
+    height: max-content;
     gap: 1.25rem;
     position: absolute;
     top: 20%;
@@ -64,12 +67,14 @@
     width: 100%;
     // flex-flow: row wrap;
     place-items: center;
-    justify-content: center;
+
+    justify-content: space-between;
     gap: 8rem;
 
     @media only screen and (max-width: $desktops) {
       gap: 5rem;
       flex-wrap: wrap;
+      justify-content: center;
     }
 
     @media only screen and (max-width: $tablets) {
@@ -80,13 +85,13 @@
       gap: 3rem;
     }
     position: relative;
-    padding: 3.75rem 2rem;
+    padding: 3.75rem 3rem;
   }
 
   .appLogoContainer {
-    max-width: 240px;
+    max-width: 322px;
     width: 100%;
-    height: 108px;
+    height: 138px;
     position: relative;
 
     img {
@@ -95,7 +100,10 @@
 
     @media only screen and (max-width: $tablets) {
       margin: 0 auto;
-      max-width: 200px;
+      // max-width: 200px;
+      // img {
+      //   object-fit: contain;
+      // }
     }
   }
 
@@ -104,6 +112,7 @@
     place-items: center;
     justify-content: space-between;
     gap: 3rem;
+    width: 100%;
 
     a {
       transition: all 250ms cubic-bezier(0.5, 0.2, 0.4, 0.25);
@@ -141,12 +150,14 @@
         font-weight: 500;
         position: relative;
         color: $plavaGlavna;
+        color: $textTamno;
 
         &::after {
           position: absolute;
           content: '';
           width: 48px;
           background: $zelenaGlavna;
+          background: $zelenaTamna;
           height: 2px;
           bottom: -2px;
           left: 0;
@@ -182,6 +193,7 @@
             text-decoration: none;
             color: $plavaGlavna;
             font-size: $baseFontSize;
+            color: $textTamno;
 
             display: flex;
             place-items: center;
@@ -226,6 +238,7 @@
         a {
           text-decoration: none;
           color: $plavaGlavna;
+          color: $textTamno;
           font-size: 1rem;
           line-height: $defaultProred;
           font-family: inherit;
@@ -253,6 +266,7 @@
         a {
           text-decoration: none;
           color: $plavaGlavna;
+          color: $textTamno;
           font-size: 1rem;
           line-height: $defaultProred;
           font-family: inherit;
@@ -280,6 +294,7 @@
     .footerDislaimerTrack {
       background: $zelenaGlavna;
       background: $tamnaZelenaExtra;
+      // background: $micanoviZlatna;
       position: absolute;
       bottom: -33px;
       left: 0;
@@ -377,6 +392,7 @@
         img {
           cursor: pointer;
           transition: all 250ms ease;
+
           &:hover {
             transform: scale(1.25);
           }
