@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react';
 import styles from '../styles/rulesAndDisclaimers.module.scss';
 import AppFooter from '../components/AppFooter';
-import pravilaHero from '../img/pravila/podatci-o-tvrtki-hero.png';
+import pravilaHero from '../img/heros/pravila/podatci-o-tvrtki-hero.png';
 import AppHeader from '../components/AppHeader';
 import Loading from './loading';
 import dynamic from 'next/dynamic';

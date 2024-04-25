@@ -9,7 +9,7 @@ import Image from 'next/image';
 import styles from '../styles/exploreCampSection.module.scss';
 
 const ExploreCampSection = () => {
-  const [currentActiveFilter, setCurrentActiveFilter] = React.useState<string>('Mobilna Kućica Luka');
+  const [currentActiveFilter, setCurrentActiveFilter] = React.useState<string>('Pitch');
   const {
     state: { userLang },
   } = useAppContext();
