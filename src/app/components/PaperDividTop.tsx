@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import React from 'react';
 import papirDivider from '../img/globals/PAPIR-RAZMAK.svg';
-import altPapirSivi from '../img//globals/about-us-paper-bot.svg';
+import altPapirSivi from '../img/globals/about-us-paper-bot.svg';
 import styles from '../styles/paperDivider.module.scss';
 
 interface PaperInterface {

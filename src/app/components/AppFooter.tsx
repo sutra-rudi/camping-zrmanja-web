@@ -121,7 +121,7 @@ const AppFooter = (props: FooterInterface) => {
                 <Image src={footerArrow} alt='icon' width={16} height={16} />
                 <span>{parseByLang('FAQ', 'FAQ')}</span>
               </a>
-              <a href='/obrovacki-kraj'>
+              <a href=''>
                 <Image src={footerArrow} alt='icon' width={16} height={16} />
                 <span>Obrovački kraj</span>
               </a>

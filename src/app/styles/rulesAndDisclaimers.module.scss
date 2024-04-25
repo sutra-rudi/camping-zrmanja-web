@@ -1,0 +1,102 @@
+.mainSection {
+  width: 100%;
+  height: auto;
+  position: relative;
+  // min-height: 634px;
+
+  .rulesHero {
+    height: 45vh;
+    height: 45dvh;
+
+    // min-height: 634px;
+    position: relative;
+  }
+
+  .heroHeader {
+    z-index: 6;
+    grid-template-columns: repeat(1, 1fr);
+    place-items: center;
+    position: absolute;
+    bottom: 150px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    padding: 0 1.25rem;
+    h1 {
+      font-size: $headingPolicy;
+
+      @media only screen and (max-width: $desktops) {
+        font-size: $heading1;
+        line-height: $browserProred;
+      }
+
+      text-transform: uppercase;
+      color: #fff;
+      line-height: $defaultProred;
+      text-align: center;
+      width: 100%;
+      text-wrap: balance;
+      @media only screen and (max-width: $smPhones) {
+        white-space: unset;
+        font-size: 44px;
+      }
+    }
+  }
+
+  .masterContainer {
+    //     max-width: $masterContainerWidth;
+    width: 100%;
+    position: relative;
+    margin: 0 auto;
+    display: grid;
+    place-items: center;
+    justify-content: center;
+
+    .innerContent {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      place-items: start;
+      gap: 1.25rem;
+      max-width: 677px;
+      padding: 4rem 1.25rem 6rem 1.25rem;
+    }
+
+    .innerContentAlt {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem 8rem;
+      max-width: 1128px;
+
+      @media only screen and (max-width: $tablets) {
+        grid-template-columns: repeat(1, 1fr);
+      }
+    }
+
+    .contentBlock {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      place-items: start;
+      gap: 1rem;
+    }
+
+    .segmentTitle,
+    .segmentContent {
+      color: $textTamno;
+      line-height: 118%;
+      font-size: $baseFontSize;
+
+      @media only screen and (max-width: $tablets) {
+        font-size: $mobileFontSizeAlt;
+      }
+    }
+
+    .segmentTitle {
+      font-weight: bold;
+    }
+
+    .segmentContentContact {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+  }
+}
