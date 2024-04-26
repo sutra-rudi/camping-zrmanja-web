@@ -9,8 +9,16 @@ const KampKuciceSekcija = () => {
     <section className={styles.mainSection}>
       <div className={styles.kampKuciceCardContainer}>
         {kampKuciceContent.map((item, index) => {
-          const { titleEng, titleHr, learnMoreEn, learnMoreHr, imageUrl, checkAvailabilityEng, checkAvailabilityHr } =
-            item;
+          const {
+            titleEng,
+            titleHr,
+            learnMoreEn,
+            learnMoreHr,
+            imageUrl,
+            checkAvailabilityEng,
+            checkAvailabilityHr,
+            url,
+          } = item;
           return (
             <KampKucicaCard
               key={index}
@@ -21,6 +29,7 @@ const KampKuciceSekcija = () => {
               imageUrl={imageUrl}
               checkAvailabilityEng={checkAvailabilityEng}
               checkAvailabilityHr={checkAvailabilityHr}
+              url={url as string}
             />
           );
         })}

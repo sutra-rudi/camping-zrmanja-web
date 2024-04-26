@@ -9,6 +9,7 @@ export const kampKuciceContent = [
     checkAvailabilityHr: 'Provjeri dostupnost',
     checkAvailabilityEng: 'Check availability.',
     imageUrl: kucicaThumb,
+    url: '/smjestaj/mobilne-kucice',
   },
   {
     titleHr: 'MOBILNA KUĆICA LUKA',
@@ -18,6 +19,7 @@ export const kampKuciceContent = [
     checkAvailabilityHr: 'Provjeri dostupnost',
     checkAvailabilityEng: 'Check availability.',
     imageUrl: kucicaThumb,
+    url: '/smjestaj/mobilne-kucice',
   },
   {
     titleHr: 'PITCH',

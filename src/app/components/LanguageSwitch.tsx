@@ -28,6 +28,7 @@ const LanguageSwitch = () => {
 
     if (checkParams) {
       dispatch({ type: ActionTypes.SET_USER_LANG, payload: checkParams === 'hr' ? UserLanguage.hr : UserLanguage.en });
+      setLocalStorageItem('@riva-rafting-user-language', checkParams);
     } else if (checkLocalStorage) {
       dispatch({ type: ActionTypes.SET_USER_LANG, payload: checkLocalStorage });
 
@@ -56,7 +57,7 @@ const LanguageSwitch = () => {
 
     setLocalStorageItem('@riva-rafting-user-language', payloadF);
 
-    if (pathname !== '/') {
+    if (pathname !== '/smjestaj/mobilne-kucice') {
       router.push('/');
     } else {
       window.location.reload();

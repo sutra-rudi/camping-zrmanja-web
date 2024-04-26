@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@formspark/use-formspark": "^0.1.39",
     "@splidejs/react-splide": "^0.7.12",
     "hamburger-react": "^2.5.0",
     "lottie-react": "^2.4.0",

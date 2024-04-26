@@ -50,31 +50,7 @@ const HeroSekcija = () => {
   const background: BannerLayer = {
     translateY: [0, 60],
     shouldAlwaysCompleteAnimation: true,
-    children: (
-      <>
-        <Image fill src={campingHero} alt='hero camping from air' />
-        {/* <ReactPlayer
-          ref={playerRef}
-          url={'/novi-hero.mp4'}
-          config={{
-            file: {
-              attributes: {
-                poster: heroPoster.src,
-              },
-            },
-          }}
-          loop
-          playing={isReady}
-          onReady={onReady}
-          muted
-          volume={0}
-          width={'100%'}
-          height={'100%'}
-          playsinline
-          fallback={<Loading />}
-        /> */}
-      </>
-    ),
+    children: <Image fill src={campingHero} alt='hero camping from air' />,
   };
 
   const foreground: BannerLayer = {

@@ -1,0 +1,269 @@
+.sectionMain {
+  width: 100%;
+}
+
+.heroWrapp {
+  position: relative;
+}
+
+.sectionHero {
+  height: 45vh;
+  height: 45dvh;
+
+  // min-height: 682px;
+
+  position: relative;
+
+  .heroHeader {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    place-items: center;
+    position: absolute;
+    gap: 0.85rem;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    padding: 0 1rem;
+
+    h1 {
+      font-size: $heading1;
+
+      @media only screen and (max-width: $desktops) {
+        font-size: $heading2;
+      }
+      @media only screen and (max-width: $tablets) {
+        font-size: $heading3;
+      }
+
+      text-transform: uppercase;
+      color: #fff;
+      line-height: 120%;
+      text-align: center;
+      width: 100%;
+      text-wrap: balance;
+      word-wrap: break-word;
+      white-space: pre-wrap;
+    }
+  }
+}
+
+.masterContainer {
+  //   max-width: $masterContainerWidth;
+  max-width: 100%;
+  position: relative;
+  margin: 0 auto;
+}
+
+.contentContainer {
+  max-width: $masterContainerWidth;
+  margin: 0 auto;
+  padding: 5rem 0;
+  position: relative;
+  display: grid;
+  place-items: center;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 3.5rem;
+
+  @media only screen and (max-width: $tablets) {
+    padding: 5rem 1rem;
+  }
+}
+
+.contactCardCont {
+  display: flex;
+  max-width: 840px;
+  width: 100%;
+
+  @media only screen and (max-width: $phones) {
+    width: 90%;
+    flex-direction: column;
+  }
+
+  .contactImageCont {
+    position: relative;
+    width: 100%;
+    max-width: 560px;
+    border-radius: 0px 9px 9px 0px;
+    flex-shrink: 1;
+    min-height: 227px;
+    overflow: hidden;
+    @media only screen and (max-width: $phones) {
+      max-width: unset;
+      border-radius: 0px 0px 9px 9px;
+    }
+
+    img {
+      border-radius: 0px 9px 9px 0px;
+      object-fit: cover;
+      aspect-ratio: 16 / 9;
+      width: 200%;
+      height: 200%;
+      object-position: center;
+
+      @media only screen and (max-width: $phones) {
+        border-radius: 0px 0px 9px 9px;
+      }
+    }
+  }
+
+  .contactInfoCont {
+    background: $zelenaGlavna;
+    padding: 2.1rem 1.4rem;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    place-items: stretch;
+    gap: 1rem;
+    border-radius: 9px 0 0 9px;
+
+    @media only screen and (max-width: $phones) {
+      max-width: unset;
+      border-radius: 9px 9px 0px 0px;
+    }
+
+    p {
+      font-weight: 600;
+      font-size: $mobileHeading4;
+    }
+
+    a {
+      display: flex;
+      place-items: center;
+      gap: 0.85rem;
+      text-decoration: none;
+
+      .contactIcon {
+        font-size: 120%;
+        flex-shrink: 0;
+        color: $skrozTamnaZelena;
+      }
+
+      .contactText {
+        color: $skrozTamnaZelena;
+        font-size: $baseFontSize;
+        line-height: $browserProred;
+
+        font-weight: normal;
+      }
+    }
+
+    .contactInfoInnerCont {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      place-items: stretch;
+      gap: 1rem;
+    }
+  }
+}
+
+.contactFormContainer {
+  max-width: 840px;
+  width: 100%;
+}
+
+.contactForm {
+  display: flex;
+  width: 100%;
+  gap: 2rem;
+  place-items: stretch;
+  justify-content: center;
+
+  @media only screen and (max-width: $tablets) {
+    flex-wrap: wrap;
+    gap: 0.85rem;
+  }
+
+  .formBlockLeft {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    width: 100%;
+    place-items: start;
+    gap: 0.85rem;
+
+    @media only screen and (max-width: $phones) {
+      width: 90%;
+    }
+
+    input,
+    select {
+      outline: none;
+      border: none;
+      width: 100%;
+      max-width: 100%;
+      height: 100%;
+      background: $contactFormInputBg;
+      padding: 0 1rem;
+      color: $skrozTamnaZelena;
+      border-radius: 5px;
+      font-size: $heading4;
+      line-height: 130%;
+      font-family: inherit;
+      font-weight: 400;
+
+      @media only screen and (max-width: $tablets) {
+        padding: 0.75rem 1rem;
+      }
+
+      &::placeholder {
+        opacity: 1;
+        color: $skrozTamnaZelena;
+        font-size: $heading4;
+        line-height: 130%;
+        font-family: inherit;
+        font-weight: 400;
+      }
+    }
+
+    select {
+      -moz-appearance: none;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    option {
+      font-size: $heading4;
+      line-height: 130%;
+      font-family: inherit;
+      font-weight: 400;
+      padding: 0 1rem;
+      color: $skrozTamnaZelena;
+    }
+  }
+
+  .formBlockRight {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    width: 100%;
+    max-width: 100%;
+    place-items: stretch;
+    gap: 0.85rem;
+
+    @media only screen and (max-width: $phones) {
+      width: 90%;
+    }
+
+    textarea {
+      color: $skrozTamnaZelena;
+      padding: 1rem;
+      border: none;
+      outline: none;
+      background: $contactFormInputBg;
+      border-radius: 5px;
+      font-size: $heading4;
+      line-height: 130%;
+      font-family: inherit;
+      font-weight: 400;
+      @media only screen and (max-width: $phones) {
+        width: 100%;
+      }
+      &::placeholder {
+        color: $skrozTamnaZelena;
+        opacity: 1;
+        font-size: $heading4;
+        line-height: 130%;
+        font-family: inherit;
+        font-weight: 400;
+      }
+    }
+  }
+}
