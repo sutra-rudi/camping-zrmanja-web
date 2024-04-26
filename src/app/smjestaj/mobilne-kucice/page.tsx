@@ -5,13 +5,13 @@ import AppFooter from '@/app/components/AppFooter';
 import styles from '../../styles/smjestaj.module.scss';
 import dynamic from 'next/dynamic';
 import { engContentLuka, engContentLux, hrContentLuka, hrContentLux } from '@/app/staticContentData/smjestaj';
-import ExploreCampSection from '@/app/sections/ExploreCampSection';
-import ReviewsSection from '@/app/sections/ReviewsSection';
-import KampKuciceSekcija from '@/app/sections/KampKuciceSekcija';
-import DodatneInformacije from '@/app/sections/DodatneInformacije';
 
 export default async function MobilneKucice({ searchParams }: any) {
   const LazyContent = dynamic(() => import('./PageContent'), { ssr: false });
+  const LazyExplore = dynamic(() => import('../../sections/ExploreCampSection'), { ssr: false });
+  const LazyReviews = dynamic(() => import('../../sections/ReviewsSection'), { ssr: false });
+  const LazyKucice = dynamic(() => import('../../sections/KampKuciceSekcija'), { ssr: false });
+  const LazyDotatneInfo = dynamic(() => import('../../sections/DodatneInformacije'), { ssr: false });
 
   return (
     <Suspense fallback={<Loading />}>
@@ -21,10 +21,10 @@ export default async function MobilneKucice({ searchParams }: any) {
           luka={searchParams.lang === 'hr' ? hrContentLuka : engContentLuka}
           lux={searchParams.lang === 'hr' ? hrContentLux : engContentLux}
         />
-        <ExploreCampSection />
-        <ReviewsSection />
-        <KampKuciceSekcija />
-        <DodatneInformacije isLanding />
+        <LazyExplore />
+        <LazyReviews />
+        <LazyKucice />
+        <LazyDotatneInfo isLanding />
       </main>
 
       <AppFooter />

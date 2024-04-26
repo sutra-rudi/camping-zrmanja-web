@@ -151,7 +151,7 @@
 
     h2 {
       width: 100%;
-      white-space: nowrap;
+      // white-space: nowrap;
       text-transform: uppercase;
       color: $skrozTamnaZelena;
       font-size: $heading2;
@@ -167,6 +167,14 @@
 
     @media only screen and (min-width: $tablets) {
       max-width: 738px;
+    }
+
+    @media only screen and (max-width: $tablets) {
+      height: 612px;
+    }
+
+    @media only screen and (max-width: $phones) {
+      height: 412px;
     }
     width: 100%;
 

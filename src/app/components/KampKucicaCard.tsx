@@ -5,7 +5,7 @@ import React from 'react';
 import styles from '../styles/kampKucicaSekcija.module.scss';
 import { useAppContext } from '../contexts/store';
 import { parseByLang } from '../utils/parseByLang';
-// import articleArrow from '../img/icons/article-arrow-subpage-thin.svg';
+
 import { TfiArrowTopRight as ArticleArrow } from 'react-icons/tfi';
 import Link from 'next/link';
 interface KampKucicaCard {
@@ -37,18 +37,18 @@ const KampKucicaCard = (props: KampKucicaCard) => {
           <h2>{parseByLang(titleHr, titleEng, userLang)}</h2>
 
           <div className={styles.kampKucicaCtaCont}>
-            <a href=''>
+            <div>
               <span>{parseByLang(learnMoreHr, learnMoreEng, userLang)}</span>
               <span>
                 <ArticleArrow className={styles.articleArrow} />
               </span>
-            </a>
-            <a href=''>
+            </div>
+            <div>
               <span>{parseByLang(checkAvailabilityHr, checkAvailabilityEng, userLang)}</span>
               <span>
                 <ArticleArrow className={styles.articleArrow} />
               </span>
-            </a>
+            </div>
           </div>
         </div>
       </article>

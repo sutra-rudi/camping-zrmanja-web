@@ -11,9 +11,11 @@ import AppButton from '@/app/components/AppButton';
 import PaperDividTop from '@/app/components/PaperDividTop';
 import smjestajPlaceholder from '../../img/globals/smjestaj-placeholder.png';
 import PaperDividBot from '@/app/components/PaperDividBot';
+import { useAppContext } from '@/app/contexts/store';
 const RecoletaBold = localFont({
   src: [{ path: '../../../../public/fonts/recoleta-font/Recoleta-Bold.ttf', weight: '700' }],
 });
+
 interface SmjestajPageContent {
   luka: {
     title: string;
@@ -26,7 +28,9 @@ interface SmjestajPageContent {
   }[];
 }
 const PageContent = ({ luka, lux }: SmjestajPageContent) => {
-  console.log('PAGE DATA', 'LUX:', lux);
+  const {
+    state: { userLang },
+  } = useAppContext();
 
   const background: BannerLayer = {
     translateY: [0, 60],
@@ -41,9 +45,11 @@ const PageContent = ({ luka, lux }: SmjestajPageContent) => {
     shouldAlwaysCompleteAnimation: true,
     children: (
       <div className={styles.heroHeader}>
-        <h1 className={`${styles.heroCtaHeader} ${RecoletaBold.className}`}>Mobilne Kućice</h1>
+        <h1 className={`${styles.heroCtaHeader} ${RecoletaBold.className}`}>
+          {userLang === 'hr' ? `Mobilne kućice` : `Mobile Homes`}
+        </h1>
         <div className={styles.heroCtaButtonKontejter}>
-          <AppButton isHero content={`Rezervirajte svoj termin`} />
+          <AppButton isHero content={userLang === 'hr' ? `Rezervirajte svoj termin` : `Book your appointment`} />
         </div>
       </div>
     ),
@@ -56,7 +62,9 @@ const PageContent = ({ luka, lux }: SmjestajPageContent) => {
     shouldAlwaysCompleteAnimation: true,
     children: (
       <div className={styles.heroCtaHeaderBacksideWrapper}>
-        <h1 className={`${styles.heroCtaHeaderBackside} ${RecoletaBold.className}`}>Mobilne Kućice</h1>
+        <h1 className={`${styles.heroCtaHeaderBackside} ${RecoletaBold.className}`}>
+          {userLang === 'hr' ? `Mobilne kućice` : `Mobile Homes`}
+        </h1>
       </div>
     ),
   };
