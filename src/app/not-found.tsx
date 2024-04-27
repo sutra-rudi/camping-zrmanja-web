@@ -14,15 +14,23 @@ export default function NotFound({ searchParams }: any) {
       <main className={styles.pageMain}>
         <PaperDividTop />
         <div className={styles.notFoundCtaCont}>
-          <h1>{searchParams.lang === 'hr' ? `Stranica nije pronađena` : `Oops, Page Not Found!`}</h1>
+          <h1>
+            {typeof searchParams !== 'undefined' && searchParams.lang === 'hr'
+              ? `Stranica nije pronađena`
+              : `Oops, Page Not Found!`}
+          </h1>
           <p>
-            {searchParams.lang === 'hr'
+            {typeof searchParams !== 'undefined' && searchParams.lang === 'hr'
               ? `Nismo uspjeli pronaći traženi resurs.`
               : `Sorry, we couldn't find the page you're looking for.`}
           </p>
           <Link href='/'>
             <AppButton
-              content={searchParams.lang === 'hr' ? `Vratite se na Početnu stranicu` : `Go Back to Home Page`}
+              content={
+                typeof searchParams !== 'undefined' && searchParams.lang === 'hr'
+                  ? `Vratite se na Početnu stranicu`
+                  : `Go Back to Home Page`
+              }
             />
           </Link>
         </div>

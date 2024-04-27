@@ -15,7 +15,7 @@ export default async function Kontakt({ searchParams }: any) {
       <main className={styles.sectionMain}>
         <LazyContent
           title={
-            searchParams.lang === 'en'
+            typeof searchParams !== 'undefined' && searchParams.lang === 'en'
               ? `CONTACT US AND\nBOOK YOUR APPOINTMENT`
               : `KONTAKTIRAJTE NAS I\nREZERVIRAJTE SVOJ TERMIN`
           }

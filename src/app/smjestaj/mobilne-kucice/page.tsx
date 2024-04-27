@@ -18,8 +18,8 @@ export default async function MobilneKucice({ searchParams }: any) {
       <AppHeader />
       <main className={styles.smjestajMain}>
         <LazyContent
-          luka={searchParams.lang === 'hr' ? hrContentLuka : engContentLuka}
-          lux={searchParams.lang === 'hr' ? hrContentLux : engContentLux}
+          luka={typeof searchParams !== 'undefined' && searchParams.lang === 'hr' ? hrContentLuka : engContentLuka}
+          lux={typeof searchParams !== 'undefined' && searchParams.lang === 'hr' ? hrContentLux : engContentLux}
         />
         <LazyExplore />
         <LazyReviews />
