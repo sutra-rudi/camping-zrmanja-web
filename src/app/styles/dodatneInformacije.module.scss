@@ -96,7 +96,11 @@
           }
 
           line-height: $sekundarniProred;
-          max-width: 358px;
+          // max-width: 368px;
+          padding: 0 1rem;
+          word-wrap: break-word;
+          white-space: pre-wrap;
+          text-wrap: balance;
         }
       }
     }
