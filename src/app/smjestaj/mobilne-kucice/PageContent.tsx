@@ -69,7 +69,7 @@ const PageContent = ({ luka, lux }: SmjestajPageContent) => {
     ),
   };
 
-  return (
+  return typeof window !== 'undefined' && window !== null ? (
     <div className={styles.contentContainer}>
       <PaperDividTop />
       <ParallaxBanner className={styles.smjestajHero} layers={[background, headline, foreground]} />
@@ -126,7 +126,7 @@ const PageContent = ({ luka, lux }: SmjestajPageContent) => {
         </div>
       </div>
     </div>
-  );
+  ) : null;
 };
 
 export default PageContent;

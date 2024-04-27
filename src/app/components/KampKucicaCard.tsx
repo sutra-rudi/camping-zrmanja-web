@@ -39,15 +39,13 @@ const KampKucicaCard = (props: KampKucicaCard) => {
           <div className={styles.kampKucicaCtaCont}>
             <div>
               <span>{parseByLang(learnMoreHr, learnMoreEng, userLang)}</span>
-              <span>
-                <ArticleArrow className={styles.articleArrow} />
-              </span>
+
+              <ArticleArrow className={styles.articleArrow} />
             </div>
             <div>
               <span>{parseByLang(checkAvailabilityHr, checkAvailabilityEng, userLang)}</span>
-              <span>
-                <ArticleArrow className={styles.articleArrow} />
-              </span>
+
+              <ArticleArrow className={styles.articleArrow} />
             </div>
           </div>
         </div>

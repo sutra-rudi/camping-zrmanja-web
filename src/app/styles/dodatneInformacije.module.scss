@@ -1,15 +1,25 @@
+@keyframes fadeIn {
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes deskFadeIn {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 .dodatneInformacije {
   width: 100%;
   position: relative;
-  margin: 6rem auto 0 auto;
+  margin: 5rem auto 0 auto;
 
   @media only screen and (max-width: $desktops) {
     max-width: $masterContainerWidth;
     padding: 0 1rem;
-  }
-
-  @media only screen and (max-width: $tablets) {
-    margin: 3rem auto 0 auto;
   }
 
   .sectionHeading {
@@ -26,6 +36,10 @@
     }
     line-height: $defaultProred;
     margin: 0 0 3.5rem 0;
+
+    @media only screen and (max-width: $tablets) {
+      margin: 0 0 2rem 0;
+    }
   }
 
   .sectionListContainer {
@@ -33,6 +47,7 @@
     place-items: center;
     justify-content: space-between;
     gap: 0.575rem;
+    overflow: hidden;
     @media only screen and (max-width: $largeDesktops) {
       justify-content: center;
     }
@@ -56,15 +71,11 @@
       gap: 0px;
 
       .titleHolderInner {
-        width: 100%;
-
         h6,
         h2 {
           color: #fff;
           text-transform: uppercase;
           text-align: center;
-          width: 100%;
-
           transition: all 250ms cubic-bezier(0.25, 0.4, 0.2, 0.5);
         }
 
@@ -76,10 +87,6 @@
         h2 {
           font-size: $heading2;
           transition-delay: 200ms;
-          text-wrap: balance;
-          word-wrap: break-word;
-          white-space: pre-wrap;
-          // white-space: nowrap;
 
           @media only screen and (max-width: $tablets) {
             font-size: $mobileHeading1;
@@ -89,7 +96,7 @@
           }
 
           line-height: $sekundarniProred;
-          // max-width: 358px;
+          max-width: 358px;
         }
       }
     }
@@ -101,6 +108,22 @@
       overflow: hidden;
       cursor: pointer;
       transition: all 250ms cubic-bezier(0.5, 0.2, 0.4, 0.25);
+      transform: translateX(0) translateY(-20%);
+      @media only screen and (max-width: $tablets) {
+        transform: translateX(-20%) translateY(0);
+      }
+      opacity: 0;
+
+      &:nth-child(1) {
+        animation-delay: 150ms;
+      }
+      &:nth-child(2) {
+        animation-delay: 250ms;
+      }
+
+      &:nth-child(3) {
+        animation-delay: 350ms;
+      }
 
       a {
         text-decoration: none;
@@ -141,6 +164,16 @@
           aspect-ratio: 16 / 9;
         }
       }
+    }
+
+    .inView {
+      animation-name: deskFadeIn;
+      @media only screen and (max-width: $tablets) {
+        animation-name: fadeIn;
+      }
+      animation-fill-mode: forwards;
+      animation-timing-function: cubic-bezier(0.5, 0.2, 0.4, 0.25);
+      animation-duration: 750ms;
     }
   }
 }

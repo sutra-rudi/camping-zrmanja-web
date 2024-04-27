@@ -50,7 +50,7 @@ const HeroSekcija = () => {
   const background: BannerLayer = {
     translateY: [0, 60],
     shouldAlwaysCompleteAnimation: true,
-    children: <Image fill src={campingHero} alt='hero camping from air' />,
+    children: <Image fill src={campingHero} priority placeholder='blur' quality={100} alt='hero camping from air' />,
   };
 
   const foreground: BannerLayer = {

@@ -1,0 +1,63 @@
+.pageMain {
+  width: 100%;
+  position: relative;
+  display: grid;
+  place-items: center;
+  justify-content: center;
+  min-height: 75vh;
+  min-height: 75lvh;
+
+  @media only screen and (max-width: $tablets) {
+    min-height: 55vh;
+    min-height: 55lvh;
+  }
+
+  .notFoundCtaCont {
+    //     position: absolute;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    place-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  h1 {
+    z-index: 1;
+    color: $svijetloSiva;
+    display: block;
+    font-size: $heading1;
+    text-align: center;
+    line-height: $defaultProred;
+
+    @media only screen and (max-width: $tablets) {
+      font-size: $heading3;
+    }
+  }
+
+  p {
+    color: $svijetloSiva;
+    font-size: $heading3;
+    @media only screen and (max-width: $tablets) {
+      font-size: $heading5;
+    }
+    text-align: center;
+    line-height: $defaultProred;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  &::before {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(98, 133, 17, 0.25), rgba(35, 48, 5, 0.8)), url('../img/heros//not-found-hero.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    content: '';
+    z-index: 0;
+  }
+}

@@ -32,6 +32,16 @@
 
   &:hover {
     background: #f3f3f3;
+
+    .kampKucicaImageCont {
+      img {
+        transform: translateY(100%);
+      }
+
+      &::before {
+        transform: translateY(0);
+      }
+    }
   }
 
   .kampKucicaContent {
@@ -52,7 +62,6 @@
       white-space: pre-wrap;
     }
 
-    a,
     span {
       text-decoration: none;
       color: $skrozTamnaZelena;
@@ -62,31 +71,19 @@
       justify-content: flex-start;
       text-decoration: none;
       transition: all 250ms cubic-bezier(0.25, 0.4, 0.2, 0.5);
-      // gap: 0.025rem;
-      // overflow: hidden;
       gap: 0.25rem;
+    }
 
-      .articleArrow {
-        transition: all 250ms cubic-bezier(0.25, 0.4, 0.2, 0.5);
-        flex-shrink: 1;
-        font-size: inherit;
-        transform-origin: center;
-        transition-delay: 150ms;
+    .articleArrow {
+      transition: all 250ms cubic-bezier(0.25, 0.4, 0.2, 0.5);
+      flex-shrink: 1;
+      font-size: inherit;
+      transform-origin: center;
+      transition-delay: 150ms;
+      color: $skrozTamnaZelena;
 
-        @media only screen and (max-width: $tablets) {
-          font-size: $mobileFontSizeSmall;
-        }
-      }
-
-      &:hover {
-        transform: translateX(5%);
-        color: $zelenaTamna;
-        .articleArrow,
-        span,
-        svg {
-          transform: rotate(45deg) translateX(15%);
-          color: $zelenaTamna;
-        }
+      @media only screen and (max-width: $tablets) {
+        font-size: $mobileFontSizeSmall;
       }
     }
   }
@@ -127,22 +124,28 @@
     gap: 0.05rem;
     width: 100%;
 
-    div,
-    span {
+    div {
       display: flex;
       place-items: center;
       justify-content: flex-start;
       text-decoration: none;
       gap: 0.15rem;
+      transition: all 250ms cubic-bezier(0.25, 0.4, 0.2, 0.5);
 
       svg {
         font-size: 80%;
       }
-    }
 
-    span {
-      text-decoration: none;
-      color: $skrozTamnaZelena;
+      &:hover {
+        transform: translateX(5%);
+        span {
+          color: $zelenaTamna;
+        }
+        .articleArrow {
+          transform: rotate(45deg) translateX(15%);
+          color: $zelenaTamna;
+        }
+      }
     }
   }
 }

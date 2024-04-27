@@ -74,7 +74,7 @@ const ParallaxVideoSection = () => {
 
   const bottomBg: BannerLayer = {
     translateY: [0, 30],
-    scale: [1, 1.15],
+    // scale: [1, 1.15],
     children: <Image src={bottomImage} fill alt='bottom image' />,
   };
 

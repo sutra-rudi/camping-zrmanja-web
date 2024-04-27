@@ -99,7 +99,7 @@ const AppHeader = () => {
               <HeaderBaseTwo />
             </div>
             <div className={styles.navInnerParent}>
-              <AppButton isNav content='REZERVIRAJ SVOJ BORAVAK' />
+              <AppButton isNav content={parseByLang('REZERVIRAJ SVOJ BORAVAK', 'BOOK YOUR STAY')} />
               <div className={styles.navInnerParentLang}>
                 <LanguageSwitch />
               </div>
