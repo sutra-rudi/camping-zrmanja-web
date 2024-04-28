@@ -22,18 +22,27 @@ const AppHeader = () => {
     state: { userLang },
   } = useAppContext();
 
-  const parseByLang = (hrString: string, enString: string) => (userLang === 'hr' ? hrString : enString);
+  const parseByLang = React.useCallback(
+    (hrString: string, enString: string) => (userLang === 'hr' ? hrString : enString),
+    [userLang]
+  );
   const paramsControler = useSearchParams();
   const checkParams = paramsControler.get('lang');
 
   const navLinksOne = [
-    { text: parseByLang('O nama', 'About us'), href: parseByLang('/o-nama', '/about-us') },
+    {
+      text: parseByLang(`O nama`, `About us`),
+      href: parseByLang(`/o-nama/?lang=${checkParams}`, `/about-us/?lang=${checkParams}`),
+    },
     {
       text: parseByLang('Smještaj', 'Accommodation'),
       href: parseByLang(`/smjestaj/?lang=${checkParams}`, `/accommodation/?lang=${checkParams}`),
     },
-    { text: parseByLang('Kontakt', 'Contact'), href: '/kontakt' },
-    { text: parseByLang('Što posjetiti?', 'What to visit?'), href: parseByLang('/sto-posjetiti', '/what-to-visit') },
+    { text: parseByLang('Kontakt', 'Contact'), href: `/kontakt/?lang=${checkParams}` },
+    {
+      text: parseByLang('Što posjetiti?', 'What to visit?'),
+      href: parseByLang(`/sto-posjetiti/?lang=${checkParams}`, `/what-to-visit/?lang=${checkParams}`),
+    },
   ];
   const navLinksTwo = [
     { text: 'Mićanovi Dvori', href: '/' },

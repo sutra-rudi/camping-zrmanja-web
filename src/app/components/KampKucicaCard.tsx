@@ -28,7 +28,7 @@ const KampKucicaCard = (props: KampKucicaCard) => {
   } = useAppContext();
 
   return (
-    <Link className={styles.kampKucicaCard} href={url ?? '/'}>
+    <Link className={styles.kampKucicaCard} href={url ? `${url}/?lang=${userLang}` : '/'}>
       <article>
         <div className={styles.kampKucicaImageCont}>
           <Image fill src={imageUrl} alt='camp house thumbnail' />

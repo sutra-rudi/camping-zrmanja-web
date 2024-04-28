@@ -16,6 +16,7 @@ import { useAppContext } from '../contexts/store';
 import { useWindowSize } from '../hooks/useWindowSize';
 
 import { kampKuciceContent } from '../staticContentData/kampKucice';
+import { useSearchParams } from 'next/navigation';
 
 interface FooterInterface {
   isAbout?: boolean;
@@ -26,35 +27,14 @@ const AppFooter = (props: FooterInterface) => {
     state: { userLang },
   } = useAppContext();
 
-  const en_links = [
-    { title: 'Hiking tour', href: '/activities/walking-tour' },
-    { title: 'Kayak tours', href: '/activities/kayak' },
-    { title: 'Rafting tour', href: '/activities/Rafting-on-Zrmanja' },
-    { title: 'Kayaking from Zrmanja to the Adriatic Sea', href: '/activities/Kayak-River-to-the-sea' },
-    { title: 'Stand Up Paddle', href: '/activities/Stand-Up-Paddle-Zrmanja' },
-    { title: 'Boat Tour', href: '/activities/Zrmanja-by-boat' },
-    { title: 'Jeep Safari', href: '/activities/Velebit-Jeep-safari' },
-    { title: 'Caving', href: '/activities/Cave-Modric' },
-    { title: 'Horseback Riding', href: '/activities/horses' },
-    { title: 'Cycling', href: '/activities/Bike-riding' },
-  ];
-
-  const hr_links = [
-    { title: 'Pješačka Tura', href: '/aktivnosti/pjesacke-ture' },
-    { title: 'Kayak Ture', href: '/aktivnosti/kayak-tura' },
-    { title: 'Rafting Tura', href: '/aktivnosti/Rafting' },
-    { title: 'Kayak po Zrmanji do Jadranskog mora', href: '/aktivnosti/Kayak-Zrmanja-More' },
-    { title: 'Stand Up Paddle', href: '/aktivnosti/Stand-Up-Paddle' },
-    { title: 'Vožnja Brodom', href: '/aktivnosti/Zrmanja-brodom' },
-    { title: 'Jeep Safari', href: '/aktivnosti/Jeep-safari' },
-    { title: 'Špiljarenje', href: '/aktivnosti/Spiljarenje' },
-    { title: 'Jahanje', href: '/aktivnosti/Jahanje' },
-    { title: 'Vožnja Bicikla', href: '/aktivnosti/Bicik' },
-  ];
-
-  const parseByLang = (hrString: string, enString: string) => (userLang === 'hr' ? hrString : enString);
+  const parseByLang = React.useCallback(
+    (hrString: string, enString: string) => (userLang === 'hr' ? hrString : enString),
+    [userLang]
+  );
 
   const clientWindowSize = useWindowSize();
+  const paramsControler = useSearchParams();
+  const checkParams = paramsControler.get('lang');
 
   return (
     <footer style={{ marginTop: props.isAbout ? '0' : '3rem' }} className={styles.appFooter}>
@@ -89,35 +69,26 @@ const AppFooter = (props: FooterInterface) => {
               <ul>
                 {kampKuciceContent.map((content, index) => (
                   <li key={index}>
-                    <a href=''>{userLang === 'hr' ? content.titleHr : content.titleEng}</a>
+                    <a href={content.url ? `${content.url}/?lang=${checkParams}` : ''}>
+                      {userLang === 'hr' ? content.titleHr : content.titleEng}
+                    </a>
                   </li>
                 ))}
-                {/* {userLang === 'hr'
-                  ? hr_links.map((link) => (
-                      <li key={link.href}>
-                        <a href={link.href}>{link.title}</a>
-                      </li>
-                    ))
-                  : en_links.map((link) => (
-                      <li key={link.href}>
-                        <a href={link.href}>{link.title}</a>
-                      </li>
-                    ))} */}
               </ul>
             </div>
           </div>
           <div className={styles.footerBlock}>
             <p>{parseByLang('Linkovi', 'Links')}</p>
             <div className={styles.linkStack}>
-              <a href={parseByLang('/o-nama', '/about-us')}>
+              <a href={parseByLang(`/o-nama/?lang=${checkParams}`, `/about-us/?lang=${checkParams}`)}>
                 <Image src={footerArrow} alt='icon' width={16} height={16} />
                 <span>{parseByLang('O nama', 'About us')}</span>
               </a>
-              <a href={'/kontakt'}>
+              <a href={`/kontakt/?lang=${checkParams}`}>
                 <Image src={footerArrow} alt='icon' width={16} height={16} />
                 <span>{parseByLang('Kontakt forma', 'Contact form')}</span>
               </a>
-              <a href='/#FAQ'>
+              <a href={`/#FAQ/?lang=${checkParams}`}>
                 <Image src={footerArrow} alt='icon' width={16} height={16} />
                 <span>{parseByLang('FAQ', 'FAQ')}</span>
               </a>
@@ -148,19 +119,24 @@ const AppFooter = (props: FooterInterface) => {
           <div className={styles.footerDislaimerTrack}>
             <div className={styles.disclaimerSig}>
               <div className={styles.disclaimerSigIn}>
-                <a href={parseByLang('/uvjeti-koristenja', '/terms-of-use')}>
+                <a href={parseByLang(`/uvjeti-koristenja/?lang=${checkParams}`, `/terms-of-use/?lang=${checkParams}`)}>
                   {parseByLang('Uvjeti i odredbe', 'Terms & Conditions')}
                 </a>
 
                 <span>|</span>
 
-                <a href={parseByLang('/pravila-privatnosti', '/privacy-policy')}>
-                  {parseByLang('Politika privatnosti', 'Privacy Policy')}
+                <a
+                  href={parseByLang(
+                    `/pravila-privatnosti/?lang=${checkParams}`,
+                    `/privacy-policy/?lang=${checkParams}`
+                  )}
+                >
+                  {parseByLang(`Politika privatnosti`, `Privacy Policy`)}
                 </a>
 
                 <span>|</span>
 
-                <a href={parseByLang('/podatci-o-tvrtki', '/company-info')}>
+                <a href={parseByLang(`/podatci-o-tvrtki/?lang=${checkParams}`, `/company-info/?lang=${checkParams}`)}>
                   {parseByLang('Podaci o tvrtki', 'Company info')}
                 </a>
               </div>

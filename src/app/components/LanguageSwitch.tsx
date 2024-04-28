@@ -58,6 +58,7 @@ const LanguageSwitch = () => {
     setLocalStorageItem('@riva-rafting-user-language', payloadF);
 
     if (pathname !== '/smjestaj/mobilne-kucice') {
+      window.location.reload();
       router.push('/');
     } else {
       window.location.reload();
