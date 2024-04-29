@@ -52,8 +52,8 @@ export default async function TermsOfUse() {
       <AppHeader />
       <main className={styles.mainSection}>
         <LazyContent {...sectionContent_hr} />
-        <AppFooter />
       </main>
+      <AppFooter />
     </Suspense>
   );
 }
