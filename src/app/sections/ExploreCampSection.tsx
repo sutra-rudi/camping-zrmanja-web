@@ -38,8 +38,6 @@ const ExploreCampSection = () => {
       ));
   };
 
-  // const demoGallery = Array.from(Array(12).keys());
-
   const findData = () => kampKuciceArray.find((indexObjekta) => indexObjekta.id === currentActiveFilter);
 
   return (
@@ -60,8 +58,8 @@ const ExploreCampSection = () => {
               width={362}
               height={289}
               alt='camp site view'
-              // onLoadStart={() => console.log('LOAD START')}
-              onLoad={() => console.log('GOTOVO')}
+              placeholder='blur'
+              blurDataURL={galItem.blurDataURL}
               loading='lazy'
             />
           </div>
