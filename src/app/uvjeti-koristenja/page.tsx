@@ -5,7 +5,8 @@ import pravilaHero from '../img/heros/pravila/uvjeti-koristenja-hero.png';
 import AppHeader from '../components/AppHeader';
 
 import Loading from './loading';
-import dynamic from 'next/dynamic';
+
+import PageContent from './PageContent';
 const sectionContent_hr = {
   title: 'Uvjeti Korištenja',
   topText:
@@ -46,13 +47,11 @@ const sectionContent_hr = {
 };
 
 export default async function UvjetiKoristenja() {
-  const LazyContent = dynamic(() => import('./PageContent'), { ssr: false });
-
   return (
     <Suspense fallback={<Loading />}>
       <AppHeader />
       <main className={styles.mainSection}>
-        <LazyContent {...sectionContent_hr} />
+        <PageContent {...sectionContent_hr} />
       </main>
       <AppFooter />
     </Suspense>

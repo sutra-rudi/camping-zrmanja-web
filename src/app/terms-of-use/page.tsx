@@ -4,7 +4,8 @@ import AppFooter from '../components/AppFooter';
 import pravilaHero from '../img/heros/pravila/pravila-privatnosti-hero.png';
 import AppHeader from '../components/AppHeader';
 import Loading from './loading';
-import dynamic from 'next/dynamic';
+
+import PageContent from './PageContent';
 const sectionContent_hr = {
   title: 'Terms of use',
   topText:
@@ -45,13 +46,11 @@ const sectionContent_hr = {
 };
 
 export default async function TermsOfUse() {
-  const LazyContent = dynamic(() => import('./PageContent'), { ssr: false });
-
   return (
     <Suspense fallback={<Loading />}>
       <AppHeader />
       <main className={styles.mainSection}>
-        <LazyContent {...sectionContent_hr} />
+        <PageContent {...sectionContent_hr} />
       </main>
       <AppFooter />
     </Suspense>
