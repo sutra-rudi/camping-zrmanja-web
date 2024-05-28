@@ -6,6 +6,15 @@
 
   place-items: flex-end;
   justify-content: flex-end;
+  .footerImage {
+    object-position: top;
+    object-fit: cover;
+    aspect-ratio: 9/16 auto;
+
+    @media only screen and (min-width: $tablets) {
+      aspect-ratio: 16/9 auto;
+    }
+  }
   // margin-top: 3rem;
 
   @media only screen and (min-width: $desktops) {
@@ -91,7 +100,10 @@
   .appLogoContainer {
     max-width: 322px;
     width: 100%;
-    height: 138px;
+    @media only screen and (min-width: $tablets) {
+      height: 138px;
+    }
+    height: 90px;
     position: relative;
 
     img {

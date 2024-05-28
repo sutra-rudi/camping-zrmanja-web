@@ -2,7 +2,7 @@
 
 import React from 'react';
 import styles from '../styles/appFooter.module.scss';
-import footerBg from '../img/globals/footer-main-bg.png';
+import footerBg from '../img/globals/camping-footer-bg.png';
 import appLogo from '../img/logos/camping-logo.svg';
 import Image from 'next/image';
 import facebookIcon from '../img/icons/FACEBOOK-FOOTER.svg';
@@ -51,11 +51,13 @@ const AppFooter = (props: FooterInterface) => {
 
       <Image
         fill
-        src={clientWindowSize && clientWindowSize?.width > 1024 ? footerBg : footerAltBg}
+        // src={clientWindowSize && clientWindowSize?.width > 1024 ? footerBg : footerAltBg}
+        src={footerBg}
         alt='footerBackground'
         placeholder='blur'
         quality={100}
-        loading='lazy'
+        loading='eager'
+        className={styles.footerImage}
       />
 
       <div className={styles.footerMaster}>
