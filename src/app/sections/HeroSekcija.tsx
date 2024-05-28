@@ -2,32 +2,31 @@
 import localFont from 'next/font/local';
 import React from 'react';
 import styles from '../styles/heroSekcija.module.scss';
-// import ReactPlayer from 'react-player/lazy';
 import AppButton from '../components/AppButton';
 import PaperDividTop from '../components/PaperDividTop';
-import heroPoster from '../img/hero-poster.jpg';
+import heroPoster from '../img/heros/video-hero-poster-camping.png';
 import Loading from '../loading';
 import { useAppContext } from '../contexts/store';
-import campingHero from '../img/heros/camping-hero.png';
 
 const RecoletaBold = localFont({
   src: [{ path: '../../../public/fonts/recoleta-font/Recoleta-Bold.ttf', weight: '700' }],
 });
 
 import { BannerLayer, ParallaxBanner } from 'react-scroll-parallax';
-import Image from 'next/image';
+
+import ReactPlayer from 'react-player';
 
 const HeroSekcija = () => {
-  // const [isReady, setIsReady] = React.useState(false);
-  // const playerRef = React.useRef<ReactPlayer>(null);
+  const [isReady, setIsReady] = React.useState(false);
+  const playerRef = React.useRef<ReactPlayer>(null);
 
-  // const onReady = React.useCallback(() => {
-  //   if (!isReady) {
-  //     // const timeToStart = 7 * 60 + 12.6;
-  //     playerRef.current && playerRef.current.seekTo(0, 'seconds');
-  //     setIsReady(true);
-  //   }
-  // }, [isReady]);
+  const onReady = React.useCallback(() => {
+    if (!isReady) {
+      // const timeToStart = 7 * 60 + 12.6;
+      playerRef.current && playerRef.current.seekTo(0, 'seconds');
+      setIsReady(true);
+    }
+  }, [isReady]);
 
   const {
     state: { userLang },
@@ -39,9 +38,6 @@ const HeroSekcija = () => {
   const btn_main_hr = 'Rezerviraj svoj boravak';
   const btn_main_en = 'Book your stay';
 
-  // const btn_second_hr = 'Rezerviraj mailom';
-  // const btn_second_en = 'Book by email';
-
   const langCheck = React.useCallback(
     (hrString: string, enString: string) => (userLang === 'hr' ? hrString : enString),
     [userLang]
@@ -50,20 +46,38 @@ const HeroSekcija = () => {
   const background: BannerLayer = {
     translateY: [0, 60],
     shouldAlwaysCompleteAnimation: true,
-    children: <Image fill src={campingHero} priority placeholder='blur' quality={100} alt='hero camping from air' />,
+    children: (
+      <ReactPlayer
+        url={'/video-hero.mp4'}
+        loop
+        muted
+        volume={0}
+        width={'100%'}
+        height={'100%'}
+        playsinline
+        playing={isReady}
+        onReady={onReady}
+        fallback={<Loading />}
+        config={{
+          file: {
+            attributes: {
+              poster: heroPoster.src,
+            },
+          },
+        }}
+      />
+    ),
   };
 
   const foreground: BannerLayer = {
     translateY: [0, 30],
-    // scale: [2, 0.8],
-    // opacity: [1, 0.1],
+
     shouldAlwaysCompleteAnimation: true,
     children: (
       <div className={styles.heroCtaKontejner}>
         <h1 className={`${styles.heroCtaHeader} ${RecoletaBold.className}`}>{langCheck(headline_hr, headline_en)}</h1>
         <div className={styles.heroCtaButtonKontejter}>
           <AppButton isHero content={langCheck(btn_main_hr, btn_main_en)} />
-          {/* <AppButton isHero content={langCheck(btn_second_hr, btn_second_en)} isSecondary /> */}
         </div>
       </div>
     ),
