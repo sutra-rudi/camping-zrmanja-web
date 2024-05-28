@@ -22,10 +22,7 @@ export const engContentLuka = [
     content:
       "Access to the swimming pool. Access to the children's playground. Access to table tennis. Access to mini football field. Access to basketball court. Access to badminton court.",
   },
-  {
-    title: 'Activities',
-    content: 'Horse riding - free with reservations for +7 nights.',
-  },
+
   {
     title: 'Check-in',
     content: 'Check-in: 16:00 & Check-out: 10:00',
@@ -56,10 +53,7 @@ export const hrContentLuka = [
     content:
       'Korištenje bazena. Korištenje dječjeg igrališta. Korištenje stolnog tenisa. Korištenje malonogometnog igrališta. Korištenje košarkaškog igrališta. Korištenje badminton igrališta.',
   },
-  {
-    title: 'Animacija',
-    content: 'Jahanje - rezervacijom +7 noći, Jahanje besplatno.',
-  },
+
   {
     title: 'Prijava i Odjava',
     content: 'Prijava: 16:00 & Odjava: 10:00',
@@ -90,10 +84,7 @@ export const engContentLux = [
     content:
       "Access to the swimming pool. Access to the children's playground. Access to table tennis. Access to mini football field. Access to basketball court. Access to badminton court.",
   },
-  {
-    title: 'Activities',
-    content: 'Horseback riding - free with reservations of +7 nights.',
-  },
+
   {
     title: 'Check-in and Check-out',
     content: 'Check-in: 16:00 & Check-out: 10:00',
@@ -124,10 +115,7 @@ export const hrContentLux = [
     content:
       'Pristup bazenu. Pristup dječjem igralištu. Pristup stolnom tenisu. Pristup malom nogometnom igralištu. Pristup košarkaškom igralištu. Pristup badminton igralištu.',
   },
-  {
-    title: 'Animacija',
-    content: 'Jahanje - besplatno uz rezervaciju od +7 noćenja.',
-  },
+
   {
     title: 'Prijava i Odjava',
     content: 'Prijava: 16:00 & Odjava: 10:00',

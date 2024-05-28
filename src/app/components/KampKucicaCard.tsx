@@ -17,21 +17,33 @@ interface KampKucicaCard {
   checkAvailabilityHr: string;
   checkAvailabilityEng: string;
   url: string;
+  klasa: string;
 }
 
 const KampKucicaCard = (props: KampKucicaCard) => {
-  const { imageUrl, titleHr, titleEng, learnMoreHr, learnMoreEng, checkAvailabilityEng, checkAvailabilityHr, url } =
-    props;
+  const {
+    imageUrl,
+    titleHr,
+    titleEng,
+    learnMoreHr,
+    learnMoreEng,
+    checkAvailabilityEng,
+    checkAvailabilityHr,
+    url,
+    klasa,
+  } = props;
 
   const {
     state: { userLang },
   } = useAppContext();
 
+  const parseClass = `${styles[klasa]}`;
+
   return (
-    <Link className={styles.kampKucicaCard} href={url ? `${url}/?lang=${userLang}` : '/'}>
+    <Link className={`${styles.kampKucicaCard} ${parseClass}`} href={url ? `${url}/?lang=${userLang}` : '/'}>
       <article>
         <div className={styles.kampKucicaImageCont}>
-          <Image fill src={imageUrl} alt='camp house thumbnail' />
+          <Image fill src={imageUrl} placeholder='blur' alt='camp house thumbnail' />
         </div>
         <div className={styles.kampKucicaContent}>
           <h2>{parseByLang(titleHr, titleEng, userLang)}</h2>

@@ -55,8 +55,8 @@ const ExploreCampSection = () => {
           <div key={galItem.src} className={styles.imageContainer}>
             <Image
               src={galItem.src}
-              width={362}
-              height={289}
+              width={400}
+              height={300}
               alt='camp site view'
               placeholder='blur'
               blurDataURL={galItem.blurDataURL}

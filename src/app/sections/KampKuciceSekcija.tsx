@@ -18,6 +18,7 @@ const KampKuciceSekcija = () => {
             checkAvailabilityEng,
             checkAvailabilityHr,
             url,
+            klasa,
           } = item;
           return (
             <KampKucicaCard
@@ -30,6 +31,7 @@ const KampKuciceSekcija = () => {
               checkAvailabilityEng={checkAvailabilityEng}
               checkAvailabilityHr={checkAvailabilityHr}
               url={url as string}
+              klasa={klasa}
             />
           );
         })}

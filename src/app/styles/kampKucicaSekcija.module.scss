@@ -94,23 +94,6 @@
     flex-shrink: 1;
     overflow: hidden;
 
-    &::before {
-      position: absolute;
-      content: '';
-      width: 100%;
-      height: 100%;
-      background: url('../img/sections/odmori-se-3.png');
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover;
-      inset: 0;
-      display: block;
-      z-index: 1;
-      transform: translateY(-100%);
-      transition: all 250ms cubic-bezier(0.25, 0.4, 0.2, 0.5);
-      // transition: all 150ms cubic-bezier(0.5, 0.2, 0.4, 0.25);
-    }
-
     img {
       transition: all 250ms cubic-bezier(0.25, 0.4, 0.2, 0.5);
       // transition: all 150ms cubic-bezier(0.5, 0.2, 0.4, 0.25);
@@ -146,6 +129,81 @@
           color: $zelenaTamna;
         }
       }
+    }
+  }
+}
+
+.lux-kucica {
+  .kampKucicaImageCont {
+    &::before {
+      background: url('../img/sections/kamp-kucice-sekcija/lux-mobile-home-back.png');
+      background-position: center;
+      background-size: cover;
+      position: absolute;
+      content: '';
+      width: 100%;
+      height: 100%;
+      inset: 0;
+      display: block;
+      z-index: 1;
+      transform: translateY(-100%);
+      transition: all 250ms cubic-bezier(0.25, 0.4, 0.2, 0.5);
+    }
+  }
+}
+
+.luka-kucica {
+  .kampKucicaImageCont {
+    &::before {
+      background: url('../img/sections/kamp-kucice-sekcija/luka-mobile-back.png');
+      background-position: center;
+      background-size: cover;
+      position: absolute;
+      content: '';
+      width: 100%;
+      height: 100%;
+      inset: 0;
+      display: block;
+      z-index: 1;
+      transform: translateY(-100%);
+      transition: all 250ms cubic-bezier(0.25, 0.4, 0.2, 0.5);
+    }
+  }
+}
+.pitch-kucica {
+  .kampKucicaImageCont {
+    &::before {
+      background: url('../img/sections/kamp-kucice-sekcija/pitch-back.png');
+      background-position: center;
+      background-size: cover;
+      position: absolute;
+      content: '';
+      width: 100%;
+      height: 100%;
+      inset: 0;
+      display: block;
+      z-index: 1;
+      transform: translateY(-100%);
+      transition: all 250ms cubic-bezier(0.25, 0.4, 0.2, 0.5);
+    }
+  }
+}
+
+.camp-kucica {
+  .kampKucicaImageCont {
+    &::before {
+      background: url('../img/sections/kamp-kucice-sekcija/camp-site-back.png');
+      background-position: center;
+      background-size: cover;
+      position: absolute;
+      content: '';
+      width: 100%;
+      height: 100%;
+      inset: 0;
+      display: block;
+      z-index: 1;
+      transform: translateY(-100%);
+      transition: all 250ms cubic-bezier(0.25, 0.4, 0.2, 0.5);
     }
   }
 }

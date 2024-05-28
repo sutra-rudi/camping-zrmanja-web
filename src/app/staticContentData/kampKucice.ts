@@ -1,4 +1,7 @@
-import kucicaThumb from '../img/sections/kamp-kucica-01.png';
+import luxThumb from '../img/sections/kamp-kucice-sekcija/lux-mobile-home.png';
+import lukaThumb from '../img/sections/kamp-kucice-sekcija/luka-mobile-home.png';
+import pitchThumb from '../img/sections/kamp-kucice-sekcija/pitch.png';
+import campThumb from '../img/sections/kamp-kucice-sekcija/camp-site.png';
 
 export const kampKuciceContent = [
   {
@@ -8,8 +11,9 @@ export const kampKuciceContent = [
     learnMoreEn: 'Learn more',
     checkAvailabilityHr: 'Provjeri dostupnost',
     checkAvailabilityEng: 'Check availability.',
-    imageUrl: kucicaThumb,
+    imageUrl: luxThumb,
     url: '/smjestaj/mobilne-kucice',
+    klasa: 'lux-kucica',
   },
   {
     titleHr: 'MOBILNA KUĆICA LUKA',
@@ -18,8 +22,9 @@ export const kampKuciceContent = [
     learnMoreEn: 'Learn more',
     checkAvailabilityHr: 'Provjeri dostupnost',
     checkAvailabilityEng: 'Check availability.',
-    imageUrl: kucicaThumb,
+    imageUrl: lukaThumb,
     url: '/smjestaj/mobilne-kucice',
+    klasa: 'luka-kucica',
   },
   {
     titleHr: 'PITCH',
@@ -28,7 +33,8 @@ export const kampKuciceContent = [
     learnMoreEn: 'Learn more',
     checkAvailabilityHr: 'Provjeri dostupnost',
     checkAvailabilityEng: 'Check availability.',
-    imageUrl: kucicaThumb,
+    imageUrl: pitchThumb,
+    klasa: 'pitch-kucica',
   },
   {
     titleHr: 'KAMP MJESTO',
@@ -37,6 +43,7 @@ export const kampKuciceContent = [
     learnMoreEn: 'Learn more',
     checkAvailabilityHr: 'Provjeri dostupnost',
     checkAvailabilityEng: 'Check availability.',
-    imageUrl: kucicaThumb,
+    imageUrl: campThumb,
+    klasa: 'camp-kucica',
   },
 ];

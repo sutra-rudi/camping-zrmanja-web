@@ -3,9 +3,9 @@
 import React from 'react';
 import { useAppContext } from '../contexts/store';
 import AppButton from '../components/AppButton';
-import odm1 from '../img/sections/odmori-se-1.png';
-import odm2 from '../img/sections/odmori-se-2.png';
-import odm3 from '../img/sections/odmori-se-3.png';
+import odm1 from '../img/sections/odmori-se/01.png';
+import odm2 from '../img/sections/odmori-se/02.png';
+import odm3 from '../img/sections/odmori-se/03.png';
 import Image from 'next/image';
 import styles from '../styles/odmoriSe.module.scss';
 import { useParallax } from 'react-scroll-parallax';
@@ -52,9 +52,9 @@ const OdmoriSeSekcija = () => {
           </div>
         </div>
         <div className={styles.imageContainer}>
-          <Image ref={imageOne as any} width={315} height={237} src={odm1} alt='picture of camp' />
-          <Image ref={imageTwo as any} width={385} height={534} src={odm2} alt='picture of camp' />
-          <Image width={234} height={174} src={odm3} alt='picture of camp' />
+          <Image ref={imageOne as any} width={315} height={237} src={odm1} placeholder='blur' alt='picture of camp' />
+          <Image ref={imageTwo as any} width={385} height={534} src={odm2} placeholder='blur' alt='picture of camp' />
+          <Image width={234} height={174} src={odm3} alt='picture of camp' placeholder='blur' />
         </div>
       </div>
     </section>

@@ -36,7 +36,10 @@ const AppHeader = () => {
     },
     {
       text: parseByLang('Smještaj', 'Accommodation'),
-      href: parseByLang(`/smjestaj/?lang=${checkParams}`, `/accommodation/?lang=${checkParams}`),
+      href: parseByLang(
+        `/smjestaj/mobilne-kucice/?lang=${checkParams}`,
+        `/smjestaj/mobilne-kucice/?lang=${checkParams}`
+      ),
     },
     { text: parseByLang('Kontakt', 'Contact'), href: `/kontakt/?lang=${checkParams}` },
     {
