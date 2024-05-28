@@ -7,29 +7,30 @@ import { UserLanguage } from '../types/appState';
 import { taxonomyEn, taxonomyHr } from '../staticContentData/exploreTaxonomyCont';
 import Image from 'next/image';
 import styles from '../styles/exploreCampSection.module.scss';
+import { kampKuciceArray } from '../utils/staticImageImports';
 
 const ExploreCampSection = () => {
-  const [currentActiveFilter, setCurrentActiveFilter] = React.useState<string>('Pitch');
+  const [currentActiveFilter, setCurrentActiveFilter] = React.useState<number>(2);
   const {
     state: { userLang },
   } = useAppContext();
 
   const TaxonomyFilterCont = () => {
     if (userLang === UserLanguage.hr) {
-      return taxonomyHr.map((tax) => (
+      return taxonomyHr.map((tax, index) => (
         <span
-          className={currentActiveFilter === tax ? `${styles.activeFilter}` : ''}
-          onClick={() => setCurrentActiveFilter(tax)}
+          className={currentActiveFilter === index ? `${styles.activeFilter}` : ''}
+          onClick={() => setCurrentActiveFilter(index)}
           key={tax}
         >
           {tax}
         </span>
       ));
     } else
-      return taxonomyEn.map((tax) => (
+      return taxonomyEn.map((tax, index) => (
         <span
-          className={currentActiveFilter === tax ? `${styles.activeFilter}` : ''}
-          onClick={() => setCurrentActiveFilter(tax)}
+          className={currentActiveFilter === index ? `${styles.activeFilter}` : ''}
+          onClick={() => setCurrentActiveFilter(index)}
           key={tax}
         >
           {tax}
@@ -37,7 +38,9 @@ const ExploreCampSection = () => {
       ));
   };
 
-  const demoGallery = Array.from(Array(12).keys());
+  // const demoGallery = Array.from(Array(12).keys());
+
+  const findData = () => kampKuciceArray.find((indexObjekta) => indexObjekta.id === currentActiveFilter);
 
   return (
     <section className={styles.sectionMain}>
@@ -50,9 +53,17 @@ const ExploreCampSection = () => {
       </div>
 
       <div className={styles.galleryContainer}>
-        {demoGallery.map((galItem) => (
-          <div key={galItem} className={styles.imageContainer}>
-            <Image src={'https://placehold.co/600x400'} fill alt='placeholder' />
+        {findData()?.images.map((galItem) => (
+          <div key={galItem.src} className={styles.imageContainer}>
+            <Image
+              src={galItem.src}
+              width={362}
+              height={289}
+              alt='camp site view'
+              // onLoadStart={() => console.log('LOAD START')}
+              onLoad={() => console.log('GOTOVO')}
+              loading='lazy'
+            />
           </div>
         ))}
       </div>

@@ -1,21 +1,19 @@
 export const taxonomyHr = [
-  'Lux Mobilna Kućica',
   'Mobilna Kućica Luka',
-  'Pitch',
-  'Kamp Mjesto',
-  'Hrana',
   'Sanitarni čvor',
-  'Bazen',
+  'Pitch',
   'Okolica',
+  'Bazen',
+  'Lux Mobilna Kućica',
+  'Kamp Mjesto',
 ];
 
 export const taxonomyEn = [
-  'Luxury Mobile Home',
   'Luka Mobile Home',
-  'Pitch',
-  'Camp Site',
-  'Food',
   'Sanitary Facility',
-  'Swimming Pool',
+  'Pitch',
   'Surroundings',
+  'Swimming Pool',
+  'Luxury Mobile Home',
+  'Camp Site',
 ];
