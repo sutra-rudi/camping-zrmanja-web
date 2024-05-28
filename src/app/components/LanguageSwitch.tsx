@@ -12,24 +12,19 @@ import croatianFlag from '../img/icons/country-flags/croatianFlag.svg';
 import englishFlag from '../img/icons/country-flags/englishFlag.svg';
 
 const LanguageSwitch = () => {
-  const {
-    state: { userLang },
-    dispatch,
-  } = useAppContext();
+  const { dispatch } = useAppContext();
 
   const router = useRouter();
   const pathname = usePathname();
   const paramsControler = useSearchParams();
+  const checkParams = paramsControler.get('lang');
+  const checkLocalStorage = getLocalStorageItem('@riva-rafting-user-language');
 
   React.useEffect(() => {
-    const checkParams = paramsControler.get('lang');
-
-    const checkLocalStorage = getLocalStorageItem('@riva-rafting-user-language');
-
-    if (checkParams) {
+    if (checkParams || !checkLocalStorage) {
       dispatch({ type: ActionTypes.SET_USER_LANG, payload: checkParams === 'hr' ? UserLanguage.hr : UserLanguage.en });
       setLocalStorageItem('@riva-rafting-user-language', checkParams);
-    } else if (checkLocalStorage) {
+    } else if (checkLocalStorage && !checkParams) {
       dispatch({ type: ActionTypes.SET_USER_LANG, payload: checkLocalStorage });
 
       const newUrlParams = new URLSearchParams(window.location.search);
@@ -43,7 +38,7 @@ const LanguageSwitch = () => {
       const searchString = newUrlParams.toString();
       router.replace(`?${searchString}`);
     }
-  }, [dispatch, paramsControler, router]);
+  }, [dispatch, checkParams, router, checkLocalStorage]);
 
   const handleLangSwitch = (payloadF: UserLanguage) => {
     dispatch({ type: ActionTypes.SET_USER_LANG, payload: payloadF });
@@ -57,20 +52,19 @@ const LanguageSwitch = () => {
 
     setLocalStorageItem('@riva-rafting-user-language', payloadF);
 
-    if (pathname !== '/smjestaj/mobilne-kucice') {
-      window.location.reload();
+    if (pathname !== '/') {
       router.push('/');
     } else {
-      window.location.reload();
+      router.refresh();
     }
   };
 
   return (
     <div
-      onClick={() => handleLangSwitch(userLang === UserLanguage.hr ? UserLanguage.en : UserLanguage.hr)}
+      onClick={() => handleLangSwitch(checkParams === UserLanguage.hr ? UserLanguage.en : UserLanguage.hr)}
       className={styles.lang}
     >
-      {userLang === UserLanguage.hr ? (
+      {checkParams === UserLanguage.hr ? (
         <Image width={30} height={30} alt='croatian flag' src={croatianFlag} />
       ) : (
         <Image width={30} height={30} alt='croatian flag' src={englishFlag} />
