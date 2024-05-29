@@ -8,9 +8,12 @@ import { taxonomyEn, taxonomyHr } from '../staticContentData/exploreTaxonomyCont
 import Image from 'next/image';
 import styles from '../styles/exploreCampSection.module.scss';
 import { kampKuciceArray } from '../utils/staticImageImports';
-
+import Lightbox from 'yet-another-react-lightbox';
+import 'yet-another-react-lightbox/styles.css';
 const ExploreCampSection = () => {
   const [currentActiveFilter, setCurrentActiveFilter] = React.useState<number>(2);
+  const [isLightboxOpen, setIsLightboxOpen] = React.useState<boolean>(false);
+  const [firstLightboxImage, setFirstLightboxImage] = React.useState<number>(0);
   const {
     state: { userLang },
   } = useAppContext();
@@ -51,7 +54,7 @@ const ExploreCampSection = () => {
       </div>
 
       <div className={styles.galleryContainer}>
-        {findData()?.images.map((galItem) => (
+        {findData()?.images.map((galItem, index) => (
           <div key={galItem.src} className={styles.imageContainer}>
             <Image
               src={galItem.src}
@@ -61,9 +64,19 @@ const ExploreCampSection = () => {
               placeholder='blur'
               blurDataURL={galItem.blurDataURL}
               loading='lazy'
+              onClick={() => {
+                setFirstLightboxImage(index);
+                setIsLightboxOpen(true);
+              }}
             />
           </div>
         ))}
+        <Lightbox
+          open={isLightboxOpen}
+          close={() => setIsLightboxOpen(false)}
+          slides={findData()?.images}
+          index={firstLightboxImage}
+        />
       </div>
     </section>
   );
