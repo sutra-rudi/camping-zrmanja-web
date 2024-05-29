@@ -45,12 +45,9 @@ const PageContent = (content: AboutUsPageContent) => {
   const { ref: paralaImage } = useParallax<HTMLDivElement>({
     scale: [1, 1.7],
   });
-  // if (typeof window !== 'undefined' || window !== null) {
-  //   return null;
-  // }
 
-  return typeof window !== 'undefined' && window !== null ? (
-    <>
+  return (
+    <div>
       <div className={styles.heroWrapp}>
         <PaperDividTop />
         <ParallaxBanner className={styles.sectionHero} layers={[background, headline]} />
@@ -94,8 +91,8 @@ const PageContent = (content: AboutUsPageContent) => {
           </div>
         </div>
       </div>
-    </>
-  ) : null;
+    </div>
+  );
 };
 
 export default PageContent;

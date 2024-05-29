@@ -3,6 +3,7 @@ import { Ubuntu } from 'next/font/google';
 import './globals.css';
 import { GlobalContextProvider } from './contexts/store';
 import { Providers } from './providers';
+import { Toaster } from 'react-hot-toast';
 const ubuntu = Ubuntu({ weight: ['300', '400', '500', '700'], subsets: ['latin'] });
 
 export const viewport: Viewport = {
@@ -29,7 +30,10 @@ export default function RootLayout({
     <html lang='en'>
       <body className={ubuntu.className}>
         <GlobalContextProvider>
-          <Providers>{children}</Providers>
+          <Providers>
+            <Toaster />
+            {children}
+          </Providers>
         </GlobalContextProvider>
       </body>
     </html>

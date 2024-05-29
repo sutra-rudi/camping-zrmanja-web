@@ -53,7 +53,7 @@ const LanguageSwitch = () => {
     setLocalStorageItem('@riva-rafting-user-language', payloadF);
 
     if (pathname !== '/') {
-      router.push('/');
+      router.push(`/?lang=${payloadF}`);
     } else {
       router.refresh();
     }

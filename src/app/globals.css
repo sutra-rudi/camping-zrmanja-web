@@ -96,3 +96,31 @@ h6 {
     display: none;
   }
 }
+
+.react-datepicker-wrapper {
+  width: 100%;
+  height: 100%;
+  place-self: stretch;
+  display: flex !important;
+  place-items: center;
+  justify-content: flex-start;
+
+  .react-datepicker__input-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    place-items: center;
+
+    input {
+      padding: 0 !important;
+    }
+  }
+}
+
+.PhoneInput {
+  width: 100%;
+
+  input {
+    padding: 0 !important;
+  }
+}

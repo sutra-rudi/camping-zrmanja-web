@@ -43,7 +43,7 @@ const PageContent = (content: PageContentPriv) => {
   };
 
   return (
-    <>
+    <div>
       <PaperDividTop />
       <ParallaxBanner className={styles.rulesHero} layers={[background, headline]} />
 
@@ -69,7 +69,7 @@ const PageContent = (content: PageContentPriv) => {
           })}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

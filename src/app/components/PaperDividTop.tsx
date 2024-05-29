@@ -12,9 +12,9 @@ const PaperDividTop = (props: PaperInterface) => {
   return (
     <div className={styles.paperTop}>
       {props.isAbout ? (
-        <Image src={altPapirSivi} fill alt='deco' priority />
+        <Image src={altPapirSivi} fill alt='deco' loading='eager' quality={100} />
       ) : (
-        <Image src={papirDivider} fill alt='deco' priority />
+        <Image src={papirDivider} fill alt='deco' loading='eager' quality={100} />
       )}
     </div>
   );

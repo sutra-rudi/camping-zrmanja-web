@@ -41,12 +41,9 @@ const PageContent = (content: PageContentPriv) => {
       </div>
     ),
   };
-  // if (typeof window !== 'undefined' || window !== null) {
-  //   return null;
-  // }
 
-  return typeof window !== 'undefined' && window !== null ? (
-    <>
+  return (
+    <div>
       <PaperDividTop />
       <ParallaxBanner className={styles.rulesHero} layers={[background, headline]} />
 
@@ -72,8 +69,8 @@ const PageContent = (content: PageContentPriv) => {
           })}
         </div>
       </div>
-    </>
-  ) : null;
+    </div>
+  );
 };
 
 export default PageContent;
