@@ -63,7 +63,8 @@ const ExploreCampSection = () => {
               alt='camp site view'
               placeholder='blur'
               blurDataURL={galItem.blurDataURL}
-              loading='lazy'
+              loading='eager'
+              priority
               onClick={() => {
                 setFirstLightboxImage(index);
                 setIsLightboxOpen(true);

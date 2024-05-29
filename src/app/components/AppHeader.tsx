@@ -14,20 +14,17 @@ import facebookIcon from '../img/icons/MOBILE-MENU-SOCIAL-1.svg';
 import teleIcon from '../img/icons/MOBILE-MENU-SOCIAL-3.svg';
 
 import mobilePapir from '../img/globals/MOBILE-PAPIR.svg';
-import { useAppContext } from '../contexts/store';
+
 import { useSearchParams } from 'next/navigation';
+import { UserLanguage } from '../types/appState';
 
 const AppHeader = () => {
-  const {
-    state: { userLang },
-  } = useAppContext();
-
-  const parseByLang = React.useCallback(
-    (hrString: string, enString: string) => (userLang === 'hr' ? hrString : enString),
-    [userLang]
-  );
   const paramsControler = useSearchParams();
   const checkParams = paramsControler.get('lang');
+  const parseByLang = React.useCallback(
+    (hrString: string, enString: string) => (checkParams === UserLanguage.hr ? hrString : enString),
+    [checkParams]
+  );
 
   const navLinksOne = [
     {
@@ -104,7 +101,7 @@ const AppHeader = () => {
           <a href='mailto:info@riva-rafting-centar.hr'>info@riva-rafting-centar.hr</a>
         </div>
         <div className={styles.navMaster}>
-          <Link className={styles.noEffectLogo} href={'/'}>
+          <Link className={styles.noEffectLogo} href={`/?lang=${checkParams}`}>
             <Image src={svgAppLogo} alt='app logo' />
           </Link>
           <div className={styles.navParentMaster}>
