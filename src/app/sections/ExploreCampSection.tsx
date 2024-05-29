@@ -64,6 +64,7 @@ const ExploreCampSection = () => {
               placeholder='blur'
               blurDataURL={galItem.blurDataURL}
               loading='eager'
+              onLoad={() => console.log('IMG LOADED')}
               priority
               onClick={() => {
                 setFirstLightboxImage(index);

@@ -51,12 +51,12 @@ const AppFooter = (props: FooterInterface) => {
 
       <Image
         fill
-        // src={clientWindowSize && clientWindowSize?.width > 1024 ? footerBg : footerAltBg}
-        src={footerBg}
+        src={clientWindowSize && clientWindowSize?.width > 1024 ? footerBg : footerAltBg}
         alt='footerBackground'
         placeholder='blur'
         quality={100}
         loading='eager'
+        priority
         className={styles.footerImage}
       />
 

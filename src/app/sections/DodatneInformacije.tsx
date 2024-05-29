@@ -24,6 +24,7 @@ const DodatneInformacije = (props: MoreInfoProps) => {
 
   const { ref, inView } = useInView({
     threshold: 0,
+    triggerOnce: true,
   });
 
   return (
