@@ -3,7 +3,7 @@ import Loading from './loading';
 import AppHeader from '@/app/components/AppHeader';
 import AppFooter from '@/app/components/AppFooter';
 import styles from '../../styles/smjestaj.module.scss';
-import { engContentLuka, engContentLux, hrContentLuka, hrContentLux } from '@/app/staticContentData/smjestaj';
+import { enContentParcel, engContentLux, hrContentLux, hrContentParcel } from '@/app/staticContentData/smjestaj';
 import PageContent from './PageContent';
 import ExploreCampSection from '../../sections/ExploreCampSection';
 import ReviewsSection from '../../sections/ReviewsSection';
@@ -16,7 +16,7 @@ export default async function MobilneKucice({ searchParams }: any) {
       <AppHeader />
       <main className={styles.smjestajMain}>
         <PageContent
-          luka={typeof searchParams !== 'undefined' && searchParams.lang === 'hr' ? hrContentLuka : engContentLuka}
+          luka={typeof searchParams !== 'undefined' && searchParams.lang === 'hr' ? hrContentParcel : enContentParcel}
           lux={typeof searchParams !== 'undefined' && searchParams.lang === 'hr' ? hrContentLux : engContentLux}
         />
         <ExploreCampSection isSubpage isLuxOrParcel={'parcel'} />

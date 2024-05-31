@@ -17,7 +17,9 @@ interface ExploreCampSection {
 }
 
 const ExploreCampSection = ({ isSubpage, isLuxOrParcel }: ExploreCampSection) => {
-  const [currentActiveFilter, setCurrentActiveFilter] = React.useState<number>(2);
+  const [currentActiveFilter, setCurrentActiveFilter] = React.useState<number>(
+    isLuxOrParcel === 'both' ? 2 : isLuxOrParcel === 'lux' ? 0 : 6
+  );
   const [isLightboxOpen, setIsLightboxOpen] = React.useState<boolean>(false);
   const [firstLightboxImage, setFirstLightboxImage] = React.useState<number>(0);
   const {
@@ -28,7 +30,7 @@ const ExploreCampSection = ({ isSubpage, isLuxOrParcel }: ExploreCampSection) =>
     if (userLang === UserLanguage.hr) {
       if (isLuxOrParcel === 'lux') {
         return taxonomyHr.map((tax, index) => {
-          if (index === 0 || index === 5) {
+          if (index === 2 || index === 6) {
             return null;
           } else
             return (
@@ -43,7 +45,7 @@ const ExploreCampSection = ({ isSubpage, isLuxOrParcel }: ExploreCampSection) =>
         });
       } else if (isLuxOrParcel === 'parcel') {
         return taxonomyHr.map((tax, index) => {
-          if (index === 2 || index === 6) {
+          if (index === 0 || index === 5) {
             return null;
           } else
             return (
@@ -60,7 +62,7 @@ const ExploreCampSection = ({ isSubpage, isLuxOrParcel }: ExploreCampSection) =>
     } else
       return taxonomyEn.map((tax, index) => {
         if (isLuxOrParcel === 'lux') {
-          if (index === 0 || index === 5) return null;
+          if (index === 2 || index === 6) return null;
           else
             return (
               <span
@@ -72,7 +74,7 @@ const ExploreCampSection = ({ isSubpage, isLuxOrParcel }: ExploreCampSection) =>
               </span>
             );
         } else if (isLuxOrParcel === 'parcel') {
-          if (index === 2 || index === 6) {
+          if (index === 0 || index === 5) {
             return null;
           } else
             return (

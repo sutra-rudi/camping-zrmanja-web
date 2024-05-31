@@ -5,13 +5,16 @@ import styles from '../../styles/smjestaj.module.scss';
 import { BannerLayer, ParallaxBanner } from 'react-scroll-parallax';
 import localFont from 'next/font/local';
 
-import campingHero from '../../img/heros/camping-hero.png';
+import parcelHero from '../../img/sections/kamp-kucice-sekcija/camp-site-back.png';
 import Image from 'next/image';
 import AppButton from '@/app/components/AppButton';
 import PaperDividTop from '@/app/components/PaperDividTop';
 import smjestajPlaceholder from '../../img/globals/smjestaj-placeholder.png';
+import ReactPlayer from 'react-player';
+
 import PaperDividBot from '@/app/components/PaperDividBot';
 import { useAppContext } from '@/app/contexts/store';
+import Loading from './loading';
 const RecoletaBold = localFont({
   src: [{ path: '../../../../public/fonts/recoleta-font/Recoleta-Bold.ttf', weight: '700' }],
 });
@@ -31,11 +34,20 @@ const PageContent = ({ luka, lux }: SmjestajPageContent) => {
   const {
     state: { userLang },
   } = useAppContext();
+  const [isReady, setIsReady] = React.useState(false);
+  const playerRef = React.useRef<ReactPlayer>(null);
+
+  const onReady = React.useCallback(() => {
+    if (!isReady) {
+      playerRef.current && playerRef.current.seekTo(0, 'seconds');
+      setIsReady(true);
+    }
+  }, [isReady]);
 
   const background: BannerLayer = {
     translateY: [0, 60],
     shouldAlwaysCompleteAnimation: true,
-    children: <Image fill src={campingHero} alt='hero camping from air' />,
+    children: <Image fill src={parcelHero} priority alt='hero camping from air' />,
   };
 
   const foreground: BannerLayer = {
@@ -46,7 +58,7 @@ const PageContent = ({ luka, lux }: SmjestajPageContent) => {
     children: (
       <div className={styles.heroHeader}>
         <h1 className={`${styles.heroCtaHeader} ${RecoletaBold.className}`}>
-          {userLang === 'hr' ? `Mobilne kućice` : `Mobile Homes`}
+          {userLang === 'hr' ? `Parcele i kamp mjesta` : `Parcels and camping spots`}
         </h1>
         <div className={styles.heroCtaButtonKontejter}>
           <AppButton isHero content={userLang === 'hr' ? `Rezervirajte svoj termin` : `Book your appointment`} />
@@ -63,7 +75,7 @@ const PageContent = ({ luka, lux }: SmjestajPageContent) => {
     children: (
       <div className={styles.heroCtaHeaderBacksideWrapper}>
         <h1 className={`${styles.heroCtaHeaderBackside} ${RecoletaBold.className}`}>
-          {userLang === 'hr' ? `Mobilne kućice` : `Mobile Homes`}
+          {userLang === 'hr' ? `Parcele i kamp mjesta` : `Parcels and camping spots`}
         </h1>
       </div>
     ),
@@ -78,7 +90,7 @@ const PageContent = ({ luka, lux }: SmjestajPageContent) => {
         <div className={styles.innerContentMaster}>
           <div className={styles.innerContentLuka}>
             <div className={styles.innerContentBlock}>
-              <h2>Mobilne Kućice Luka</h2>
+              <h2>Parcele</h2>
               {luka.map((contents, index) => {
                 const { title, content } = contents;
 
@@ -96,31 +108,25 @@ const PageContent = ({ luka, lux }: SmjestajPageContent) => {
             </div>
 
             <div className={styles.imageContainer}>
-              <Image src={smjestajPlaceholder} fill alt='camping site' />
-            </div>
-          </div>
-
-          <div className={styles.innerContentLux}>
-            <div className={styles.innerContentBlock}>
-              <h2>Mobilne Kućice Lux</h2>
-              {lux.map((contents, index) => {
-                const { title, content } = contents;
-
-                return (
-                  <div key={index} className={styles.innerContentBlockSegment}>
-                    <p>{title}</p>
-                    <ul>
-                      {content.split('. ').map((lis, i) => (
-                        <li key={i}>{lis}</li>
-                      ))}
-                    </ul>
-                  </div>
-                );
-              })}
-            </div>
-
-            <div className={styles.imageContainer}>
-              <Image src={smjestajPlaceholder} fill alt='camping site' />
+              <ReactPlayer
+                url={'/parcel-video.mp4'}
+                loop
+                muted
+                volume={0}
+                width={'100%'}
+                height={'100%'}
+                playsinline
+                playing={isReady}
+                onReady={onReady}
+                fallback={<Loading />}
+                // config={{
+                //   file: {
+                //     attributes: {
+                //       poster: heroPoster.src,
+                //     },
+                //   },
+                // }}
+              />
             </div>
           </div>
         </div>

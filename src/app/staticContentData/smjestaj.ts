@@ -121,3 +121,33 @@ export const hrContentLux = [
     content: 'Prijava: 16:00 & Odjava: 10:00',
   },
 ];
+
+export const hrContentParcel = [
+  { title: 'Pitch', content: 'Kamper. Kamp prikolica + automobil. Šator + automobil + voda i struja.' },
+  {
+    title: 'Kamp mjesto',
+    content: 'Kamper Kamp prikolica + automobil. Šator + automobil struja. Šator + struja',
+  },
+  {
+    title: 'Sanitarni čvor',
+    content:
+      'Tuš kabine za žene. Tuš kabine za muškarce. Zatvoreni toaleti za žene / prostor za presvlačenje beba. Zatvoreni toaleti za muškarce. Otvoreni vanjski tuševi',
+  },
+  { title: 'Bazen', content: '' },
+  { title: 'Ostalo', content: 'Roštilj. Kuhinja. Dječija igrališta. Livada' },
+];
+
+export const enContentParcel = [
+  { title: 'Pitch', content: 'Camper. Camp trailer + car. Tent + car + water and electricity.' },
+  {
+    title: 'Camp spot',
+    content: 'Camper Camp trailer + car. Tent + car electricity. Tent + electricity',
+  },
+  {
+    title: 'Sanitary facilities',
+    content:
+      'Shower cabins for women. Shower cabins for men. Closed toilets for women / baby changing area. Closed toilets for men. Open outdoor showers',
+  },
+  { title: 'Pool', content: '' },
+  { title: 'Other', content: "Barbecue. Kitchen. Children's playgrounds. Meadow" },
+];

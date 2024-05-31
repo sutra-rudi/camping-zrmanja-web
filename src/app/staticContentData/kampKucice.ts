@@ -34,6 +34,7 @@ export const kampKuciceContent = [
     checkAvailabilityHr: 'Provjeri dostupnost',
     checkAvailabilityEng: 'Check availability.',
     imageUrl: pitchThumb,
+    url: '/smjestaj/parcele-i-kamp',
     klasa: 'pitch-kucica',
   },
   {
@@ -44,6 +45,7 @@ export const kampKuciceContent = [
     checkAvailabilityHr: 'Provjeri dostupnost',
     checkAvailabilityEng: 'Check availability.',
     imageUrl: campThumb,
+    url: '/smjestaj/parcele-i-kamp',
     klasa: 'camp-kucica',
   },
 ];
