@@ -10,7 +10,7 @@ import ReviewsSection from '../../sections/ReviewsSection';
 import KampKuciceSekcija from '../../sections/KampKuciceSekcija';
 import DodatneInformacije from '../../sections/DodatneInformacije';
 
-export default async function MobilneKucice({ searchParams }: any) {
+export default async function ParceleKamp({ searchParams }: any) {
   return (
     <Suspense fallback={<Loading />}>
       <AppHeader />
