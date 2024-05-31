@@ -9,9 +9,10 @@ import campingHero from '../../img/heros/camping-hero.png';
 import Image from 'next/image';
 import AppButton from '@/app/components/AppButton';
 import PaperDividTop from '@/app/components/PaperDividTop';
-import smjestajPlaceholder from '../../img/globals/smjestaj-placeholder.png';
 import PaperDividBot from '@/app/components/PaperDividBot';
 import { useAppContext } from '@/app/contexts/store';
+import ReactPlayer from 'react-player';
+import Loading from './loading';
 const RecoletaBold = localFont({
   src: [{ path: '../../../../public/fonts/recoleta-font/Recoleta-Bold.ttf', weight: '700' }],
 });
@@ -31,7 +32,15 @@ const PageContent = ({ luka, lux }: SmjestajPageContent) => {
   const {
     state: { userLang },
   } = useAppContext();
+  const [isReady, setIsReady] = React.useState(false);
+  const playerRef = React.useRef<ReactPlayer>(null);
 
+  const onReady = React.useCallback(() => {
+    if (!isReady) {
+      playerRef.current && playerRef.current.seekTo(0, 'seconds');
+      setIsReady(true);
+    }
+  }, [isReady]);
   const background: BannerLayer = {
     translateY: [0, 60],
     shouldAlwaysCompleteAnimation: true,
@@ -40,8 +49,7 @@ const PageContent = ({ luka, lux }: SmjestajPageContent) => {
 
   const foreground: BannerLayer = {
     translateY: [0, 30],
-    // scale: [2, 0.8],
-    // opacity: [1, 0.1],
+
     shouldAlwaysCompleteAnimation: true,
     children: (
       <div className={styles.heroHeader}>
@@ -96,7 +104,25 @@ const PageContent = ({ luka, lux }: SmjestajPageContent) => {
             </div>
 
             <div className={styles.imageContainer}>
-              <Image src={smjestajPlaceholder} fill alt='camping site' />
+              <ReactPlayer
+                url={'/luka-video.mp4'}
+                loop
+                muted
+                volume={0}
+                width={'100%'}
+                height={'100%'}
+                playsinline
+                playing={isReady}
+                onReady={onReady}
+                fallback={<Loading />}
+                // config={{
+                //   file: {
+                //     attributes: {
+                //       poster: heroPoster.src,
+                //     },
+                //   },
+                // }}
+              />
             </div>
           </div>
 
@@ -120,7 +146,25 @@ const PageContent = ({ luka, lux }: SmjestajPageContent) => {
             </div>
 
             <div className={styles.imageContainer}>
-              <Image src={smjestajPlaceholder} fill alt='camping site' />
+              <ReactPlayer
+                url={'/lux-video.mp4'}
+                loop
+                muted
+                volume={0}
+                width={'100%'}
+                height={'100%'}
+                playsinline
+                playing={isReady}
+                onReady={onReady}
+                fallback={<Loading />}
+                // config={{
+                //   file: {
+                //     attributes: {
+                //       poster: heroPoster.src,
+                //     },
+                //   },
+                // }}
+              />
             </div>
           </div>
         </div>

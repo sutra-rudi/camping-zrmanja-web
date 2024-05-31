@@ -10,7 +10,7 @@ import ReviewsSection from '../../sections/ReviewsSection';
 import KampKuciceSekcija from '../../sections/KampKuciceSekcija';
 import DodatneInformacije from '../../sections/DodatneInformacije';
 
-export default async function MobilneKucice({ searchParams }: any) {
+export default async function MobilneKucice({ searchParams }: { searchParams: { lang: string } }) {
   return (
     <Suspense fallback={<Loading />}>
       <AppHeader />
@@ -19,7 +19,7 @@ export default async function MobilneKucice({ searchParams }: any) {
           luka={typeof searchParams !== 'undefined' && searchParams.lang === 'hr' ? hrContentLuka : engContentLuka}
           lux={typeof searchParams !== 'undefined' && searchParams.lang === 'hr' ? hrContentLux : engContentLux}
         />
-        <ExploreCampSection />
+        <ExploreCampSection isSubpage isLuxOrParcel={'lux'} />
         <ReviewsSection />
         <KampKuciceSekcija />
         <DodatneInformacije isLanding />

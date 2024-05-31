@@ -10,7 +10,13 @@ import styles from '../styles/exploreCampSection.module.scss';
 import { kampKuciceArray } from '../utils/staticImageImports';
 import Lightbox from 'yet-another-react-lightbox';
 import 'yet-another-react-lightbox/styles.css';
-const ExploreCampSection = () => {
+
+interface ExploreCampSection {
+  isSubpage: boolean;
+  isLuxOrParcel: 'lux' | 'parcel' | 'both';
+}
+
+const ExploreCampSection = ({ isSubpage, isLuxOrParcel }: ExploreCampSection) => {
   const [currentActiveFilter, setCurrentActiveFilter] = React.useState<number>(2);
   const [isLightboxOpen, setIsLightboxOpen] = React.useState<boolean>(false);
   const [firstLightboxImage, setFirstLightboxImage] = React.useState<number>(0);
@@ -20,34 +26,86 @@ const ExploreCampSection = () => {
 
   const TaxonomyFilterCont = () => {
     if (userLang === UserLanguage.hr) {
-      return taxonomyHr.map((tax, index) => (
-        <span
-          className={currentActiveFilter === index ? `${styles.activeFilter}` : ''}
-          onClick={() => setCurrentActiveFilter(index)}
-          key={tax}
-        >
-          {tax}
-        </span>
-      ));
+      if (isLuxOrParcel === 'lux') {
+        return taxonomyHr.map((tax, index) => {
+          if (index === 0 || index === 5) {
+            return null;
+          } else
+            return (
+              <span
+                className={currentActiveFilter === index ? `${styles.activeFilter}` : ''}
+                onClick={() => setCurrentActiveFilter(index)}
+                key={tax}
+              >
+                {tax}
+              </span>
+            );
+        });
+      } else if (isLuxOrParcel === 'parcel') {
+        return taxonomyHr.map((tax, index) => {
+          if (index === 2 || index === 6) {
+            return null;
+          } else
+            return (
+              <span
+                className={currentActiveFilter === index ? `${styles.activeFilter}` : ''}
+                onClick={() => setCurrentActiveFilter(index)}
+                key={tax}
+              >
+                {tax}
+              </span>
+            );
+        });
+      }
     } else
-      return taxonomyEn.map((tax, index) => (
-        <span
-          className={currentActiveFilter === index ? `${styles.activeFilter}` : ''}
-          onClick={() => setCurrentActiveFilter(index)}
-          key={tax}
-        >
-          {tax}
-        </span>
-      ));
+      return taxonomyEn.map((tax, index) => {
+        if (isLuxOrParcel === 'lux') {
+          if (index === 0 || index === 5) return null;
+          else
+            return (
+              <span
+                className={currentActiveFilter === index ? `${styles.activeFilter}` : ''}
+                onClick={() => setCurrentActiveFilter(index)}
+                key={tax}
+              >
+                {tax}
+              </span>
+            );
+        } else if (isLuxOrParcel === 'parcel') {
+          if (index === 2 || index === 6) {
+            return null;
+          } else
+            return (
+              <span
+                className={currentActiveFilter === index ? `${styles.activeFilter}` : ''}
+                onClick={() => setCurrentActiveFilter(index)}
+                key={tax}
+              >
+                {tax}
+              </span>
+            );
+        } else
+          return (
+            <span
+              className={currentActiveFilter === index ? `${styles.activeFilter}` : ''}
+              onClick={() => setCurrentActiveFilter(index)}
+              key={tax}
+            >
+              {tax}
+            </span>
+          );
+      });
   };
 
   const findData = () => kampKuciceArray.find((indexObjekta) => indexObjekta.id === currentActiveFilter);
 
   return (
     <section className={styles.sectionMain}>
-      <div className={styles.sectionTitle}>
-        <h2>{parseByLang('Istražite naš kamp', 'Explore our camp', userLang)}</h2>
-      </div>
+      {!isSubpage && (
+        <div className={styles.sectionTitle}>
+          <h2>{parseByLang('Istražite naš kamp', 'Explore our camp', userLang)}</h2>
+        </div>
+      )}
 
       <div className={styles.taxonomyFilterContainer}>
         <TaxonomyFilterCont />

@@ -23,7 +23,7 @@ export default async function Home() {
         <HeroSekcija />
         <OdmoriSeSekcija />
         <KampKuciceSekcija />
-        <ExploreCampSection />
+        <ExploreCampSection isSubpage={false} isLuxOrParcel={'both'} />
         <ParallaxVideoSection />
         <ReviewsSection />
         <PogledajVideo />
