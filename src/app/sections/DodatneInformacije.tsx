@@ -1,9 +1,14 @@
 'use client';
 
 import styles from '../styles/dodatneInformacije.module.scss';
-import imgone from '../img/sections/imag1.png';
-import imgtwo from '../img/sections/imag2.png';
-import imgthree from '../img/sections/imag3.png';
+import moreInfoFrontOne from '../img/sections/what-to-visit/02-front.png';
+import moreInfoFrontTwo from '../img/sections/what-to-visit/03-front.png';
+import moreInfoFrontThree from '../img/sections/what-to-visit/01-front.png';
+
+import moreInfoBackOne from '../img/sections/what-to-visit/02-back.png';
+import moreInfoBackTwo from '../img/sections/what-to-visit/03-back.png';
+import moreInfoBackThree from '../img/sections/what-to-visit/01-back.png';
+
 import React from 'react';
 import Image from 'next/image';
 import { Ubuntu_Condensed } from 'next/font/google';
@@ -42,32 +47,35 @@ const DodatneInformacije = (props: MoreInfoProps) => {
           <div className={styles.titleHolder}>
             <div className={styles.titleHolderInner}>
               <h6 className={ubuntuCondensed.className}>RIVA RAFTING</h6>
-              <h2 className={styles.headingDefault}>{`TURISTIČKE AKTIVNOSTI\nNA ZRMANJI I VELEBITU`}</h2>
+              <h2 className={styles.headingDefault}>{`TURISTIČKE AKTIVNOSTI\nNA ZRMANJI\nI VELEBITU`}</h2>
             </div>
           </div>
 
-          <Image src={imgone} fill alt='offer image' />
+          <Image src={moreInfoFrontOne} fill alt='offer image' quality={100} />
+          <Image src={moreInfoBackOne} fill alt='offer image' quality={100} className={`${styles.zcv}`} />
         </div>
         <div className={inView ? `${styles.imageBox} ${styles.inView}` : `${styles.imageBox}`}>
           <div className={styles.titleHolder}>
             <div className={styles.titleHolderInner}>
               <h6 className={ubuntuCondensed.className}>MIĆANOVI DVORI</h6>
-              <h2 className={styles.headingDefault}>{`DOMAĆA HRANA\n `}</h2>
+              <h2 className={styles.headingDefault}>DOMAĆA HRANA</h2>
             </div>
           </div>
 
-          <Image src={imgtwo} fill alt='offer image' />
+          <Image src={moreInfoFrontTwo} fill alt='offer image' quality={100} />
+          <Image src={moreInfoBackTwo} fill alt='offer image' quality={100} className={`${styles.zcv}`} />
         </div>
         <div className={inView ? `${styles.imageBox} ${styles.inView}` : `${styles.imageBox}`}>
-          <Link href={'/obrovacki-kraj'}>
+          <Link href={`/obrovacki-kraj/?lang=${userLang}`}>
             <div className={styles.titleHolder}>
               <div className={styles.titleHolderInner}>
                 <h6 className={ubuntuCondensed.className}>OBROVAC - ZRMANJA - VELEBIT</h6>
-                <h2 className={styles.headingDefault}>{`ŠTO POSJETITI U\nOKOLICI?\n`}</h2>
+                <h2 className={styles.headingDefault}>ŠTO POSJETITI U OKOLICI?</h2>
               </div>
             </div>
 
-            <Image src={imgthree} fill alt='offer image' />
+            <Image src={moreInfoFrontThree} fill alt='offer image' quality={100} />
+            <Image src={moreInfoBackThree} fill alt='offer image' quality={100} className={`${styles.zcv}`} />
           </Link>
         </div>
       </div>
