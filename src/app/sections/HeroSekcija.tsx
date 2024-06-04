@@ -32,8 +32,8 @@ const HeroSekcija = () => {
     state: { userLang },
   } = useAppContext();
 
-  const headline_en = `The right place for\n isolation and relaxation`;
-  const headline_hr = `Pravo mjesto za \n izolaciju i opuštanje`;
+  const headline_en = `The right place \nfor relaxation`;
+  const headline_hr = `Pravo mjesto \nza opuštanje`;
 
   const btn_main_hr = 'Rezerviraj svoj boravak';
   const btn_main_en = 'Book your stay';
