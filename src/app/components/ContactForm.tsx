@@ -1,7 +1,6 @@
 'use client';
 import React, { FormEvent } from 'react';
 import styles from '../styles/contact.module.scss';
-import { useAppContext } from '../contexts/store';
 import AppButton from './AppButton';
 import { useFormspark } from '@formspark/use-formspark';
 import 'react-datepicker/dist/react-datepicker-cssmodules.css';
@@ -32,8 +31,12 @@ const ContactForm = () => {
 
   const formKey = process.env.NEXT_PUBLIC_FORMSPARK_FORM_ID;
 
-  const params = useSearchParams();
-  const checkParams = params.get('lang');
+  const paramsControler = useSearchParams();
+  const checkParams = paramsControler.get('lang');
+  const parseByLang = React.useCallback(
+    (hrString: string, enString: string) => (checkParams === UserLanguage.hr ? hrString : enString),
+    [checkParams]
+  );
 
   const shorthandCheck = checkParams === UserLanguage.hr;
 
@@ -106,28 +109,26 @@ const ContactForm = () => {
     });
   };
 
-  const {
-    state: { userLang },
-  } = useAppContext();
-
-  const parseLang = (hrString: string, enString: string) => (userLang === 'hr' ? hrString : enString);
-
   return (
     <div className={styles.contactFormContainer}>
       <form action='' onSubmit={handleSubmit} className={styles.contactForm}>
         <div className={styles.formBlockLeft}>
-          <input onChange={(event) => handleInputs(event, 'name')} type='text' placeholder={parseLang('Ime', 'Name')} />
+          <input
+            onChange={(event) => handleInputs(event, 'name')}
+            type='text'
+            placeholder={parseByLang('Ime', 'Name')}
+          />
           <input
             onChange={(event) => handleInputs(event, 'email')}
             type='email'
-            placeholder={parseLang('Email', 'Email')}
+            placeholder={parseByLang('Email', 'Email')}
           />
           <div className={styles.phoneInputWrapp}>
             <PhoneInput
               defaultCountry='HR'
               onChange={(event) => handlePhoneInput(event!)}
               initialValueFormat='national'
-              placeholder='Enter phone number'
+              placeholder={parseByLang('Broj telefona', 'Phone number')}
               error={
                 contactFormData.phone
                   ? isValidPhoneNumber(contactFormData.phone)
@@ -140,14 +141,14 @@ const ContactForm = () => {
           <input
             onChange={(event) => handleInputs(event, 'numOfPeople')}
             type='number'
-            placeholder={parseLang('Broj ljudi', 'Number of people')}
+            placeholder={parseByLang('Broj odraslih', 'Number of adults')}
             min={0}
             max={12}
           />
           <input
             onChange={(event) => handleInputs(event, 'numOfChildren')}
             type='number'
-            placeholder={parseLang('Broj djece ispod 12 godina', 'Number of children under 12')}
+            placeholder={parseByLang('Broj djece ispod 12 godina', 'Number of children under 12')}
             min={0}
             max={12}
           />
@@ -175,12 +176,12 @@ const ContactForm = () => {
           <textarea
             onChange={handleTextarea}
             name=''
-            placeholder={parseLang('Poruka', 'Message')}
+            placeholder={parseByLang('Poruka', 'Message')}
             id=''
             cols={30}
             rows={10}
           ></textarea>
-          <AppButton isContact content={parseLang('Pošalji upit', 'Send inquiry')} />
+          <AppButton isContact content={parseByLang('Pošalji upit', 'Send inquiry')} />
         </div>
       </form>
     </div>

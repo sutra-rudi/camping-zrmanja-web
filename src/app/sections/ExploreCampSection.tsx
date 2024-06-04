@@ -27,6 +27,7 @@ const ExploreCampSection = ({ isSubpage, isLuxOrParcel }: ExploreCampSection) =>
   } = useAppContext();
 
   const TaxonomyFilterCont = () => {
+    console.log('IS', isLuxOrParcel);
     if (userLang === UserLanguage.hr) {
       if (isLuxOrParcel === 'lux') {
         return taxonomyHr.map((tax, index) => {
@@ -58,7 +59,16 @@ const ExploreCampSection = ({ isSubpage, isLuxOrParcel }: ExploreCampSection) =>
               </span>
             );
         });
-      }
+      } else
+        return taxonomyHr.map((tax, index) => (
+          <span
+            className={currentActiveFilter === index ? `${styles.activeFilter}` : ''}
+            onClick={() => setCurrentActiveFilter(index)}
+            key={tax}
+          >
+            {tax}
+          </span>
+        ));
     } else
       return taxonomyEn.map((tax, index) => {
         if (isLuxOrParcel === 'lux') {
@@ -103,7 +113,7 @@ const ExploreCampSection = ({ isSubpage, isLuxOrParcel }: ExploreCampSection) =>
 
   return (
     <section className={styles.sectionMain}>
-      {!isSubpage && (
+      {isSubpage === false && (
         <div className={styles.sectionTitle}>
           <h2>{parseByLang('Istražite naš kamp', 'Explore our camp', userLang)}</h2>
         </div>

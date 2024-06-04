@@ -197,7 +197,7 @@
       padding: 0 1rem;
       color: $skrozTamnaZelena;
       border-radius: 5px;
-      font-size: $heading4;
+      font-size: $baseFontSize;
       line-height: 130%;
       font-family: inherit;
       font-weight: 400;
@@ -209,7 +209,7 @@
       &::placeholder {
         opacity: 1;
         color: $skrozTamnaZelena;
-        font-size: $heading4;
+        font-size: $baseFontSize;
         line-height: 130%;
         font-family: inherit;
         font-weight: 400;
@@ -223,7 +223,7 @@
     }
 
     option {
-      font-size: $heading4;
+      font-size: $baseFontSize;
       line-height: 130%;
       font-family: inherit;
       font-weight: 400;
@@ -270,7 +270,8 @@
       outline: none;
       background: $contactFormInputBg;
       border-radius: 5px;
-      font-size: $heading4;
+      font-size: $baseFontSize;
+
       line-height: 130%;
       font-family: inherit;
       font-weight: 400;
@@ -280,7 +281,8 @@
       &::placeholder {
         color: $skrozTamnaZelena;
         opacity: 1;
-        font-size: $heading4;
+        font-size: $baseFontSize;
+
         line-height: 130%;
         font-family: inherit;
         font-weight: 400;

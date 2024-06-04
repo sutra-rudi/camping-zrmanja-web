@@ -12,29 +12,23 @@ import footerArrow from '../img/icons/FOOTER-LINK-ARROW.svg';
 import footerAltBg from '../img/globals/footer-small-screen.png';
 
 import PaperDividTop from './PaperDividTop';
-import { useAppContext } from '../contexts/store';
 import { useWindowSize } from '../hooks/useWindowSize';
 
 import { kampKuciceContent } from '../staticContentData/kampKucice';
 import { useSearchParams } from 'next/navigation';
+import { UserLanguage } from '../types/appState';
 
 interface FooterInterface {
   isAbout?: boolean;
 }
 
 const AppFooter = (props: FooterInterface) => {
-  const {
-    state: { userLang },
-  } = useAppContext();
-
-  const parseByLang = React.useCallback(
-    (hrString: string, enString: string) => (userLang === 'hr' ? hrString : enString),
-    [userLang]
-  );
-
-  const clientWindowSize = useWindowSize();
   const paramsControler = useSearchParams();
   const checkParams = paramsControler.get('lang');
+
+  const parseByLang = (hrString: string, enString: string) => (checkParams === UserLanguage.hr ? hrString : enString);
+
+  const clientWindowSize = useWindowSize();
 
   return (
     <footer style={{ marginTop: props.isAbout ? '0' : '3rem' }} className={styles.appFooter}>
@@ -72,7 +66,7 @@ const AppFooter = (props: FooterInterface) => {
                 {kampKuciceContent.map((content, index) => (
                   <li key={index}>
                     <a href={content.url ? `${content.url}/?lang=${checkParams}` : ''}>
-                      {userLang === 'hr' ? content.titleHr : content.titleEng}
+                      {parseByLang(content.titleHr, content.titleEng)}
                     </a>
                   </li>
                 ))}
@@ -96,7 +90,7 @@ const AppFooter = (props: FooterInterface) => {
               </a>
               <a href=''>
                 <Image src={footerArrow} alt='icon' width={16} height={16} />
-                <span>Obrovački kraj</span>
+                <span>{parseByLang('Obrovački kraj', 'Obrovac region')}</span>
               </a>
               <a href=''>
                 <Image src={footerArrow} alt='icon' width={16} height={16} />
@@ -112,12 +106,11 @@ const AppFooter = (props: FooterInterface) => {
           <div className={styles.footerBlock}>
             <p>{parseByLang('Kontaktirajte nas', 'Contact us')}</p>
             <div className={styles.contactStack}>
-              <a href='https://www.google.com/maps/dir//Obala+hr.+Čas.+Senada+Ž.+6,+23450,+Obrovac/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x4761c76f06da2a03:0x8abf7d8f6eb1b3c1?sa=X&ved=1t:707&ictx=111'>{`6 Obala hr. Čas. Senada Ž.,\nObrovac, Croatia`}</a>
+              <a href='https://www.google.com/maps/dir//Obala+hr.+Čas.+Senada+Ž.+6,+23450,+Obrovac/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x4761c76f06da2a03:0x8abf7d8f6eb1b3c1?sa=X&ved=1t:707&ictx=111'>{`Župani, Kruševo, Drage 7a,\n23450 Obrovac`}</a>
               <a href='mailto:info@riva-rafting-centar.hr'>info@riva-rafting-centar.hr</a>
               <a href='tel:+38523689920'>023 689 920</a>
             </div>
           </div>
-
           <div className={styles.footerDislaimerTrack}>
             <div className={styles.disclaimerSig}>
               <div className={styles.disclaimerSigIn}>

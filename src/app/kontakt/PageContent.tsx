@@ -21,6 +21,8 @@ import {
 
 import PaperDividTop from '../components/PaperDividTop';
 import ContactForm from '../components/ContactForm';
+import { useSearchParams } from 'next/navigation';
+import { UserLanguage } from '../types/appState';
 
 interface AboutUsPageContent {
   title: string;
@@ -28,6 +30,12 @@ interface AboutUsPageContent {
 }
 
 const PageContent = (content: AboutUsPageContent) => {
+  const paramsControler = useSearchParams();
+  const checkParams = paramsControler.get('lang');
+  const parseByLang = React.useCallback(
+    (hrString: string, enString: string) => (checkParams === UserLanguage.hr ? hrString : enString),
+    [checkParams]
+  );
   const background: BannerLayer = {
     translateY: [0, 60],
     shouldAlwaysCompleteAnimation: true,
@@ -62,7 +70,7 @@ const PageContent = (content: AboutUsPageContent) => {
           <ContactForm />
           <div className={styles.contactCardCont}>
             <div className={styles.contactInfoCont}>
-              <p>Kontaktirajte nas</p>
+              <p>{parseByLang('Kontaktirajte nas', 'Contact us')}</p>
 
               <div className={styles.contactInfoInnerCont}>
                 <a href='https://www.google.com/maps/dir//Obala+hr.+Čas.+Senada+Ž.+6,+23450,+Obrovac/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x4761c76f06da2a03:0x8abf7d8f6eb1b3c1?sa=X&ved=1t:707&ictx=111'>

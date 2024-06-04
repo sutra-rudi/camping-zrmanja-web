@@ -13,11 +13,7 @@ export default async function Kontakt({ searchParams }: any) {
       <AppHeader />
       <main className={styles.sectionMain}>
         <PageContent
-          title={
-            typeof searchParams !== 'undefined' && searchParams.lang === 'en'
-              ? `CONTACT US AND\nBOOK YOUR APPOINTMENT`
-              : `KONTAKTIRAJTE NAS I\nREZERVIRAJTE SVOJ TERMIN`
-          }
+          title={typeof searchParams !== 'undefined' && searchParams.lang === 'en' ? `SEND INQUIRY` : `POŠALJI UPIT`}
           imgSrc={kontaktHero}
         />
 

@@ -6,7 +6,6 @@ import svgAppLogo from '../img/logos/camping-logo.svg';
 import Image from 'next/image';
 
 import styles from '../styles/appHeader.module.scss';
-import AppButton from './AppButton';
 import LanguageSwitch from './LanguageSwitch';
 import { Spin as Hamburger } from 'hamburger-react';
 import instaIcon from '../img/icons/MOBILE-MENU-SOCIAL-2.svg';
