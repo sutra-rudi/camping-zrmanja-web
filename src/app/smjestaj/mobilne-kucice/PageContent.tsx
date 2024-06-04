@@ -5,7 +5,7 @@ import styles from '../../styles/smjestaj.module.scss';
 import { BannerLayer, ParallaxBanner } from 'react-scroll-parallax';
 import localFont from 'next/font/local';
 
-import campingHero from '../../img/heros/camping-hero.png';
+import kuciceHero from '../../img/kamp-kucice/luka-kucica/luka-kucica01.png';
 import Image from 'next/image';
 import AppButton from '@/app/components/AppButton';
 import PaperDividTop from '@/app/components/PaperDividTop';
@@ -44,7 +44,7 @@ const PageContent = ({ luka, lux }: SmjestajPageContent) => {
   const background: BannerLayer = {
     translateY: [0, 60],
     shouldAlwaysCompleteAnimation: true,
-    children: <Image fill src={campingHero} alt='hero camping from air' />,
+    children: <Image fill src={kuciceHero} alt='hero camping from air' placeholder='blur' />,
   };
 
   const foreground: BannerLayer = {

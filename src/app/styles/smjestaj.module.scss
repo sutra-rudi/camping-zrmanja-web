@@ -141,12 +141,13 @@
       text-wrap: balance;
       word-wrap: break-word;
       white-space: pre-wrap;
+      line-height: 130%;
     }
 
     p {
       font-size: $mobileHeading4;
       font-weight: 700;
-      line-height: 120%;
+      line-height: 130%;
     }
 
     h2 {
@@ -156,7 +157,7 @@
       color: $skrozTamnaZelena;
       font-size: $heading2;
       line-height: 121%;
-      text-align: center;
+      text-align: left;
     }
   }
 

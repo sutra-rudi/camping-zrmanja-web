@@ -90,6 +90,9 @@ const AppHeader = () => {
     );
   };
 
+  const parseLink =
+    checkParams === UserLanguage.hr ? `/kontakt?lang=${UserLanguage.hr}` : `/kontakt?lang=${UserLanguage.en}`;
+
   return (
     <nav className={styles.navParent}>
       <div className='overflow-hidden'>
@@ -114,7 +117,9 @@ const AppHeader = () => {
               <HeaderBaseTwo />
             </div>
             <div className={styles.navInnerParent}>
-              <AppButton isNav content={parseByLang('REZERVIRAJ SVOJ BORAVAK', 'BOOK YOUR STAY')} />
+              <Link className={styles.navCta} href={parseLink}>
+                <span>{parseByLang('REZERVIRAJ SVOJ BORAVAK', 'BOOK YOUR STAY')}</span>
+              </Link>
               <div className={styles.navInnerParentLang}>
                 <LanguageSwitch />
               </div>
