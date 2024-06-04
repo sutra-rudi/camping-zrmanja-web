@@ -1,7 +1,7 @@
 .pogledajVideoSection {
   min-height: 70vh;
   min-height: 70lvh;
-  overflow-x: hidden;
+  overflow: hidden;
   margin-top: 8rem;
 
   @media only screen and (max-width: $tablets) {

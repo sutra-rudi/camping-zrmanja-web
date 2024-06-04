@@ -2,13 +2,14 @@
   position: absolute;
   width: 100vw;
   height: 51px;
+  height: calc(51px + 1vh);
   // height: calc(5lvh + 1px);
   // height: 2.5vmin;
 
   @media only screen and (max-width: $tablets) {
     height: 35px;
   }
-  top: 0px;
+  top: -1px;
   left: 0;
   z-index: 6;
 }
@@ -17,6 +18,7 @@
   position: absolute;
   width: 100vw;
   height: 51px;
+  height: calc(51px + 1vh);
   // height: 2.5vmin;
   // height: calc(5lvh + 1px);
 
@@ -25,6 +27,7 @@
     top: -35px;
   }
   top: -50px;
+
   left: 0;
   z-index: 6;
 }
@@ -32,13 +35,14 @@
   position: absolute;
   width: 100vw;
   height: 51px;
+  height: calc(51px + 1vh);
   // height: calc(5lvh + 1px);
   // height: 2.5vmin;
 
   @media only screen and (max-width: $tablets) {
     height: 35px;
   }
-  bottom: 0;
+  bottom: -2px;
   left: 0;
   z-index: 6;
 }
