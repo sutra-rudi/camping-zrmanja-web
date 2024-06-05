@@ -13,6 +13,8 @@ import PaperDividBot from '@/app/components/PaperDividBot';
 import { useAppContext } from '@/app/contexts/store';
 import ReactPlayer from 'react-player';
 import Loading from './loading';
+import { useSearchParams } from 'next/navigation';
+import { UserLanguage } from '@/app/types/appState';
 const RecoletaBold = localFont({
   src: [{ path: '../../../../public/fonts/recoleta-font/Recoleta-Bold.ttf', weight: '700' }],
 });
@@ -29,9 +31,12 @@ interface SmjestajPageContent {
   }[];
 }
 const PageContent = ({ luka, lux }: SmjestajPageContent) => {
-  const {
-    state: { userLang },
-  } = useAppContext();
+  const paramsControler = useSearchParams();
+  const checkParams = paramsControler.get('lang');
+  const parseByLang = React.useCallback(
+    (hrString: string, enString: string) => (checkParams === UserLanguage.hr ? hrString : enString),
+    [checkParams]
+  );
   const [isReady, setIsReady] = React.useState(false);
   const playerRef = React.useRef<ReactPlayer>(null);
 
@@ -54,10 +59,10 @@ const PageContent = ({ luka, lux }: SmjestajPageContent) => {
     children: (
       <div className={styles.heroHeader}>
         <h1 className={`${styles.heroCtaHeader} ${RecoletaBold.className}`}>
-          {userLang === 'hr' ? `Mobilne kućice` : `Mobile Homes`}
+          {parseByLang(`Mobilne kućice`, `Mobile Homes`)}
         </h1>
         <div className={styles.heroCtaButtonKontejter}>
-          <AppButton isHero content={userLang === 'hr' ? `Rezervirajte svoj termin` : `Book your appointment`} />
+          <AppButton isHero content={parseByLang(`Rezervirajte svoj termin`, `Book your appointment`)} />
         </div>
       </div>
     ),
@@ -71,7 +76,7 @@ const PageContent = ({ luka, lux }: SmjestajPageContent) => {
     children: (
       <div className={styles.heroCtaHeaderBacksideWrapper}>
         <h1 className={`${styles.heroCtaHeaderBackside} ${RecoletaBold.className}`}>
-          {userLang === 'hr' ? `Mobilne kućice` : `Mobile Homes`}
+          {parseByLang(`Mobilne kućice`, `Mobile Homes`)}
         </h1>
       </div>
     ),

@@ -6,7 +6,6 @@ import AppButton from '../components/AppButton';
 import PaperDividTop from '../components/PaperDividTop';
 import heroPoster from '../img/heros/video-hero-poster-camping.png';
 import Loading from '../loading';
-import { useAppContext } from '../contexts/store';
 
 const RecoletaBold = localFont({
   src: [{ path: '../../../public/fonts/recoleta-font/Recoleta-Bold.ttf', weight: '700' }],
@@ -15,8 +14,16 @@ const RecoletaBold = localFont({
 import { BannerLayer, ParallaxBanner } from 'react-scroll-parallax';
 
 import ReactPlayer from 'react-player';
+import { useSearchParams } from 'next/navigation';
+import { UserLanguage } from '../types/appState';
 
 const HeroSekcija = () => {
+  const paramsControler = useSearchParams();
+  const checkParams = paramsControler.get('lang');
+  const parseByLang = React.useCallback(
+    (hrString: string, enString: string) => (checkParams === UserLanguage.hr ? hrString : enString),
+    [checkParams]
+  );
   const [isReady, setIsReady] = React.useState(false);
   const playerRef = React.useRef<ReactPlayer>(null);
 
@@ -28,20 +35,11 @@ const HeroSekcija = () => {
     }
   }, [isReady]);
 
-  const {
-    state: { userLang },
-  } = useAppContext();
-
   const headline_en = `The right place \nfor relaxation`;
   const headline_hr = `Pravo mjesto \nza opuštanje`;
 
   const btn_main_hr = 'Rezerviraj svoj boravak';
   const btn_main_en = 'Book your stay';
-
-  const langCheck = React.useCallback(
-    (hrString: string, enString: string) => (userLang === 'hr' ? hrString : enString),
-    [userLang]
-  );
 
   const background: BannerLayer = {
     translateY: [0, 60],
@@ -75,9 +73,9 @@ const HeroSekcija = () => {
     shouldAlwaysCompleteAnimation: true,
     children: (
       <div className={styles.heroCtaKontejner}>
-        <h1 className={`${styles.heroCtaHeader} ${RecoletaBold.className}`}>{langCheck(headline_hr, headline_en)}</h1>
+        <h1 className={`${styles.heroCtaHeader} ${RecoletaBold.className}`}>{parseByLang(headline_hr, headline_en)}</h1>
         <div className={styles.heroCtaButtonKontejter}>
-          <AppButton isHero content={langCheck(btn_main_hr, btn_main_en)} />
+          <AppButton isHero content={parseByLang(btn_main_hr, btn_main_en)} />
         </div>
       </div>
     ),
@@ -91,7 +89,7 @@ const HeroSekcija = () => {
     children: (
       <div className={styles.heroCtaHeaderBacksideWrapper}>
         <h1 className={`${RecoletaBold.className} ${styles.heroCtaHeaderBackside}`}>
-          {langCheck(headline_hr, headline_en)}
+          {parseByLang(headline_hr, headline_en)}
         </h1>
       </div>
     ),

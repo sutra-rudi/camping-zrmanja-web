@@ -4,7 +4,6 @@ import AppFooter from '../components/AppFooter';
 import kontaktHero from '../img/heros/Kayak gallery-1.png';
 import AppHeader from '../components/AppHeader';
 import Loading from './loading';
-import FAQsection from '../sections/FAQsection';
 import PageContent from './PageContent';
 
 export default async function Kontakt({ searchParams }: any) {
@@ -16,8 +15,6 @@ export default async function Kontakt({ searchParams }: any) {
           title={typeof searchParams !== 'undefined' && searchParams.lang === 'en' ? `SEND INQUIRY` : `POŠALJI UPIT`}
           imgSrc={kontaktHero}
         />
-
-        <FAQsection />
       </main>
       <AppFooter />
     </Suspense>

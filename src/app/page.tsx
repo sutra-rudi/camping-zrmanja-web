@@ -8,7 +8,6 @@ import OdmoriSeSekcija from './sections/OdmoriSeSekcija';
 import KampKuciceSekcija from './sections/KampKuciceSekcija';
 import ExploreCampSection from './sections/ExploreCampSection';
 import ParallaxVideoSection from './sections/ParallaxVideoSection';
-import FAQsection from './sections/FAQsection';
 import DodatneInformacije from './sections/DodatneInformacije';
 import OnamaSekcija from './sections/OnamaSekcija';
 import PogledajVideo from './sections/PogledajVideo';
@@ -29,7 +28,6 @@ export default async function Home() {
         <PogledajVideo />
         <OnamaSekcija />
         <DodatneInformacije isLanding />
-        <FAQsection />
         <GallerySection />
       </main>
       <AppFooter />

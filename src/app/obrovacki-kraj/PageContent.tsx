@@ -29,6 +29,8 @@ import arrowIcon from '../img/icons/article-arrow-subpage-thin.svg';
 import { useAppContext } from '../contexts/store';
 import AppButton from '../components/AppButton';
 import PaperDividBotAlt from '../components/PaperDivitBotAlt';
+import { useSearchParams } from 'next/navigation';
+import { UserLanguage } from '../types/appState';
 
 const format = [
   img_1,
@@ -53,10 +55,12 @@ const RecoletaBold = localFont({
 });
 
 const PageContent = () => {
-  const {
-    state: { userLang },
-  } = useAppContext();
-
+  const paramsControler = useSearchParams();
+  const checkParams = paramsControler.get('lang');
+  const parseByLang = React.useCallback(
+    (hrString: string, enString: string) => (checkParams === UserLanguage.hr ? hrString : enString),
+    [checkParams]
+  );
   const titleHr = `ŠTO POSJETITI U \n NAŠEM KRAJU?`;
   const titleEn = `WHAT TO VISIT IN \n OUR REGION?`;
 
@@ -66,8 +70,6 @@ const PageContent = () => {
   const headlineHr = `U srcu Obrovačkog kraja, očekuje vas bogatstvo prirodnih čuda i kulturnih bisera. Ovo izuzetno područje pruža nevjerojatne mogućnosti za istraživanje vrhova planina, divljih rijeka i impresivnih slapova, te uživanje u posjetama nacionalnim parkovima. Krenite od prekrasnih vrhova Velebita, otkrijte skrivene ljepote rijeke Krupe i Zrmanje te istražite dubine planine u Cerovačkim pećinama. Nakon toga, osvježite se kupanjem u Novigradskom ili Karinskom moru. Ne propustite priliku posjetiti Kudin most i Manastir Krupa kako biste još dublje zaronili u bogatstvo ovog fascinantnog kraja.`;
 
   const headlineEn = `In the heart of the Obrovac region, you can expect a wealth of natural wonders and cultural gems. This exceptional area offers incredible opportunities to explore mountain peaks, wild rivers, impressive waterfalls, and enjoy visits to national parks. Start from the beautiful peaks of Velebit, discover the hidden beauties of the Krupa and Zrmanja rivers, and explore the depths of the mountain in the Cerovačke Caves. After that, refresh yourself with a swim in the Novigrad or Karin Sea. Don't miss the chance to visit Kuda's Bridge and the Krupa Monastery to delve even deeper into the richness of this fascinating region.`;
-
-  const langCheck = (croString: string, engString: string) => (userLang === 'hr' ? croString : engString);
 
   const paraBackground: BannerLayer = {
     image: `${paralOne.src}`,
@@ -82,13 +84,13 @@ const PageContent = () => {
       <div className={styles.gallerySectionTextOverlay}>
         <div className={styles.gallerySectionTextOverlayContent}>
           <div className={styles.spanTextContainer}>
-            <h3>{langCheck(likeHr, likeEn)}</h3>
+            <h3>{parseByLang(likeHr, likeEn)}</h3>
             <a href='tel:+38523689920'>TEL: +385 23 689 920</a>
             <a href='mailto:info@riva-rafting.hr'>EMAIL: info@riva-rafting.hr</a>
           </div>
 
           <AppButton
-            content={langCheck(
+            content={parseByLang(
               String('Rezerviraj svoju avanturu').toUpperCase(),
               String('Book your adventure').toUpperCase()
             )}
@@ -116,8 +118,8 @@ const PageContent = () => {
     shouldAlwaysCompleteAnimation: true,
     children: (
       <div className={styles.heroHeader}>
-        <h1 className={RecoletaBold.className}>{langCheck(titleHr, titleEn)}</h1>
-        <h4>{langCheck(headlineHr, headlineEn)}</h4>
+        <h1 className={RecoletaBold.className}>{parseByLang(titleHr, titleEn)}</h1>
+        <h4>{parseByLang(headlineHr, headlineEn)}</h4>
       </div>
     ),
   };
@@ -139,8 +141,8 @@ const PageContent = () => {
               src={format[index]}
             />
             <div className={styles.articleContentCont}>
-              <h2>{langCheck(content.naslov_hr, content.title_ENG)}</h2>
-              <p>{langCheck(content.tekst_hr, content.text_ENG)}</p>
+              <h2>{parseByLang(content.naslov_hr, content.title_ENG)}</h2>
+              <p>{parseByLang(content.tekst_hr, content.text_ENG)}</p>
               <div className={styles.articleLinkStack}>
                 <Link href={content.url_hr}>
                   <span>Saznaj više</span>

@@ -10,6 +10,7 @@ import styles from '../styles/exploreCampSection.module.scss';
 import { kampKuciceArray } from '../utils/staticImageImports';
 import Lightbox from 'yet-another-react-lightbox';
 import 'yet-another-react-lightbox/styles.css';
+import { useSearchParams } from 'next/navigation';
 
 interface ExploreCampSection {
   isSubpage: boolean;
@@ -22,13 +23,15 @@ const ExploreCampSection = ({ isSubpage, isLuxOrParcel }: ExploreCampSection) =>
   );
   const [isLightboxOpen, setIsLightboxOpen] = React.useState<boolean>(false);
   const [firstLightboxImage, setFirstLightboxImage] = React.useState<number>(0);
-  const {
-    state: { userLang },
-  } = useAppContext();
+  const paramsControler = useSearchParams();
+  const checkParams = paramsControler.get('lang');
+  const parseByLang = React.useCallback(
+    (hrString: string, enString: string) => (checkParams === UserLanguage.hr ? hrString : enString),
+    [checkParams]
+  );
 
   const TaxonomyFilterCont = () => {
-    console.log('IS', isLuxOrParcel);
-    if (userLang === UserLanguage.hr) {
+    if (checkParams === UserLanguage.hr) {
       if (isLuxOrParcel === 'lux') {
         return taxonomyHr.map((tax, index) => {
           if (index === 2 || index === 6) {
@@ -115,7 +118,7 @@ const ExploreCampSection = ({ isSubpage, isLuxOrParcel }: ExploreCampSection) =>
     <section className={styles.sectionMain}>
       {isSubpage === false && (
         <div className={styles.sectionTitle}>
-          <h2>{parseByLang('Istražite naš kamp', 'Explore our camp', userLang)}</h2>
+          <h2>{parseByLang('Istražite naš kamp', 'Explore our camp')}</h2>
         </div>
       )}
 

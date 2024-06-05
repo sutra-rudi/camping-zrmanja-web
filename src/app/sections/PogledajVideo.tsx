@@ -13,7 +13,6 @@ import Lottie from 'lottie-react';
 
 import PaperDividTop from '../components/PaperDividTop';
 import PaperDividBotAlt from '../components/PaperDivitBotAlt';
-import { useAppContext } from '../contexts/store';
 
 const RecoletaBold = localFont({
   src: [{ path: '../../../public/fonts/recoleta-font/Recoleta-Bold.ttf', weight: '700' }],
@@ -24,11 +23,16 @@ import ReactPlayer from 'react-player';
 import Loading from '../loading';
 import 'yet-another-react-lightbox/styles.css';
 import Lightbox from 'yet-another-react-lightbox';
+import { UserLanguage } from '../types/appState';
+import { useSearchParams } from 'next/navigation';
 
 const PogledajVideo = () => {
-  const {
-    state: { userLang },
-  } = useAppContext();
+  const paramsControler = useSearchParams();
+  const checkParams = paramsControler.get('lang');
+  const parseByLang = React.useCallback(
+    (hrString: string, enString: string) => (checkParams === UserLanguage.hr ? hrString : enString),
+    [checkParams]
+  );
 
   const [isReady, setIsReady] = React.useState(false);
   const playerRef = React.useRef<ReactPlayer>(null);
@@ -76,7 +80,7 @@ const PogledajVideo = () => {
     children: (
       <div className={styles.pogledajKontroleTextBacksideWrapper} onClick={() => setIsVideoLightbox(true)}>
         <span className={`${RecoletaBold.className} ${styles.pogledajKontroleTekstBackside}`}>
-          {userLang === 'hr' ? 'Pogledaj video' : 'Watch video'}
+          {parseByLang('Pogledaj video', 'Watch video')}
         </span>
       </div>
     ),
@@ -90,7 +94,7 @@ const PogledajVideo = () => {
         <Lottie animationData={lottieAnima} className={styles.lottieCustom} />
         <Image src={videoKontrole} alt='controls' width={131} height={131} />
         <h1 className={`${styles.pogledajKontroleTekstMaster} ${RecoletaBold.className}`}>
-          {userLang === 'hr' ? 'Pogledaj video' : 'Watch video'}
+          {parseByLang('Pogledaj video', 'Watch video')}
         </h1>
       </div>
     ),

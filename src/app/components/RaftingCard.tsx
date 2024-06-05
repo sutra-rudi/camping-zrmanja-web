@@ -6,7 +6,9 @@ import styles from '../styles/promoSekcijaJedan.module.scss';
 import arrowIcon from '../img/STRELICA-DESNO-ALT-NOVA.svg';
 import locationIcon from '../img/lokacija-ikonica.svg';
 import Link from 'next/link';
-import { useAppContext } from '../contexts/store';
+import { useSearchParams } from 'next/navigation';
+import { UserLanguage } from '../types/appState';
+
 interface RaftingCardProps {
   title: string;
   location: string;
@@ -17,12 +19,15 @@ interface RaftingCardProps {
 
 const RaftingCard = (props: RaftingCardProps) => {
   const { title, location, imageUrl, delay } = props;
-  const {
-    state: { userLang },
-  } = useAppContext();
+  const paramsControler = useSearchParams();
+  const checkParams = paramsControler.get('lang');
+  const parseByLang = React.useCallback(
+    (hrString: string, enString: string) => (checkParams === UserLanguage.hr ? hrString : enString),
+    [checkParams]
+  );
   return (
     <div style={{ animationDelay: delay ? `${delay}s` : '0' }} className={styles.raftingCard}>
-      <Link href={`${userLang === 'hr' ? '/aktivnosti/' : '/activities/'}${props.url}`}>
+      <Link href={`${parseByLang('/aktivnosti/', '/activities/')}${props.url}`}>
         <div className={styles.imageContainer}>
           <p className={styles.cardLocation}>
             <span>
