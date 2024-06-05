@@ -48,11 +48,11 @@ const AppButton = ({
           <ArrowIcon />
         </span>
       )}
-      {isContact && (
+      {/* {isContact && (
         <span className={styles.buttonIcon}>
           <MailIcon />
         </span>
-      )}
+      )} */}
     </button>
   );
 };

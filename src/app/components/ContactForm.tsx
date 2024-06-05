@@ -15,6 +15,8 @@ import { toast } from 'react-hot-toast';
 import { kampKuciceContent } from '../staticContentData/kampKucice';
 import { useSearchParams } from 'next/navigation';
 import { UserLanguage } from '../types/appState';
+import dayjs from 'dayjs';
+
 const ContactForm = () => {
   const [contactFormData, setContactFormData] = React.useState<Record<string, any>>({
     name: '',
@@ -22,7 +24,8 @@ const ContactForm = () => {
     phone: null,
     accomodation: '',
     message: '',
-    dateOfVisit: new Date(),
+    dateOfVisitStart: new Date(),
+    dateOfVisitEnd: new Date(),
     numOfPeople: undefined,
     numOfChildren: undefined,
   });
@@ -55,7 +58,7 @@ const ContactForm = () => {
         setErrors((prev) => [...prev, shorthandCheck ? 'Smještaj je obavezan' : 'Accomodation is required']);
       if (!contactFormData.message)
         setErrors((prev) => [...prev, shorthandCheck ? 'Poruka je obavezna' : 'Message is required']);
-      if (!contactFormData.dateOfVisit)
+      if (!contactFormData.dateOfVisitStart && !contactFormData.dateOfVisitEnd)
         setErrors((prev) => [...prev, shorthandCheck ? 'Datum posjete je obavezan' : 'Date of visit is required']);
       if (contactFormData.numOfPeople === undefined)
         setErrors((prev) => [...prev, shorthandCheck ? 'Broj osoba je obavezan' : 'Number of people is required']);
@@ -73,8 +76,16 @@ const ContactForm = () => {
     event.preventDefault();
 
     if (errors.length === 0) {
-      // console.log('CONTACT FORM DATA', contactFormData);
-      await submit(contactFormData);
+      console.log('CONTACT FORM DATA', {
+        ...contactFormData,
+        dateOfVisitStart: dayjs(contactFormData.dateOfVisitStart).format('DD.MM.YYYY'),
+        dateOfVisitEnd: dayjs(contactFormData.dateOfVisitEnd).format('DD.MM.YYYY'),
+      });
+      await submit({
+        ...contactFormData,
+        dateOfVisitStart: dayjs(contactFormData.dateOfVisitStart).format('DD.MM.YYYY'),
+        dateOfVisitEnd: dayjs(contactFormData.dateOfVisitEnd).format('DD.MM.YYYY'),
+      });
     } else {
       console.log('Form validation failed', errors);
 
@@ -98,14 +109,20 @@ const ContactForm = () => {
       return { ..._prev, ['accomodation']: event.target.value };
     });
 
-  const handleDatePick = (date: Date | null) =>
-    setContactFormData((_prev) => {
-      return { ..._prev, ['dateOfVisit']: date };
-    });
-
   const handlePhoneInput = (event: E164Number) => {
     setContactFormData((_prev) => {
       return { ..._prev, ['phone']: event };
+    });
+  };
+
+  const onDateChangePick = (dates: [Date | null, Date | null]) => {
+    const [start, end] = dates;
+    setContactFormData((_prev) => {
+      return {
+        ..._prev,
+        ['dateOfVisitStart']: start,
+        ['dateOfVisitEnd']: end,
+      };
     });
   };
 
@@ -154,12 +171,15 @@ const ContactForm = () => {
           />
           <div className={styles.datePickerWrapp}>
             <DatePicker
-              onChange={(date) => handleDatePick(date)}
-              selected={contactFormData['dateOfVisit']}
+              onChange={(dates) => onDateChangePick(dates)}
+              // selected={contactFormData['dateOfVisit']}
               minDate={new Date()}
               placeholderText='Odaberite datum posjete'
               disabledKeyboardNavigation
               onFocus={(e) => e.target.blur()}
+              selectsRange
+              startDate={contactFormData['dateOfVisitStart']}
+              endDate={contactFormData['dateOfVisitEnd']}
             />
             <CalendarIcon className={`lg:text-2xl text-lg group-focus:text-interactive-green  text-text-white`} />
           </div>
