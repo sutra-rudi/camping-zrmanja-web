@@ -145,11 +145,11 @@ const PageContent = () => {
               <p>{parseByLang(content.tekst_hr, content.text_ENG)}</p>
               <div className={styles.articleLinkStack}>
                 <Link href={parseByLang(content.url_hr, content.url_eng)}>
-                  <span>Saznaj više</span>
+                  <span>{parseByLang('Saznaj više', 'Learn more')}</span>
                   <Image src={arrowIcon} width={20} height={20} alt='arrow icon' />
                 </Link>
                 <Link href={content.Google_maps}>
-                  <span>Google maps lokacija</span>
+                  <span>{parseByLang('Google maps lokacija', 'Google maps location')}</span>
                   <Image src={arrowIcon} width={20} height={20} alt='arrow icon' />
                 </Link>
               </div>
