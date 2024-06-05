@@ -84,11 +84,7 @@ const AppFooter = (props: FooterInterface) => {
                 <Image src={footerArrow} alt='icon' width={16} height={16} />
                 <span>{parseByLang('Kontakt forma', 'Contact form')}</span>
               </a>
-              <a href={`/#FAQ/?lang=${checkParams}`}>
-                <Image src={footerArrow} alt='icon' width={16} height={16} />
-                <span>{parseByLang('FAQ', 'FAQ')}</span>
-              </a>
-              <a href=''>
+              <a href={`/obrovacki-kraj/?lang=${checkParams}`}>
                 <Image src={footerArrow} alt='icon' width={16} height={16} />
                 <span>{parseByLang('Obrovački kraj', 'Obrovac region')}</span>
               </a>
@@ -98,7 +94,7 @@ const AppFooter = (props: FooterInterface) => {
               </a>
               <a href=''>
                 <Image src={footerArrow} alt='icon' width={16} height={16} />
-                <span>Mičanovi dvori</span>
+                <span>Mićanovi dvori</span>
               </a>
             </div>
           </div>

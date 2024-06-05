@@ -43,7 +43,7 @@ const ParallaxVideoSection = () => {
         <div className={styles.gallerySectionTextOverlayContent}>
           <h2 className={RecoletaSemiBold.className}>{parseByLang(headline_hr, headline_eng)}</h2>
           <h4>{parseByLang(content_hr, content_eng)}</h4>
-          <AppButton isAbout content='Saznaj više' />
+          <AppButton isAbout content={parseByLang('Saznaj više', 'Learn more')} />
         </div>
       </div>
     ),

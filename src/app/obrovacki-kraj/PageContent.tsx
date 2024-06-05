@@ -144,7 +144,7 @@ const PageContent = () => {
               <h2>{parseByLang(content.naslov_hr, content.title_ENG)}</h2>
               <p>{parseByLang(content.tekst_hr, content.text_ENG)}</p>
               <div className={styles.articleLinkStack}>
-                <Link href={content.url_hr}>
+                <Link href={parseByLang(content.url_hr, content.url_eng)}>
                   <span>Saznaj više</span>
                   <Image src={arrowIcon} width={20} height={20} alt='arrow icon' />
                 </Link>

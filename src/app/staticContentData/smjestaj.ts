@@ -18,7 +18,7 @@ export const engContentLuka = [
     content: 'Included bedding and towels. Laundry service. Covered terrace. Parking near the cottage.',
   },
   {
-    title: 'Pool Usage',
+    title: 'Shared amenities',
     content:
       "Access to the swimming pool. Access to the children's playground. Access to table tennis. Access to mini football field. Access to basketball court. Access to badminton court.",
   },
@@ -49,7 +49,7 @@ export const hrContentLuka = [
     content: 'Uključena posteljina i ručnici. Pranje rublja. Natkrivena terasa. Parking u blizini kućice.',
   },
   {
-    title: 'Korištenje bazena',
+    title: 'Zajedničko korištenje',
     content:
       'Korištenje bazena. Korištenje dječjeg igrališta. Korištenje stolnog tenisa. Korištenje malonogometnog igrališta. Korištenje košarkaškog igrališta. Korištenje badminton igrališta.',
   },
@@ -80,7 +80,7 @@ export const engContentLux = [
     content: 'Included bedding and towels. Laundry service. Covered terrace. Parking near the cottage.',
   },
   {
-    title: 'Pool Usage',
+    title: 'Shared amenities',
     content:
       "Access to the swimming pool. Access to the children's playground. Access to table tennis. Access to mini football field. Access to basketball court. Access to badminton court.",
   },
@@ -111,7 +111,7 @@ export const hrContentLux = [
     content: 'Uključena posteljina i ručnici. Usluga pranja rublja. Natkrivena terasa. Parkiralište u blizini kućice.',
   },
   {
-    title: 'Korištenje bazena',
+    title: 'Zajedničko korištenje',
     content:
       'Pristup bazenu. Pristup dječjem igralištu. Pristup stolnom tenisu. Pristup malom nogometnom igralištu. Pristup košarkaškom igralištu. Pristup badminton igralištu.',
   },
@@ -133,8 +133,8 @@ export const hrContentParcel = [
     content:
       'Tuš kabine za žene. Tuš kabine za muškarce. Zatvoreni toaleti za žene / prostor za presvlačenje beba. Zatvoreni toaleti za muškarce. Otvoreni vanjski tuševi',
   },
-  { title: 'Bazen', content: '' },
-  { title: 'Ostalo', content: 'Roštilj. Kuhinja. Dječija igrališta. Livada' },
+
+  { title: 'Ostalo', content: 'Roštilj. Kuhinja. Dječija igrališta. Livada. Bazen' },
 ];
 
 export const enContentParcel = [
@@ -148,6 +148,6 @@ export const enContentParcel = [
     content:
       'Shower cabins for women. Shower cabins for men. Closed toilets for women / baby changing area. Closed toilets for men. Open outdoor showers',
   },
-  { title: 'Pool', content: '' },
-  { title: 'Other', content: "Barbecue. Kitchen. Children's playgrounds. Meadow" },
+
+  { title: 'Other', content: "Barbecue. Kitchen. Children's playgrounds. Meadow. Pool." },
 ];

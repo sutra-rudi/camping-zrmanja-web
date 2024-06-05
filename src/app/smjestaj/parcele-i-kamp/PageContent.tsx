@@ -9,11 +9,11 @@ import parcelHero from '../../img/sections/kamp-kucice-sekcija/camp-site-back.pn
 import Image from 'next/image';
 import AppButton from '@/app/components/AppButton';
 import PaperDividTop from '@/app/components/PaperDividTop';
-import smjestajPlaceholder from '../../img/globals/smjestaj-placeholder.png';
+
 import ReactPlayer from 'react-player';
 
 import PaperDividBot from '@/app/components/PaperDividBot';
-import { useAppContext } from '@/app/contexts/store';
+
 import Loading from './loading';
 import { useSearchParams } from 'next/navigation';
 import { UserLanguage } from '@/app/types/appState';
@@ -95,7 +95,7 @@ const PageContent = ({ luka, lux }: SmjestajPageContent) => {
         <div className={styles.innerContentMaster}>
           <div className={styles.innerContentLuka}>
             <div className={styles.innerContentBlock}>
-              <h2>Parcele</h2>
+              <h2>{parseByLang('PROSTOR ZA KAMPIRANJE', 'CAMPING AREA OPTIONS')}</h2>
               {luka.map((contents, index) => {
                 const { title, content } = contents;
 

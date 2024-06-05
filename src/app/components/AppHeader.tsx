@@ -28,7 +28,7 @@ const AppHeader = () => {
   const navLinksOne = [
     {
       text: parseByLang(`O nama`, `About us`),
-      href: parseByLang(`/o-nama/?lang=${checkParams}`, `/about-us/?lang=${checkParams}`),
+      href: parseByLang(`/o-nama/?lang=${checkParams}`, `/o-nama/?lang=${checkParams}`),
     },
     {
       text: parseByLang('Smještaj', 'Accommodation'),
