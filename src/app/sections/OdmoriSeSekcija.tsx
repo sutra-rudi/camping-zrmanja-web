@@ -10,6 +10,7 @@ import styles from '../styles/odmoriSe.module.scss';
 import { useParallax } from 'react-scroll-parallax';
 import { useSearchParams } from 'next/navigation';
 import { UserLanguage } from '../types/appState';
+import Link from 'next/link';
 
 const OdmoriSeSekcija = () => {
   const paramsControler = useSearchParams();
@@ -38,7 +39,8 @@ const OdmoriSeSekcija = () => {
     translateY: [0, -15],
     // easing: [0.5, 0.2, 0.4, 0.25],
   });
-
+  const parseLink =
+    checkParams === UserLanguage.hr ? `/kontakt?lang=${UserLanguage.hr}` : `/kontakt?lang=${UserLanguage.en}`;
   return (
     <section className={styles.mainSection}>
       <div className={styles.innerContent}>
@@ -49,8 +51,16 @@ const OdmoriSeSekcija = () => {
             <p>{parseByLang(sectionContentHrEx, sectionContentEnEx)}</p>
           </div>
           <div className={styles.sectionButtonsContainer}>
-            <AppButton isAbout content={parseByLang('Kontaktirajte nas', 'Contact us')} />
-            <AppButton isRelax isAbout content={parseByLang('Google maps', 'Google maps')} />
+            <Link href={parseLink}>
+              <AppButton isAbout content={parseByLang('Kontaktirajte nas', 'Contact us')} />
+            </Link>
+            <Link
+              href={
+                'https://www.google.com/maps?client=safari&rls=en&oe=UTF-8&um=1&ie=UTF-8&fb=1&gl=hr&sa=X&geocode=KTvMTaZvx2FHMbITmAWCma0K&daddr=Kru%C5%A1evo,+%C5%BDupani+Drage+bb,+23450,+Obrovac'
+              }
+            >
+              <AppButton isRelax isAbout content={parseByLang('Google maps', 'Google maps')} />
+            </Link>
           </div>
         </div>
         <div className={styles.imageContainer}>

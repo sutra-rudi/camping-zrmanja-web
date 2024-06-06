@@ -66,6 +66,9 @@
     }
 
     .sectionButtonsContainer {
+      a {
+        text-decoration: none;
+      }
       display: grid;
       width: 100%;
       place-items: start;
