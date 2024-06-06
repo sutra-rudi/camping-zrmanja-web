@@ -9,8 +9,21 @@ import ExploreCampSection from '../../sections/ExploreCampSection';
 import ReviewsSection from '../../sections/ReviewsSection';
 import KampKuciceSekcija from '../../sections/KampKuciceSekcija';
 import DodatneInformacije from '../../sections/DodatneInformacije';
+import { getReviews } from '@/app/queries/getReviewsQuery';
 
 export default async function ParceleKamp({ searchParams }: any) {
+  const getReviewsQuery = await fetch(`${process.env.CAMPING_REVIEWS_URL}`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      query: getReviews,
+    }),
+    cache: 'no-store',
+  });
+
+  const reviewsData = await getReviewsQuery.json();
   return (
     <Suspense fallback={<Loading />}>
       <AppHeader />
@@ -20,7 +33,7 @@ export default async function ParceleKamp({ searchParams }: any) {
           lux={typeof searchParams !== 'undefined' && searchParams.lang === 'hr' ? hrContentLux : engContentLux}
         />
         <ExploreCampSection isSubpage isLuxOrParcel={'parcel'} />
-        <ReviewsSection />
+        <ReviewsSection content={reviewsData} />
         <KampKuciceSekcija />
         <DodatneInformacije isLanding />
       </main>
