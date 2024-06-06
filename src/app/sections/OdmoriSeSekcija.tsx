@@ -56,7 +56,7 @@ const OdmoriSeSekcija = () => {
             </Link>
             <Link
               href={
-                'https://www.google.com/maps?client=safari&rls=en&oe=UTF-8&um=1&ie=UTF-8&fb=1&gl=hr&sa=X&geocode=KTvMTaZvx2FHMbITmAWCma0K&daddr=Kru%C5%A1evo,+%C5%BDupani+Drage+bb,+23450,+Obrovac'
+                'https://www.google.com/maps/dir//Camping+Village+Zrmanja/@44.1843724,15.689788,16.95z/data=!4m8!4m7!1m0!1m5!1m1!1s0x4761c7af57c632ed:0xf9e3f2ec2318a20b!2m2!1d15.6945726!2d44.1827998?entry=ttu'
               }
             >
               <AppButton isRelax isAbout content={parseByLang('Google maps', 'Google maps')} />
