@@ -10,7 +10,8 @@ import Image from 'next/image';
 import AppButton from '@/app/components/AppButton';
 import PaperDividTop from '@/app/components/PaperDividTop';
 import PaperDividBot from '@/app/components/PaperDividBot';
-import { useAppContext } from '@/app/contexts/store';
+import lukaPlaceholder from '../../img/placeholders/luka-placeholder-for-video.png';
+import luxPlaceholder from '../../img/placeholders/lux-placeholder-for-video.png';
 import ReactPlayer from 'react-player';
 import Loading from './loading';
 import { useSearchParams } from 'next/navigation';
@@ -89,9 +90,9 @@ const PageContent = ({ luka, lux }: SmjestajPageContent) => {
       <div className={styles.bigWrapp}>
         <PaperDividBot />
         <div className={styles.innerContentMaster}>
-          <div className={styles.innerContentLuka}>
+          <div id='luka-kucica' className={styles.innerContentLuka}>
             <div className={styles.innerContentBlock}>
-              <h2>Mobilne Kućice Luka</h2>
+              <h2>{parseByLang('Mobilne Kućice Luka', 'Luka mobile homes')}</h2>
               {luka.map((contents, index) => {
                 const { title, content } = contents;
 
@@ -120,20 +121,20 @@ const PageContent = ({ luka, lux }: SmjestajPageContent) => {
                 playing={isReady}
                 onReady={onReady}
                 fallback={<Loading />}
-                // config={{
-                //   file: {
-                //     attributes: {
-                //       poster: heroPoster.src,
-                //     },
-                //   },
-                // }}
+                config={{
+                  file: {
+                    attributes: {
+                      poster: lukaPlaceholder.src,
+                    },
+                  },
+                }}
               />
             </div>
           </div>
 
-          <div className={styles.innerContentLux}>
+          <div id='lux-kucica' className={styles.innerContentLux}>
             <div className={styles.innerContentBlock}>
-              <h2>Mobilne Kućice Lux</h2>
+              <h2>{parseByLang('Mobilne Kućice Lux', 'Lux mobile homes')}</h2>
               {lux.map((contents, index) => {
                 const { title, content } = contents;
 
@@ -162,13 +163,13 @@ const PageContent = ({ luka, lux }: SmjestajPageContent) => {
                 playing={isReady}
                 onReady={onReady}
                 fallback={<Loading />}
-                // config={{
-                //   file: {
-                //     attributes: {
-                //       poster: heroPoster.src,
-                //     },
-                //   },
-                // }}
+                config={{
+                  file: {
+                    attributes: {
+                      poster: luxPlaceholder.src,
+                    },
+                  },
+                }}
               />
             </div>
           </div>

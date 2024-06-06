@@ -44,29 +44,31 @@ const KampKucicaCard = (props: KampKucicaCard) => {
   const parseClass = `${styles[klasa]}`;
 
   return (
-    <Link className={`${styles.kampKucicaCard} ${parseClass}`} href={url ? `${url}/?lang=${checkParams}` : '/'}>
-      <article>
-        <div className={styles.kampKucicaImageCont}>
-          <Image fill src={imageUrl} placeholder='blur' alt='camp house thumbnail' />
-        </div>
-        <div className={styles.kampKucicaContent}>
-          <h2>{parseByLang(titleHr, titleEng)}</h2>
+    <article className={`${styles.kampKucicaCard} ${parseClass}`}>
+      <div className={styles.kampKucicaImageCont}>
+        <Image fill src={imageUrl} placeholder='blur' alt='camp house thumbnail' />
+      </div>
+      <div className={styles.kampKucicaContent}>
+        <h2>{parseByLang(titleHr, titleEng)}</h2>
 
-          <div className={styles.kampKucicaCtaCont}>
-            <div>
-              <span>{parseByLang(learnMoreHr, learnMoreEng)}</span>
+        <div className={styles.kampKucicaCtaCont}>
+          <Link href={url ? `${url}/?lang=${checkParams}#${klasa}` : '/'}>
+            <span>{parseByLang(learnMoreHr, learnMoreEng)}</span>
 
+            <span>
               <ArticleArrow className={styles.articleArrow} />
-            </div>
-            <div>
-              <span>{parseByLang(checkAvailabilityHr, checkAvailabilityEng)}</span>
+            </span>
+          </Link>
+          <Link href={`/kontakt/?lang=${checkParams}`}>
+            <span>{parseByLang(checkAvailabilityHr, checkAvailabilityEng)}</span>
 
+            <span>
               <ArticleArrow className={styles.articleArrow} />
-            </div>
-          </div>
+            </span>
+          </Link>
         </div>
-      </article>
-    </Link>
+      </div>
+    </article>
   );
 };
 
