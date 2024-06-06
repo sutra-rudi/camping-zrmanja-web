@@ -65,7 +65,7 @@ const AppFooter = (props: FooterInterface) => {
               <ul>
                 {kampKuciceContent.map((content, index) => (
                   <li key={index}>
-                    <a href={content.url ? `${content.url}/?lang=${checkParams}` : ''}>
+                    <a href={content.url ? `${content.url}/?lang=${checkParams}#${content.klasa}` : ''}>
                       {parseByLang(content.titleHr, content.titleEng)}
                     </a>
                   </li>
