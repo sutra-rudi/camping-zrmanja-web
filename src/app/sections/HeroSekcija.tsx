@@ -16,6 +16,7 @@ import { BannerLayer, ParallaxBanner } from 'react-scroll-parallax';
 import ReactPlayer from 'react-player';
 import { useSearchParams } from 'next/navigation';
 import { UserLanguage } from '../types/appState';
+import Link from 'next/link';
 
 const HeroSekcija = () => {
   const paramsControler = useSearchParams();
@@ -40,7 +41,8 @@ const HeroSekcija = () => {
 
   const btn_main_hr = 'Rezerviraj svoj boravak';
   const btn_main_en = 'Book your stay';
-
+  const parseLink =
+    checkParams === UserLanguage.hr ? `/kontakt?lang=${UserLanguage.hr}` : `/kontakt?lang=${UserLanguage.en}`;
   const background: BannerLayer = {
     translateY: [0, 60],
     shouldAlwaysCompleteAnimation: true,
@@ -75,7 +77,10 @@ const HeroSekcija = () => {
       <div className={styles.heroCtaKontejner}>
         <h1 className={`${styles.heroCtaHeader} ${RecoletaBold.className}`}>{parseByLang(headline_hr, headline_en)}</h1>
         <div className={styles.heroCtaButtonKontejter}>
-          <AppButton isHero content={parseByLang(btn_main_hr, btn_main_en)} />
+          {/* <AppButton isHero content={parseByLang(btn_main_hr, btn_main_en)} /> */}
+          <Link href={parseLink}>
+            <span>{parseByLang(btn_main_hr, btn_main_en)}</span>
+          </Link>
         </div>
       </div>
     ),
