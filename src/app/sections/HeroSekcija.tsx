@@ -35,7 +35,7 @@ const HeroSekcija = () => {
     }
   }, [isReady]);
 
-  const headline_en = `The right place \nfor relaxation`;
+  const headline_en = `THE RIGHT PLACE FOR\nPEACE AND RELAXATION`;
   const headline_hr = `Pravo mjesto \nza opuštanje`;
 
   const btn_main_hr = 'Rezerviraj svoj boravak';
