@@ -54,15 +54,15 @@ const AppHeader = () => {
         {
           text: parseByLang('PITCH', 'PITCH'),
           href: parseByLang(
-            `/smjestaj/mobilne-kucice/?lang=${checkParams}#pitch-kucica`,
-            `/smjestaj/mobilne-kucice/?lang=${checkParams}#pitch-kucica`
+            `/smjestaj/parcele-i-kamp/?lang=${checkParams}#pitch-kucica`,
+            `/smjestaj/parcele-i-kamp/?lang=${checkParams}#pitch-kucica`
           ),
         },
         {
           text: parseByLang('KAMP MJESTO', 'CAMP SITE'),
           href: parseByLang(
-            `/smjestaj/mobilne-kucice/?lang=${checkParams}#camp-kucica`,
-            `/smjestaj/mobilne-kucice/?lang=${checkParams}#camp-kucica`
+            `/smjestaj/parcele-i-kamp/?lang=${checkParams}#camp-kucica`,
+            `/smjestaj/parcele-i-kamp/?lang=${checkParams}#camp-kucica`
           ),
         },
       ],

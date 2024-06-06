@@ -7,7 +7,6 @@ import localFont from 'next/font/local';
 
 import parcelHero from '../../img/sections/kamp-kucice-sekcija/camp-site-back.png';
 import Image from 'next/image';
-import AppButton from '@/app/components/AppButton';
 import PaperDividTop from '@/app/components/PaperDividTop';
 
 import ReactPlayer from 'react-player';
@@ -18,6 +17,7 @@ import Loading from './loading';
 import { useSearchParams } from 'next/navigation';
 import { UserLanguage } from '@/app/types/appState';
 import parcelePlaceholderForVideo from '../../img/placeholders/parcele-placeholder-for-video.png';
+import Link from 'next/link';
 const RecoletaBold = localFont({
   src: [{ path: '../../../../public/fonts/recoleta-font/Recoleta-Bold.ttf', weight: '700' }],
 });
@@ -42,7 +42,8 @@ const PageContent = ({ luka, lux }: SmjestajPageContent) => {
   );
   const [isReady, setIsReady] = React.useState(false);
   const playerRef = React.useRef<ReactPlayer>(null);
-
+  const parseLink =
+    checkParams === UserLanguage.hr ? `/kontakt?lang=${UserLanguage.hr}` : `/kontakt?lang=${UserLanguage.en}`;
   const onReady = React.useCallback(() => {
     if (!isReady) {
       playerRef.current && playerRef.current.seekTo(0, 'seconds');
@@ -67,7 +68,9 @@ const PageContent = ({ luka, lux }: SmjestajPageContent) => {
           {parseByLang(`Parcele i kamp mjesta`, `Parcels and camping spots`)}
         </h1>
         <div className={styles.heroCtaButtonKontejter}>
-          <AppButton isHero content={parseByLang(`Rezervirajte svoj termin`, `Book your appointment`)} />
+          <Link className={styles.navCta} href={parseLink}>
+            <span>{parseByLang(`Rezervirajte svoj borava`, `Book your stay`)}</span>
+          </Link>
         </div>
       </div>
     ),
