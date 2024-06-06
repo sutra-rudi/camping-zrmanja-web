@@ -14,7 +14,7 @@ import teleIcon from '../img/icons/MOBILE-MENU-SOCIAL-3.svg';
 
 import mobilePapir from '../img/globals/MOBILE-PAPIR.svg';
 
-import { useSearchParams } from 'next/navigation';
+import { useSearchParams, useRouter } from 'next/navigation';
 import { UserLanguage } from '../types/appState';
 
 const AppHeader = () => {
@@ -24,7 +24,7 @@ const AppHeader = () => {
     (hrString: string, enString: string) => (checkParams === UserLanguage.hr ? hrString : enString),
     [checkParams]
   );
-
+  const [isActivitiesDropdown, setIsActivitiesDropdown] = React.useState<boolean>(false);
   const navLinksOne = [
     {
       text: parseByLang(`O nama`, `About us`),
@@ -36,6 +36,36 @@ const AppHeader = () => {
         `/smjestaj/mobilne-kucice/?lang=${checkParams}`,
         `/smjestaj/mobilne-kucice/?lang=${checkParams}`
       ),
+      subItems: [
+        {
+          text: parseByLang('LUX MOBILNA KUĆICA', 'LUXURY MOBILE HOME'),
+          href: parseByLang(
+            `/smjestaj/mobilne-kucice/?lang=${checkParams}#lux-kucica`,
+            `/smjestaj/mobilne-kucice/?lang=${checkParams}#lux-kucica`
+          ),
+        },
+        {
+          text: parseByLang('MOBILNA KUĆICA LUKA', 'LUKA MOBILE HOME'),
+          href: parseByLang(
+            `/smjestaj/mobilne-kucice/?lang=${checkParams}#luka-kucica`,
+            `/smjestaj/mobilne-kucice/?lang=${checkParams}#luka-kucica`
+          ),
+        },
+        {
+          text: parseByLang('PITCH', 'PITCH'),
+          href: parseByLang(
+            `/smjestaj/mobilne-kucice/?lang=${checkParams}#pitch-kucica`,
+            `/smjestaj/mobilne-kucice/?lang=${checkParams}#pitch-kucica`
+          ),
+        },
+        {
+          text: parseByLang('KAMP MJESTO', 'CAMP SITE'),
+          href: parseByLang(
+            `/smjestaj/mobilne-kucice/?lang=${checkParams}#camp-kucica`,
+            `/smjestaj/mobilne-kucice/?lang=${checkParams}#camp-kucica`
+          ),
+        },
+      ],
     },
     { text: parseByLang('Kontakt', 'Contact'), href: `/kontakt/?lang=${checkParams}` },
     {
@@ -65,14 +95,44 @@ const AppHeader = () => {
     document.documentElement.classList.remove('overflow-hidden');
   }, []);
 
+  const router = useRouter();
+
+  const handleCustomPush = (url: string) => router.push(url);
+
   const HeaderBaseOne = () => {
     return (
       <div className={styles.navLeft}>
-        {navLinksOne.map((link) => (
-          <Link key={link.text} href={link.href}>
-            {link.text}
-          </Link>
-        ))}
+        {navLinksOne.map((link, index) => {
+          if (index === 1) {
+            return (
+              <div className={styles.bigParent} key={link.text}>
+                <Link
+                  href={link.href}
+                  className={styles.customNohover}
+                  onMouseEnter={() => setIsActivitiesDropdown(true)}
+                >
+                  <span>{link.text}</span>
+                </Link>
+
+                <span
+                  className={`${styles.navCustomLinks} ${isActivitiesDropdown ? styles.show : styles.hide}`}
+                  onMouseLeave={() => setIsActivitiesDropdown(false)}
+                >
+                  {link.subItems!.map((aktiv) => (
+                    <span onClick={() => handleCustomPush(aktiv.href)} key={aktiv.text}>
+                      {aktiv.text}
+                    </span>
+                  ))}
+                </span>
+              </div>
+            );
+          }
+          return (
+            <Link key={link.text} href={link.href}>
+              {link.text}
+            </Link>
+          );
+        })}
       </div>
     );
   };
@@ -94,83 +154,81 @@ const AppHeader = () => {
 
   return (
     <nav className={styles.navParent}>
-      <div className='overflow-hidden'>
-        <div className={`${styles.navPromoTrack} `}>
-          <span>TRIP ADVISOR</span>
-          <span>|</span>
-          <a href='tel:+0038523689920'>+385 23 689 920</a>
-          <span>|</span>
-          <a href='mailto:info@riva-rafting-centar.hr'>info@riva-rafting-centar.hr</a>
-        </div>
-        <div className={styles.navMaster}>
-          <Link className={styles.noEffectLogo} href={`/?lang=${checkParams}`}>
-            <Image src={svgAppLogo} alt='app logo' />
-          </Link>
-          <div className={styles.navParentMaster}>
-            <div className={styles.navInnerParent}>
-              <div className={styles.navLeftParent}>
-                <HeaderBaseOne />
-              </div>
-              <span className={styles.headerLinkDivid}>|</span>
+      <div className={`${styles.navPromoTrack} `}>
+        <span>TRIP ADVISOR</span>
+        <span>|</span>
+        <a href='tel:+0038523689920'>+385 23 689 920</a>
+        <span>|</span>
+        <a href='mailto:info@riva-rafting-centar.hr'>info@riva-rafting-centar.hr</a>
+      </div>
+      <div className={styles.navMaster}>
+        <Link className={styles.noEffectLogo} href={`/?lang=${checkParams}`}>
+          <Image src={svgAppLogo} alt='app logo' />
+        </Link>
+        <div className={styles.navParentMaster}>
+          <div className={styles.navInnerParent}>
+            <div className={styles.navLeftParent}>
+              <HeaderBaseOne />
+            </div>
+            <span className={styles.headerLinkDivid}>|</span>
 
-              <HeaderBaseTwo />
-            </div>
-            <div className={styles.navInnerParent}>
-              <Link className={styles.navCta} href={parseLink}>
-                <span>{parseByLang('REZERVIRAJ SVOJ BORAVAK', 'BOOK YOUR STAY')}</span>
-              </Link>
-              <div className={styles.navInnerParentLang}>
-                <LanguageSwitch />
-              </div>
-              <Hamburger toggled={isNavOpen} onToggle={handleNavControl} color='#2f2a32' />
-            </div>
+            <HeaderBaseTwo />
           </div>
-        </div>
-
-        {/* MOBILE */}
-
-        <div
-          className={
-            isNavOpen ? `${styles.mobileNavParent}` : `${styles.mobileNavParent} ${styles.mobileNavParentClosed}`
-          }
-        >
-          <div className={styles.mobileNavParentInner}>
-            <div className={styles.langSwitchBlock}>
+          <div className={styles.navInnerParent}>
+            <Link className={styles.navCta} href={parseLink}>
+              <span>{parseByLang('REZERVIRAJ SVOJ BORAVAK', 'BOOK YOUR STAY')}</span>
+            </Link>
+            <div className={styles.navInnerParentLang}>
               <LanguageSwitch />
             </div>
-
-            <div className={styles.mobileBlock}>
-              {navLinksOne.map((link, index) => (
-                <Link key={link.text} href={link.href}>
-                  {link.text}
-                </Link>
-              ))}
-            </div>
-
-            <div className={styles.mobileBlockSpace}></div>
-
-            <div className={styles.mobileBlock}>
-              {navLinksTwo.map((link, index) => (
-                <Link key={link.text} href={link.href}>
-                  {link.text}
-                </Link>
-              ))}
-            </div>
-
-            <div className={styles.socialBlock}>
-              <div className={styles.socialBlockImage}>
-                <Image width={20} height={20} alt='icon' src={facebookIcon} />
-              </div>
-              <div className={styles.socialBlockImage}>
-                <Image width={20} height={20} alt='icon' src={instaIcon} />
-              </div>
-              <div className={styles.socialBlockImage}>
-                <Image width={20} height={20} alt='icon' src={teleIcon} />
-              </div>
-            </div>
-
-            <Image className={styles.mobilePapir} alt='' src={mobilePapir} />
+            <Hamburger toggled={isNavOpen} onToggle={handleNavControl} color='#2f2a32' />
           </div>
+        </div>
+      </div>
+
+      {/* MOBILE */}
+
+      <div
+        className={
+          isNavOpen ? `${styles.mobileNavParent}` : `${styles.mobileNavParent} ${styles.mobileNavParentClosed}`
+        }
+      >
+        <div className={styles.mobileNavParentInner}>
+          <div className={styles.langSwitchBlock}>
+            <LanguageSwitch />
+          </div>
+
+          <div className={styles.mobileBlock}>
+            {navLinksOne.map((link, index) => (
+              <Link key={link.text} href={link.href}>
+                {link.text}
+              </Link>
+            ))}
+          </div>
+
+          <div className={styles.mobileBlockSpace}></div>
+
+          <div className={styles.mobileBlock}>
+            {navLinksTwo.map((link, index) => (
+              <Link key={link.text} href={link.href}>
+                {link.text}
+              </Link>
+            ))}
+          </div>
+
+          <div className={styles.socialBlock}>
+            <div className={styles.socialBlockImage}>
+              <Image width={20} height={20} alt='icon' src={facebookIcon} />
+            </div>
+            <div className={styles.socialBlockImage}>
+              <Image width={20} height={20} alt='icon' src={instaIcon} />
+            </div>
+            <div className={styles.socialBlockImage}>
+              <Image width={20} height={20} alt='icon' src={teleIcon} />
+            </div>
+          </div>
+
+          <Image className={styles.mobilePapir} alt='' src={mobilePapir} />
         </div>
       </div>
 
