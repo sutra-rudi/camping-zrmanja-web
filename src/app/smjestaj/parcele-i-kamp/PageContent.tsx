@@ -17,6 +17,7 @@ import PaperDividBot from '@/app/components/PaperDividBot';
 import Loading from './loading';
 import { useSearchParams } from 'next/navigation';
 import { UserLanguage } from '@/app/types/appState';
+import parcelePlaceholderForVideo from '../../img/placeholders/parcele-placeholder-for-video.png';
 const RecoletaBold = localFont({
   src: [{ path: '../../../../public/fonts/recoleta-font/Recoleta-Bold.ttf', weight: '700' }],
 });
@@ -124,13 +125,13 @@ const PageContent = ({ luka, lux }: SmjestajPageContent) => {
                 playing={isReady}
                 onReady={onReady}
                 fallback={<Loading />}
-                // config={{
-                //   file: {
-                //     attributes: {
-                //       poster: heroPoster.src,
-                //     },
-                //   },
-                // }}
+                config={{
+                  file: {
+                    attributes: {
+                      poster: parcelePlaceholderForVideo.src,
+                    },
+                  },
+                }}
               />
             </div>
           </div>
