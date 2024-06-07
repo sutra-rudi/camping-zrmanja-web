@@ -76,19 +76,12 @@ const ContactForm = () => {
     event.preventDefault();
 
     if (errors.length === 0) {
-      console.log('CONTACT FORM DATA', {
-        ...contactFormData,
-        dateOfVisitStart: dayjs(contactFormData.dateOfVisitStart).format('DD.MM.YYYY'),
-        dateOfVisitEnd: dayjs(contactFormData.dateOfVisitEnd).format('DD.MM.YYYY'),
-      });
       await submit({
         ...contactFormData,
         dateOfVisitStart: dayjs(contactFormData.dateOfVisitStart).format('DD.MM.YYYY'),
         dateOfVisitEnd: dayjs(contactFormData.dateOfVisitEnd).format('DD.MM.YYYY'),
       });
     } else {
-      console.log('Form validation failed', errors);
-
       errors.forEach((error) => toast.error(error));
     }
   };
