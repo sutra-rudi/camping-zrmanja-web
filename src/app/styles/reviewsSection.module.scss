@@ -1,76 +1,73 @@
 .sectionMain {
   position: relative;
   width: 100%;
-
   padding: 4.8rem 0;
 
-  /* For WebKit (Chrome, Safari) */
-  .reviewCardContainer::-webkit-scrollbar {
-    display: none;
-  }
-
-  /* For Firefox */
-  .reviewCardContainer {
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* IE/Edge */
-  }
-
-  /* General fallback */
-  .reviewCardContainer {
-    overflow: hidden; /* Fallback for older browsers */
-  }
-
-  .reviewCardContainer {
-    display: flex;
-    gap: 1.8rem;
-
-    flex-wrap: nowrap;
-    max-width: $masterContainerWidth;
-    justify-content: space-between;
-    @media only screen and (min-width: $tablets) {
-      place-items: start center;
-    }
-    // max-width: 550px;
-    padding: 0 1rem;
-    margin: 0 auto;
-    scroll-snap-type: x mandatory;
-    overflow-x: scroll;
-    overscroll-behavior: contain;
-  }
-
-  .reviewCard {
-    background: $zelenaGlavna;
+  .swiper {
+    margin-top: 10px;
     width: 100%;
-    padding: 2.1rem;
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    gap: 1rem;
-    place-items: start;
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
-    width: 332px;
-    flex-shrink: 0;
-    border-radius: 0 0 75px 0;
+    z-index: 10;
+    overflow-x: hidden;
+    padding: 0 1rem;
 
-    @media only screen and (max-width: $phones) {
-      max-width: 75%;
-    }
-    p {
-      text-wrap: balance;
-      word-wrap: break-word;
-      white-space: pre-wrap;
+    .swiperSlide {
+      position: relative;
+      border: none;
+      outline: none;
+      user-select: none;
+      background: $zelenaGlavna;
+      width: 100%;
+      padding: 2.1rem;
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 1rem;
+      place-items: start;
+      border-radius: 0 0 75px 0;
 
-      &:nth-child(1),
-      &:nth-child(2) {
-        font-size: $baseFontSize;
-        line-height: 118%;
-        color: $textTamno;
+      @media only screen and (max-width: $tablets) {
+        padding: 1.6rem;
       }
 
-      &:nth-child(2) {
-        color: #fff;
-        line-height: 140%;
-        font-size: $mobileFontSizeAlt;
+      @media only screen and (max-width: $phones) {
+        max-width: 75%;
+        padding: 1rem;
+      }
+
+      p {
+        text-wrap: balance;
+        word-wrap: break-word;
+        white-space: pre-wrap;
+
+        &:nth-child(1),
+        &:nth-child(2) {
+          font-size: $baseFontSize;
+          line-height: 118%;
+          color: $textTamno;
+        }
+
+        &:nth-child(2) {
+          color: #fff;
+          line-height: 140%;
+          font-size: $mobileFontSizeAlt;
+        }
+
+        // Applying line-clamp
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        line-clamp: 5;
+        -webkit-line-clamp: 5;
+
+        @media only screen and (max-width: $tablets) {
+          line-clamp: 5;
+          -webkit-line-clamp: 5;
+        }
+
+        @media only screen and (max-width: $phones) {
+          line-clamp: 4;
+          -webkit-line-clamp: 4;
+        }
       }
     }
   }

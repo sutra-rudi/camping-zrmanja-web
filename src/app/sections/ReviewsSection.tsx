@@ -3,7 +3,9 @@ import React from 'react';
 import styles from '../styles/reviewsSection.module.scss';
 import { useSearchParams } from 'next/navigation';
 import { UserLanguage } from '../types/appState';
-
+// @ts-ignore
+import { Splide, SplideSlide } from '@splidejs/react-splide';
+import '@splidejs/react-splide/css';
 interface ReviewsInterface {
   content: any;
 }
@@ -18,14 +20,32 @@ const ReviewsSection = ({ content }: ReviewsInterface) => {
 
   const shorthand = content.data.allZrmanjaKampingRecenzije.edges;
 
-  console.log('CONTET', shorthand);
+  const splideOptions: any = {
+    perPage: 4,
+    type: 'slide',
+    drag: 'free',
+    snap: true,
+    gap: '0.5rem',
+    focus: 'center',
+    pagination: false,
+    arrows: false,
+    autoplay: true,
+    interval: 2000,
+    rewind: true,
+
+    breakpoints: {
+      640: { perPage: 2.2 },
+      960: { perPage: 3.2 },
+      1200: { perPage: 4 },
+    },
+  };
 
   return (
     <section className={styles.sectionMain}>
-      <div className={styles.reviewCardContainer}>
+      <Splide className={styles.swiper} options={splideOptions}>
         {shorthand.map((rec: any) => {
           return (
-            <div key={rec.node.id} className={styles.reviewCard}>
+            <SplideSlide key={rec.node.id} className={styles.swiperSlide}>
               <p>
                 {parseByLang(
                   rec.node.raftingRecenzijeFields.tekstRecenzijeHr,
@@ -34,39 +54,10 @@ const ReviewsSection = ({ content }: ReviewsInterface) => {
               </p>
 
               <p>{rec.node.raftingRecenzijeFields.imeMusterije}</p>
-            </div>
+            </SplideSlide>
           );
         })}
-
-        {/* <div className={styles.reviewCard}>
-          <p>
-            Imali smo predivnih 5 dana u Micanovim Dvorima. Osoblje je bilo super ljubazno i uslužno. Bili su spremni
-            ispuniti svaku našu želju. Samo selo, kao i okolica, izvrsno je za opušten obiteljski odmor.
-          </p>
-          <p>Muller, DEBooking.com / 9.6*</p>
-        </div>
-        <div className={styles.reviewCard}>
-          <p>
-            Odlićna klopa,ambijent prva liga Kamp je prelijep sa bazenom i odbojkaskim igralistem.😀 sve u svemu odlićno
-            👌
-          </p>
-          <p>Muller, DEBooking.com / 9.6*</p>
-        </div>
-        <div className={styles.reviewCard}>
-          <p>
-            Fantastično mjesto za aktivni boravak od raftinga do jahanja , te boravka i pješačenja prekrasnim krajevima
-            uz Zrmanju i Velebit.Navečer ugodan doživljaj u konobi ili kupanje u bazenu
-          </p>
-          <p>Muller, DEBooking.com / 9.6*</p>
-        </div>
-        <div className={styles.reviewCard}>
-          <p>
-            Imali smo predivnih 5 dana u Micanovim Dvorima. Osoblje je bilo super ljubazno i uslužno. Bili su spremni
-            ispuniti svaku našu želju. Samo selo, kao i okolica, izvrsno je za opušten obiteljski odmor.
-          </p>
-          <p>Muller, DEBooking.com / 9.6*</p>
-        </div> */}
-      </div>
+      </Splide>
     </section>
   );
 };
