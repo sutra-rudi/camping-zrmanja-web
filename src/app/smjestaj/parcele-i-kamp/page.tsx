@@ -55,14 +55,14 @@ export async function generateMetadata({ searchParams }: { searchParams: { lang:
       images: [
         {
           url: parcelHero.src,
-          width: parcelHero.width,
-          height: parcelHero.height,
+          width: 1200,
+          height: 600,
           alt: parseByLang('Riva Rafting avantura na rijeci Zrmanji', 'Riva Rafting Adventure on Zrmanja River'),
         },
         {
           url: parcelHero.src,
-          width: parcelHero.width,
-          height: parcelHero.height,
+          width: 1200,
+          height: 600,
           alt: parseByLang('Riva Rafting avantura na rijeci Zrmanji', 'Riva Rafting Adventure on Zrmanja River'),
         },
       ],
@@ -78,14 +78,14 @@ export async function generateMetadata({ searchParams }: { searchParams: { lang:
       images: [
         {
           url: parcelHero.src,
-          width: parcelHero.width,
-          height: parcelHero.height,
+          width: 1200,
+          height: 600,
           alt: parseByLang('Riva Rafting avantura na rijeci Zrmanji', 'Riva Rafting Adventure on Zrmanja River'),
         },
         {
           url: parcelHero.src,
-          width: parcelHero.width,
-          height: parcelHero.height,
+          width: 1200,
+          height: 600,
           alt: parseByLang('Riva Rafting avantura na rijeci Zrmanji', 'Riva Rafting Adventure on Zrmanja River'),
         },
       ],

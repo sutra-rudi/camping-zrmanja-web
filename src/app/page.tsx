@@ -57,7 +57,7 @@ export async function generateMetadata({ searchParams }: { searchParams: { lang:
         'Dobrodošli na Camping Zrmanja, vaše odredište za nezaboravne kamping avanture na rijeci Zrmanji u Hrvatskoj. Pridružite nam se i istražite prekrasnu prirodu i uživajte u kampiranju.',
         'Welcome to Camping Zrmanja, your destination for unforgettable camping adventures on the Zrmanja River in Croatia. Join us to explore beautiful nature and enjoy camping.'
       ),
-      url: '',
+      url: 'https://www.zrmanja-camping.hr/',
       siteName: 'Camping Zrmanja',
       locale: parseByLang('hr_HR', 'en_US'),
       type: 'website',

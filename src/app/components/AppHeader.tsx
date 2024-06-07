@@ -74,8 +74,8 @@ const AppHeader = () => {
     },
   ];
   const navLinksTwo = [
-    { text: 'Mićanovi Dvori', href: '/' },
-    { text: 'Riva Rafting Centar', href: '/' },
+    { text: 'Mićanovi Dvori', href: 'https://micanovidvori.com' },
+    { text: 'Riva Rafting Centar', href: 'https://riva-rafting-centar.hr' },
     // { text: 'Što posjetiti u okolici?', href: '/obrovacki-kraj' },
   ];
 
