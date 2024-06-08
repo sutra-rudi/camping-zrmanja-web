@@ -6,6 +6,7 @@ import { UserLanguage } from '../types/appState';
 // @ts-ignore
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
+import Link from 'next/link';
 interface ReviewsInterface {
   content: any;
 }
@@ -29,9 +30,9 @@ const ReviewsSection = ({ content }: ReviewsInterface) => {
     focus: 'center',
     pagination: false,
     arrows: false,
-    autoplay: true,
-    interval: 2000,
-    rewind: true,
+    autoplay: false,
+    // interval: 2000,
+    // rewind: true,
 
     breakpoints: {
       640: { perPage: 2.2 },
@@ -46,14 +47,16 @@ const ReviewsSection = ({ content }: ReviewsInterface) => {
         {shorthand.map((rec: any) => {
           return (
             <SplideSlide key={rec.node.id} className={styles.swiperSlide}>
-              <p>
-                {parseByLang(
-                  rec.node.raftingRecenzijeFields.tekstRecenzijeHr,
-                  rec.node.raftingRecenzijeFields.tekstRecenzijeEn
-                )}
-              </p>
+              <Link href={rec.node.raftingRecenzijeFields.poveznicaNaRecenziju}>
+                <p>
+                  {parseByLang(
+                    rec.node.raftingRecenzijeFields.tekstRecenzijeHr,
+                    rec.node.raftingRecenzijeFields.tekstRecenzijeEn
+                  )}
+                </p>
 
-              <p>{rec.node.raftingRecenzijeFields.imeMusterije}</p>
+                <p>{rec.node.raftingRecenzijeFields.imeMusterije}</p>
+              </Link>
             </SplideSlide>
           );
         })}

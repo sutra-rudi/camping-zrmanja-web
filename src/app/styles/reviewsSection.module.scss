@@ -8,7 +8,7 @@
     width: 100%;
     z-index: 10;
     overflow-x: hidden;
-    padding: 0 1rem;
+    // padding: 0 1rem;
 
     .swiperSlide {
       position: relative;
@@ -18,19 +18,26 @@
       background: $zelenaGlavna;
       width: 100%;
       padding: 2.1rem;
-      display: grid;
-      grid-template-columns: repeat(1, 1fr);
-      gap: 1rem;
-      place-items: start;
+
       border-radius: 0 0 75px 0;
+
+      a {
+        text-decoration: none;
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 1rem;
+        place-items: start;
+      }
 
       @media only screen and (max-width: $tablets) {
         padding: 1.6rem;
+        border-radius: 0 0 55px 0;
       }
 
       @media only screen and (max-width: $phones) {
         max-width: 75%;
         padding: 1rem;
+        border-radius: 0 0 45px 0;
       }
 
       p {
@@ -56,17 +63,17 @@
         -webkit-box-orient: vertical;
         overflow: hidden;
         text-overflow: ellipsis;
-        line-clamp: 5;
-        -webkit-line-clamp: 5;
+        line-clamp: 6;
+        -webkit-line-clamp: 6;
 
         @media only screen and (max-width: $tablets) {
-          line-clamp: 5;
-          -webkit-line-clamp: 5;
+          line-clamp: 6;
+          -webkit-line-clamp: 6;
         }
 
         @media only screen and (max-width: $phones) {
-          line-clamp: 4;
-          -webkit-line-clamp: 4;
+          line-clamp: 5;
+          -webkit-line-clamp: 5;
         }
       }
     }
