@@ -61,6 +61,13 @@ export async function generateMetadata({ searchParams }: { searchParams: { lang:
       siteName: 'Camping Zrmanja',
       locale: parseByLang('hr_HR', 'en_US'),
       type: 'website',
+      images: [
+        {
+          width: 1200,
+          height: 600,
+          alt: parseByLang('Riva Rafting avantura na rijeci Zrmanji', 'Riva Rafting Adventure on Zrmanja River'),
+        },
+      ],
     },
     twitter: {
       title: parseByLang(
@@ -75,6 +82,13 @@ export async function generateMetadata({ searchParams }: { searchParams: { lang:
       siteName: 'Camping Zrmanja',
       locale: parseByLang('hr_HR', 'en_US'),
       type: 'website',
+      images: [
+        {
+          width: 1200,
+          height: 600,
+          alt: parseByLang('Riva Rafting avantura na rijeci Zrmanji', 'Riva Rafting Adventure on Zrmanja River'),
+        },
+      ],
     },
   };
 }

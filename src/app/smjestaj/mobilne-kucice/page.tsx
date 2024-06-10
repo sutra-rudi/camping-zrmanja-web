@@ -75,6 +75,7 @@ export async function generateMetadata({ searchParams }: { searchParams: { lang:
       ),
       siteName: 'Camping Zrmanja',
       type: 'website',
+      locale: parseByLang('hr_HR', 'en_US'),
       images: [
         {
           url: kuciceHero.src,
