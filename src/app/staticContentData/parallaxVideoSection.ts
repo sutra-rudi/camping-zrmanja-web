@@ -1,4 +1,4 @@
-export const headline_hr = 'Popust od 10% na avanture u netaknutoj priroda';
+export const headline_hr = 'Popust od 10% na avanture u netaknutoj prirodi';
 export const content_hr =
   'Istražite neograničene avanture, od uzbudljivih rafting izleta na rijeci Zrmanji do otkrivanja divljine Velebita. Doživite nezaboravne trenutke usred netaknute prirode. Naši gosti ostvaruju pravo na 10% popusta na sve Riva Rafting aktivnosti.';
 export const headline_eng = '10% discount on adventures in untouched nature.';
