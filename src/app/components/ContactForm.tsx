@@ -81,6 +81,13 @@ const ContactForm = () => {
         dateOfVisitStart: dayjs(contactFormData.dateOfVisitStart).format('DD.MM.YYYY'),
         dateOfVisitEnd: dayjs(contactFormData.dateOfVisitEnd).format('DD.MM.YYYY'),
       });
+
+      toast.success(
+        parseByLang(
+          'Hvala na upitu, uskoro ćemo vam se javiti putem e-maila ili telefona! Ukoliko imate hitan upit, slobodno nas kontaktirajte putem telefona ili e-maila.',
+          'Thank you for your inquiry, we will get back to you soon via email or phone! If you have an urgent query, feel free to contact us by phone or email.'
+        )
+      );
     } else {
       errors.forEach((error) => toast.error(error));
     }
