@@ -76,10 +76,22 @@ const ContactForm = () => {
     event.preventDefault();
 
     if (errors.length === 0) {
+      const parsedData = {
+        ['Ime']: contactFormData.name,
+        ['Email adresa']: contactFormData.email,
+        ['Broj telefona']: contactFormData.phone,
+        ['Odabran smještaj']: contactFormData.accomodation,
+        ['Dodatna poruka']: contactFormData.message,
+        ['Datum dolaska']: dayjs(contactFormData.dateOfVisitStart).format('DD.MM.YYYY'),
+        ['Datum odlaska']: dayjs(contactFormData.dateOfVisitEnd).format('DD.MM.YYYY'),
+        ['Broj odraslih']: contactFormData.numOfPeople,
+        ['Broj djece']: contactFormData.numOfChildren,
+      };
+
+      // console.log('PARSE', parsedData);
+
       await submit({
-        ...contactFormData,
-        dateOfVisitStart: dayjs(contactFormData.dateOfVisitStart).format('DD.MM.YYYY'),
-        dateOfVisitEnd: dayjs(contactFormData.dateOfVisitEnd).format('DD.MM.YYYY'),
+        ...parsedData,
       });
 
       toast.success(
