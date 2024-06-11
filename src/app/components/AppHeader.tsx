@@ -16,8 +16,29 @@ import mobilePapir from '../img/globals/MOBILE-PAPIR.svg';
 
 import { useSearchParams, useRouter } from 'next/navigation';
 import { UserLanguage } from '../types/appState';
+import { getSocialLinksQuery } from '../queries/getSocialLinksQuery';
 
 const AppHeader = () => {
+  const [footerURLS, setFooterURLS] = React.useState<any>();
+  React.useEffect(() => {
+    const prepareFooterLinks = async () => {
+      const getSocialLinks = await fetch(`https://cms.zrmanja-camping.hr/graphql`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ query: getSocialLinksQuery }),
+        cache: 'no-store',
+      });
+
+      const parseSocialLinksData = await getSocialLinks.json();
+      const prepareDataForFooter = parseSocialLinksData.data.povezniceDrustvene.povezniceDrustveneFields;
+      setFooterURLS(prepareDataForFooter);
+      return prepareDataForFooter;
+    };
+
+    prepareFooterLinks();
+  }, []);
   const paramsControler = useSearchParams();
   const checkParams = paramsControler.get('lang');
   const parseByLang = React.useCallback(
@@ -218,13 +239,19 @@ const AppHeader = () => {
 
           <div className={styles.socialBlock}>
             <div className={styles.socialBlockImage}>
-              <Image width={20} height={20} alt='icon' src={facebookIcon} />
+              <Link href='mailto:info@riva-rafting-centar.hr'>
+                <Image width={20} height={20} alt='icon' src={facebookIcon} />
+              </Link>
             </div>
             <div className={styles.socialBlockImage}>
-              <Image width={20} height={20} alt='icon' src={instaIcon} />
+              <a href={typeof footerURLS !== 'undefined' && footerURLS !== null ? footerURLS.instagram : ''}>
+                <Image width={20} height={20} alt='icon' src={instaIcon} />
+              </a>
             </div>
             <div className={styles.socialBlockImage}>
-              <Image width={20} height={20} alt='icon' src={teleIcon} />
+              <a href={typeof footerURLS !== 'undefined' && footerURLS !== null ? footerURLS.facebook : ''}>
+                <Image width={20} height={20} alt='icon' src={teleIcon} />
+              </a>
             </div>
           </div>
 
