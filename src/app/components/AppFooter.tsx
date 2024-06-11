@@ -116,9 +116,9 @@ const AppFooter = (props: FooterInterface) => {
                 <Image src={footerArrow} alt='icon' width={16} height={16} />
                 <span>{parseByLang('Obrovački kraj', 'Obrovac region')}</span>
               </a>
-              <a href='https://www.zrmanja-camping.hr/'>
+              <a href='https://www.riva-rafting-centar.hr/'>
                 <Image src={footerArrow} alt='icon' width={16} height={16} />
-                <span>Zrmanja Camping village</span>
+                <span>Riva Rafting Centar</span>
               </a>
               <a href='https://micanovidvori.com'>
                 <Image src={footerArrow} alt='icon' width={16} height={16} />
