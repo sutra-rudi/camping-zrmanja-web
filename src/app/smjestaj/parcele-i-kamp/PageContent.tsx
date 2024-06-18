@@ -118,7 +118,7 @@ const PageContent = ({ luka, lux }: SmjestajPageContent) => {
 
             <div className={styles.imageContainer}>
               <ReactPlayer
-                url={'/parcel-video.mp4'}
+                url={'https://cms.zrmanja-camping.hr/wp-content/uploads/2024/06/parcel-video.mp4'}
                 loop
                 muted
                 volume={0}

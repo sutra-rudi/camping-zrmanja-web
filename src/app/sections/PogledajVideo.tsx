@@ -51,7 +51,7 @@ const PogledajVideo = () => {
     shouldAlwaysCompleteAnimation: true,
     children: (
       <ReactPlayer
-        url={'/camping-pogledaj-video-teaser.mp4'}
+        url={'https://cms.zrmanja-camping.hr/wp-content/uploads/2024/06/camping-pogledaj-video-teaser.mp4'}
         loop
         muted
         volume={0}

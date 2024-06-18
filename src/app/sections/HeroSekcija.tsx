@@ -48,7 +48,7 @@ const HeroSekcija = () => {
     shouldAlwaysCompleteAnimation: true,
     children: (
       <ReactPlayer
-        url={'/video-hero.mp4'}
+        url={'https://cms.zrmanja-camping.hr/wp-content/uploads/2024/06/video-hero.mp4'}
         loop
         muted
         volume={0}
