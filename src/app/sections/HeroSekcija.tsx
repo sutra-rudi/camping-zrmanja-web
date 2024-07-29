@@ -4,7 +4,7 @@ import React from 'react';
 import styles from '../styles/heroSekcija.module.scss';
 import AppButton from '../components/AppButton';
 import PaperDividTop from '../components/PaperDividTop';
-import heroPoster from '../img/heros/video-hero-poster-camping.png';
+import heroPoster from '../img/heros/video-hero-poster-camping.jpg';
 import Loading from '../loading';
 
 const RecoletaBold = localFont({
