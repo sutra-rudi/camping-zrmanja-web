@@ -5,6 +5,7 @@ import { GlobalContextProvider } from './contexts/store';
 import { Providers } from './providers';
 import { Toaster } from 'react-hot-toast';
 const ubuntu = Ubuntu({ weight: ['300', '400', '500', '700'], subsets: ['latin'] });
+import { GoogleAnalytics } from '@next/third-parties/google';
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -38,6 +39,7 @@ export default function RootLayout({
           </Providers>
         </GlobalContextProvider>
       </body>
+      <GoogleAnalytics gaId={process.env.CAMPING_ZRMANJA_GOOGLE_ANALYTICS_CODE!} />
     </html>
   );
 }

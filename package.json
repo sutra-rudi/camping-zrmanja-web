@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "@formspark/use-formspark": "^0.1.39",
+    "@next/third-parties": "^14.2.5",
     "@splidejs/react-splide": "^0.7.12",
     "dayjs": "^1.11.11",
     "hamburger-react": "^2.5.0",
