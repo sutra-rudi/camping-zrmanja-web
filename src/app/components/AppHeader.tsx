@@ -16,29 +16,11 @@ import mobilePapir from '../img/globals/MOBILE-PAPIR.svg';
 
 import { useSearchParams, useRouter } from 'next/navigation';
 import { UserLanguage } from '../types/appState';
-import { getSocialLinksQuery } from '../queries/getSocialLinksQuery';
 
-const AppHeader = () => {
-  const [footerURLS, setFooterURLS] = React.useState<any>();
-  React.useEffect(() => {
-    const prepareFooterLinks = async () => {
-      const getSocialLinks = await fetch(`https://cms.zrmanja-camping.hr/graphql`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ query: getSocialLinksQuery }),
-        cache: 'no-store',
-      });
-
-      const parseSocialLinksData = await getSocialLinks.json();
-      const prepareDataForFooter = parseSocialLinksData.data.povezniceDrustvene.povezniceDrustveneFields;
-      setFooterURLS(prepareDataForFooter);
-      return prepareDataForFooter;
-    };
-
-    prepareFooterLinks();
-  }, []);
+interface AppHeader {
+  appSocialLinks: Record<string, string>;
+}
+const AppHeader = ({ appSocialLinks }: AppHeader) => {
   const paramsControler = useSearchParams();
   const checkParams = paramsControler.get('lang');
   const parseByLang = React.useCallback(
@@ -244,12 +226,14 @@ const AppHeader = () => {
               </Link>
             </div>
             <div className={styles.socialBlockImage}>
-              <a href={typeof footerURLS !== 'undefined' && footerURLS !== null ? footerURLS.instagram : ''}>
+              <a
+                href={typeof appSocialLinks !== 'undefined' && appSocialLinks !== null ? appSocialLinks.instagram : ''}
+              >
                 <Image width={20} height={20} alt='icon' src={instaIcon} />
               </a>
             </div>
             <div className={styles.socialBlockImage}>
-              <a href={typeof footerURLS !== 'undefined' && footerURLS !== null ? footerURLS.facebook : ''}>
+              <a href={typeof appSocialLinks !== 'undefined' && appSocialLinks !== null ? appSocialLinks.facebook : ''}>
                 <Image width={20} height={20} alt='icon' src={teleIcon} />
               </a>
             </div>

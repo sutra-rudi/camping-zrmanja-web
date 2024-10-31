@@ -6,6 +6,11 @@ import { Providers } from './providers';
 import { Toaster } from 'react-hot-toast';
 const ubuntu = Ubuntu({ weight: ['300', '400', '500', '700'], subsets: ['latin'] });
 import { GoogleAnalytics } from '@next/third-parties/google';
+import { getSocialLinksQuery } from './queries/getSocialLinksQuery';
+import { fetchData } from './utils/callApi';
+import { Suspense } from 'react';
+import AppFooter from './components/AppFooter';
+import AppHeader from './components/AppHeader';
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -24,20 +29,26 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const prepareSocialLinks = await fetchData(getSocialLinksQuery);
+
+  const socialShorthand = prepareSocialLinks.data.povezniceDrustvene.povezniceDrustveneFields;
+
   return (
     <html lang='en'>
       <body className={ubuntu.className}>
-        <GlobalContextProvider>
-          <Providers>
-            <Toaster />
-            {children}
-          </Providers>
-        </GlobalContextProvider>
+        <Toaster />
+        <Suspense>
+          <GlobalContextProvider>
+            <AppHeader appSocialLinks={socialShorthand} />
+            <Providers>{children}</Providers>
+            <AppFooter appSocialLinks={socialShorthand} />
+          </GlobalContextProvider>
+        </Suspense>
       </body>
       <GoogleAnalytics gaId={process.env.CAMPING_ZRMANJA_GOOGLE_ANALYTICS_CODE!} />
     </html>

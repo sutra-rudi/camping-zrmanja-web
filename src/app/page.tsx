@@ -94,7 +94,7 @@ export async function generateMetadata({ searchParams }: { searchParams: { lang:
 }
 
 export default async function Home() {
-  const getReviewsQuery = await fetch(`${process.env.CAMPING_REVIEWS_URL}`, {
+  const getReviewsQuery = await fetch(`${process.env.CMS_BASE_URL}`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -108,21 +108,17 @@ export default async function Home() {
   const reviewsData = await getReviewsQuery.json();
 
   return (
-    <Suspense fallback={<Loading />}>
-      <AppHeader />
-      <main className={styles.homeMain}>
-        <HeroSekcija />
-        <OdmoriSeSekcija />
-        <KampKuciceSekcija />
-        <ExploreCampSection isSubpage={false} isLuxOrParcel={'both'} />
-        <ParallaxVideoSection />
-        <ReviewsSection content={reviewsData} />
-        <PogledajVideo />
-        <OnamaSekcija />
-        <DodatneInformacije isLanding />
-        <GallerySection />
-      </main>
-      <AppFooter />
-    </Suspense>
+    <main className={styles.homeMain}>
+      <HeroSekcija />
+      <OdmoriSeSekcija />
+      <KampKuciceSekcija />
+      <ExploreCampSection isSubpage={false} isLuxOrParcel={'both'} />
+      <ParallaxVideoSection />
+      <ReviewsSection content={reviewsData} />
+      <PogledajVideo />
+      <OnamaSekcija />
+      <DodatneInformacije isLanding />
+      <GallerySection />
+    </main>
   );
 }
