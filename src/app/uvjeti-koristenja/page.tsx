@@ -49,11 +49,9 @@ const sectionContent_hr = {
 export default async function UvjetiKoristenja() {
   return (
     <Suspense fallback={<Loading />}>
-      <AppHeader />
       <main className={styles.mainSection}>
         <PageContent {...sectionContent_hr} />
       </main>
-      <AppFooter />
     </Suspense>
   );
 }

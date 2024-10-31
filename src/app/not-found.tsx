@@ -10,7 +10,6 @@ import AppButton from './components/AppButton';
 export default function NotFound({ searchParams }: any) {
   return (
     <Suspense fallback={<Loading />}>
-      <AppHeader />
       <main className={styles.pageMain}>
         <PaperDividTop />
         <div className={styles.notFoundCtaCont}>
@@ -37,7 +36,6 @@ export default function NotFound({ searchParams }: any) {
 
         <PaperDividBotAlt />
       </main>
-      <AppFooter />
     </Suspense>
   );
 }

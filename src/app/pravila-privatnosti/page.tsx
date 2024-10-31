@@ -47,12 +47,9 @@ const sectionContent_hr = {
 export default async function PravilaPrivatnosti() {
   return (
     <Suspense fallback={<Loading />}>
-      <AppHeader />
       <main className={styles.mainSection}>
         <PageContent {...sectionContent_hr} />
       </main>
-
-      <AppFooter />
     </Suspense>
   );
 }

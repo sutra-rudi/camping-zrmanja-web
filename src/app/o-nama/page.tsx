@@ -120,7 +120,6 @@ const companyInfoSegmentsEn = [
 export default async function Onama({ searchParams }: { searchParams: { lang: string } }) {
   return (
     <Suspense fallback={<Loading />}>
-      <AppHeader />
       <main className={styles.aboutUsMain}>
         <PageContent
           title={searchParams.lang === UserLanguage.hr ? 'O nama' : 'About us'}
@@ -130,8 +129,6 @@ export default async function Onama({ searchParams }: { searchParams: { lang: st
           textSegments={searchParams.lang === UserLanguage.hr ? companyInfoSegments : companyInfoSegmentsEn}
         />
       </main>
-
-      <AppFooter isAbout />
     </Suspense>
   );
 }

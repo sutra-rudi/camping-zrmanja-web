@@ -9,14 +9,12 @@ import PageContent from './PageContent';
 export default async function Kontakt({ searchParams }: any) {
   return (
     <Suspense fallback={<Loading />}>
-      <AppHeader />
       <main className={styles.sectionMain}>
         <PageContent
           title={typeof searchParams !== 'undefined' && searchParams.lang === 'en' ? `SEND INQUIRY` : `POŠALJI UPIT`}
           imgSrc={heroKontakt}
         />
       </main>
-      <AppFooter />
     </Suspense>
   );
 }

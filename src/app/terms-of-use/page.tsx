@@ -48,11 +48,9 @@ const sectionContent_hr = {
 export default async function TermsOfUse() {
   return (
     <Suspense fallback={<Loading />}>
-      <AppHeader />
       <main className={styles.mainSection}>
         <PageContent {...sectionContent_hr} />
       </main>
-      <AppFooter />
     </Suspense>
   );
 }

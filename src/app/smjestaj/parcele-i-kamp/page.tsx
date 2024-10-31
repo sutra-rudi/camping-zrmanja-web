@@ -108,7 +108,6 @@ export default async function ParceleKamp({ searchParams }: any) {
   const reviewsData = await getReviewsQuery.json();
   return (
     <Suspense fallback={<Loading />}>
-      <AppHeader />
       <main className={styles.smjestajMain}>
         <PageContent
           luka={typeof searchParams !== 'undefined' && searchParams.lang === 'hr' ? hrContentParcel : enContentParcel}
@@ -119,8 +118,6 @@ export default async function ParceleKamp({ searchParams }: any) {
         <KampKuciceSekcija />
         <DodatneInformacije isLanding />
       </main>
-
-      <AppFooter />
     </Suspense>
   );
 }

@@ -110,7 +110,6 @@ export default async function MobilneKucice({ searchParams }: { searchParams: { 
   const reviewsData = await getReviewsQuery.json();
   return (
     <Suspense fallback={<Loading />}>
-      <AppHeader />
       <main className={styles.smjestajMain}>
         <PageContent
           luka={typeof searchParams !== 'undefined' && searchParams.lang === 'hr' ? hrContentLuka : engContentLuka}
@@ -121,8 +120,6 @@ export default async function MobilneKucice({ searchParams }: { searchParams: { 
         <KampKuciceSekcija />
         <DodatneInformacije isLanding />
       </main>
-
-      <AppFooter />
     </Suspense>
   );
 }

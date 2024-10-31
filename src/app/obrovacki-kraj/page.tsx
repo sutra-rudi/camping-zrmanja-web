@@ -8,11 +8,9 @@ import PageContent from './PageContent';
 export default async function ObrovackiKraj() {
   return (
     <Suspense fallback={<Loading />}>
-      <AppHeader />
       <main className={styles.sectionMain}>
         <PageContent />
       </main>
-      <AppFooter />
     </Suspense>
   );
 }
