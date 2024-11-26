@@ -102,7 +102,6 @@ export default async function Home() {
     body: JSON.stringify({
       query: getReviews,
     }),
-    cache: 'no-store',
   });
 
   const reviewsData = await getReviewsQuery.json();

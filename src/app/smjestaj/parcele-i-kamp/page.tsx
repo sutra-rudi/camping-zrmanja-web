@@ -94,7 +94,7 @@ export async function generateMetadata({ searchParams }: { searchParams: { lang:
 }
 
 export default async function ParceleKamp({ searchParams }: any) {
-  const getReviewsQuery = await fetch(`${process.env.CAMPING_REVIEWS_URL}`, {
+  const getReviewsQuery = await fetch(`${process.env.CMS_BASE_URL}`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -102,7 +102,6 @@ export default async function ParceleKamp({ searchParams }: any) {
     body: JSON.stringify({
       query: getReviews,
     }),
-    cache: 'no-store',
   });
 
   const reviewsData = await getReviewsQuery.json();

@@ -96,7 +96,7 @@ export async function generateMetadata({ searchParams }: { searchParams: { lang:
 }
 
 export default async function MobilneKucice({ searchParams }: { searchParams: { lang: string } }) {
-  const getReviewsQuery = await fetch(`${process.env.CAMPING_REVIEWS_URL}`, {
+  const getReviewsQuery = await fetch(`${process.env.CMS_BASE_URL}`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -104,10 +104,10 @@ export default async function MobilneKucice({ searchParams }: { searchParams: { 
     body: JSON.stringify({
       query: getReviews,
     }),
-    cache: 'no-store',
   });
 
   const reviewsData = await getReviewsQuery.json();
+
   return (
     <Suspense fallback={<Loading />}>
       <main className={styles.smjestajMain}>
