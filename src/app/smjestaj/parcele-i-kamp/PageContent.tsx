@@ -68,8 +68,11 @@ const PageContent = ({ luka, lux }: SmjestajPageContent) => {
           {parseByLang(`Parcele i kamp mjesta`, `Parcels and camping spots`)}
         </h1>
         <div className={styles.heroCtaButtonKontejter}>
-          <Link className={styles.navCta} href={parseLink}>
-            <span>{parseByLang(`Rezervirajte svoj borava`, `Book your stay`)}</span>
+          <Link
+            className={styles.navCta}
+            href={'https://secure.phobs.net/book.php?company_id=b400bc674d80ef59f6fd07df12630409'}
+          >
+            <span>{parseByLang(`Rezervirajte svoj boravak`, `Book your stay`)}</span>
           </Link>
         </div>
       </div>

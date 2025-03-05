@@ -178,7 +178,10 @@ const AppHeader = ({ appSocialLinks }: AppHeader) => {
             <HeaderBaseTwo />
           </div>
           <div className={styles.navInnerParent}>
-            <Link className={styles.navCta} href={parseLink}>
+            <Link
+              className={styles.navCta}
+              href={'https://secure.phobs.net/book.php?company_id=b400bc674d80ef59f6fd07df12630409'}
+            >
               <span>{parseByLang('REZERVIRAJ SVOJ BORAVAK', 'BOOK YOUR STAY')}</span>
             </Link>
             <div className={styles.navInnerParentLang}>

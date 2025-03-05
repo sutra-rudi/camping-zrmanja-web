@@ -78,7 +78,7 @@ const HeroSekcija = () => {
         <h1 className={`${styles.heroCtaHeader} ${RecoletaBold.className}`}>{parseByLang(headline_hr, headline_en)}</h1>
         <div className={styles.heroCtaButtonKontejter}>
           {/* <AppButton isHero content={parseByLang(btn_main_hr, btn_main_en)} /> */}
-          <Link href={parseLink}>
+          <Link href={'https://secure.phobs.net/book.php?company_id=b400bc674d80ef59f6fd07df12630409'}>
             <span>{parseByLang(btn_main_hr, btn_main_en)}</span>
           </Link>
         </div>
